@@ -20,6 +20,9 @@ a { color: var(--color-text-brand); }
   --color-bg-annotation: var(--sun-300); --color-border-annotation: var(--sun-500); --color-text-annotation: var(--color-text-primary);
   --font-serif: var(--font-display); --font-sans: var(--font-body);
   --h2-size: 2rem; --h2-lh: 1.2;
+  --space-40: 2.5rem; --color-text-eyebrow: var(--color-text-brand);
+  --sage-200: var(--teal-200); --sage-400: var(--teal-500);
+  --shadow-raised: 0 1px 2px rgba(8, 44, 42, 0.06), 0 8px 24px rgba(8, 44, 42, 0.08);
 }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .eyebrow { font: 700 0.8125rem/1.23 var(--font-body); letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-text-brand); margin: 0; }

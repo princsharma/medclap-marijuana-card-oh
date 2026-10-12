@@ -600,10 +600,29 @@
     grid-column: span 2;
   }
 
-  /* Last category sits beside the "Can't find" card, half width each */
-  .kbGrid > :nth-last-child(-n + 2) {
-    grid-column: span 3;
+  /* Categories fill rows of three; the "Can't find" card runs full width below, whatever the category count. */
+  .kbGrid > .findCard {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    column-gap: var(--space-32);
   }
+
+  .kbGrid > .findCard h2,
+  .kbGrid > .findCard p {
+    grid-column: 1;
+  }
+
+  .kbGrid > .findCard .btnStack {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    flex-direction: row;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1099px) {
+  .kbGrid > .findCard { grid-column: 1 / -1; }
 }
 
 .catCard {
