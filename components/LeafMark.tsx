@@ -1,12 +1,15 @@
-/** Ohio Leaf Check — official mark (brand/logo/1-ohio-leaf-check-*.svg, chosen 13 Oct 2026). */
-const LEAF = 'M18 13 L49 13 L56 20 L68 17 L82 27 L79 53 L72 60 L69 78 L55 88 L42 82 L31 87 L22 77 L18 60 L13 51 L16 34 Z';
-const CHECK = 'M25 54 L41 68 L72 32';
+/** Four-Leaf Cross — official mark (brand/logo/4-four-leaf-cross-*.svg, chosen 13 Oct 2026). */
+const TL = 'M45 45 C20 44 11 27 13 10 C31 8 46 19 45 45 Z';
+const TR = 'M55 45 C54 20 71 9 89 10 C91 29 79 45 55 45 Z';
+const BL = 'M45 55 C20 54 9 71 10 89 C29 91 45 79 45 55 Z';
+const BR = 'M55 55 C54 80 71 91 89 90 C91 71 79 55 55 55 Z';
 
 export function LeafMark({ size = 40, inverse = false }: { size?: number; inverse?: boolean }) {
+  const leaf = inverse ? 'var(--teal-50)' : 'var(--teal-600)';
   return (
-    <svg width={size} height={size} viewBox="10 10 75 81" aria-hidden="true" focusable="false">
-      <path d={LEAF} fill={inverse ? 'var(--teal-50)' : 'var(--teal-600)'} />
-      <path d={CHECK} fill="none" stroke={inverse ? 'var(--teal-600)' : 'var(--sun-400)'} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width={size} height={size} viewBox="8 8 84 84" aria-hidden="true" focusable="false">
+      <path d={`${TL} ${BL} ${BR}`} fill={leaf} />
+      <path d={TR} fill="var(--sun-400)" />
     </svg>
   );
 }
