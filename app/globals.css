@@ -8,3 +8,22 @@ a { color: var(--color-text-brand); }
 .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--space-xl); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 .skip { position: absolute; left: -9999px; } .skip:focus { left: var(--space-lg); top: var(--space-lg); background: var(--color-bg-surface); padding: var(--space-sm) var(--space-lg); z-index: 10; }
+
+/* Compatibility aliases for components ported from The Well-Grounded Spirit (Help Center). */
+:root {
+  --space-4: var(--space-xs); --space-8: var(--space-sm); --space-12: var(--space-md); --space-16: var(--space-lg);
+  --space-20: 1.25rem; --space-24: var(--space-xl); --space-32: var(--space-2xl); --space-48: var(--space-3xl);
+  --space-64: var(--space-4xl); --space-80: 5rem;
+  --color-bg-brand: var(--color-action-primary); --color-bg-brand-hover: var(--color-action-primary-hover);
+  --color-bg-sage: var(--color-bg-subtle); --color-bg-sage-strong: var(--teal-200);
+  --color-border-brand: var(--color-action-primary); --color-text-muted: var(--color-text-secondary);
+  --color-bg-annotation: var(--sun-300); --color-border-annotation: var(--sun-500); --color-text-annotation: var(--color-text-primary);
+  --font-serif: var(--font-display); --font-sans: var(--font-body);
+  --h2-size: 2rem; --h2-lh: 1.2;
+}
+.visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.eyebrow { font: 700 0.8125rem/1.23 var(--font-body); letter-spacing: 1.5px; text-transform: uppercase; color: var(--color-text-brand); margin: 0; }
+.lead { font-size: 1.125rem; line-height: 1.55; color: var(--color-text-secondary); margin: 0; }
+.body { font-size: 1rem; line-height: 1.625; margin: 0; }
+.small { font-size: 0.875rem; line-height: 1.57; margin: 0; }
+.muted { color: var(--color-text-secondary); }
