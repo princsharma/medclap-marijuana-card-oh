@@ -7,7 +7,7 @@ import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
 import { conditions } from '@/brand/conditions';
-import { conditionPages, EVIDENCE_SOURCES, SAFETY } from '@/content/condition-pages';
+import { conditionPages, EVIDENCE_SOURCES, SAFETY, TAKEAWAYS } from '@/content/condition-pages';
 import { brand, pricing } from '@/brand/site';
 import s from '@/components/page.module.css';
 
@@ -42,6 +42,12 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
     ['What records should I bring?', `${c.records.join('; ')}. If you don’t have records, your physician can still examine you and may ask for them.`],
     ['What does it cost?', `$${pricing.newEvaluation} for a new evaluation, with a full refund if you don’t qualify. Ohio charges no state registration fee under the current rule.`],
   ];
+  const r0 = c.records[0];
+  const takeaways = [
+    `“${c.name}” is one of Ohio’s 21 qualifying conditions. Your physician confirms the diagnosis and decides whether you qualify.`,
+    ...(TAKEAWAYS[c.slug] ?? []),
+    `Bring ${r0.charAt(0).toLowerCase()}${r0.slice(1)} to your visit.`,
+  ];
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['Qualifying conditions', '/conditions'], [c.name, `/conditions/${c.slug}`]]} />
@@ -51,6 +57,13 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
       </PageHeader>
       <ReviewByline />
       <ArticleTop path={`/conditions/${c.slug}`} title={`Medical marijuana for ${c.short} in Ohio`} updated="2026-10-13" readMinutes={readMinutes([...c.evidence, ...c.records, ...SAFETY])} />
+
+      <aside className={`${s.callout} ${s.narrow}`} aria-labelledby="takeaways">
+        <h2 id="takeaways" className="type-h3">Key takeaways</h2>
+        <ul style={{ margin: 0, paddingLeft: '1.2em', display: 'grid', gap: 'var(--space-sm)' }}>
+          {takeaways.map((t) => <li key={t}>{t}</li>)}
+        </ul>
+      </aside>
 
       <Section title="What the research says" id="evidence">
         {c.evidence.map((e) => <p key={e}><Rich text={e} /></p>)}

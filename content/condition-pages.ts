@@ -124,3 +124,28 @@ export const SAFETY = [
   'Smoking cannabis during pregnancy is linked to lower birth weight.',
   'Cannabis can interact with other medicines. Your physician reviews your medicines before recommending.',
 ];
+
+/** Condition-specific key takeaways (2 to 3 each). The page adds the qualifying-condition line first and a records line last. */
+export const TAKEAWAYS: Record<string, string[]> = {
+  aids: ['The National Academies found limited evidence that cannabis helps appetite and weight loss linked to HIV/AIDS.', 'Cannabis does not treat HIV or AIDS. Keep taking the treatment your HIV care team prescribes.'],
+  'alzheimers-disease': ['The National Academies found limited evidence that cannabinoids are ineffective for symptoms of dementia.', 'Dizziness raises the risk of falls in older adults, so a family member or caregiver should be part of the decision.'],
+  als: ['The National Academies found too little evidence to say whether cannabinoids help ALS symptoms.', 'Your physician can explain what is and isn’t known, alongside the care from your ALS team.'],
+  cancer: ['There is conclusive evidence that oral cannabinoids help nausea and vomiting caused by chemotherapy.', 'Medical marijuana is not a cancer treatment. Keep following your oncology team’s plan.'],
+  'chronic-traumatic-encephalopathy': ['The National Academies’ 2017 review reached no conclusion about cannabis for CTE.', 'Ohio still lists CTE as a qualifying condition, so a physician can evaluate you for it.'],
+  'crohns-disease': ['The National Academies’ 2017 review reached no conclusion about cannabis for Crohn’s disease.', 'Cannabis is not a treatment for Crohn’s disease. Keep following your gastroenterologist’s plan.'],
+  'epilepsy-seizure-disorders': ['Evidence for cannabinoids in epilepsy in general is insufficient. Epidiolex, an FDA-approved CBD medicine, is approved for two rare seizure syndromes.', 'Dispensary products are not Epidiolex. Never stop or change seizure medicine without your neurologist.'],
+  fibromyalgia: ['There is substantial evidence that cannabis helps chronic pain in adults, though NIH notes the benefit in studies was small.', 'There is moderate evidence that cannabinoids improve short-term sleep in people with fibromyalgia.'],
+  glaucoma: ['The National Academies found limited evidence that cannabinoids are ineffective at lowering eye pressure in glaucoma.', 'Glaucoma can cause permanent vision loss. Keep using the treatment your eye doctor prescribes.'],
+  'hepatitis-c': ['The National Academies’ 2017 review reached no conclusion about cannabis for hepatitis C.', 'Cannabis is not a treatment for hepatitis C. Effective antiviral treatment exists.'],
+  'inflammatory-bowel-disease': ['The National Academies’ 2017 review reached no conclusion about cannabis for inflammatory bowel disease.', 'Keep following the plan from your gastroenterologist.'],
+  'multiple-sclerosis': ['There is substantial evidence that oral cannabinoids improve muscle spasticity as reported by people with MS, but only limited evidence when a clinician measures it.', 'NIH notes the improvements were small and did not show up on objective tests.'],
+  'chronic-pain': ['Your physician assesses your pain, how long you’ve had it and what you’ve tried.', 'There is substantial evidence that cannabis helps chronic pain in adults, though the benefit in studies was small.', 'If you take opioids or benzodiazepines, your physician checks Ohio’s prescription monitoring report and talks with you about interactions.'],
+  'parkinsons-disease': ['The National Academies found too little evidence about cannabinoids for the motor symptoms of Parkinson’s disease.', 'Dizziness on standing raises the risk of falls. Keep working with your neurologist.'],
+  hiv: ['The National Academies found limited evidence that cannabis helps appetite and weight loss linked to HIV/AIDS.', 'Cannabis does not treat HIV. Keep taking your antiretroviral treatment.'],
+  ptsd: ['There is limited evidence, from one small trial, for symptoms of PTSD.', 'Cannabis can raise the risk of psychosis in people predisposed to it, and it does not replace evidence-based PTSD therapies.'],
+  'sickle-cell-anemia': ['The National Academies’ 2017 review reached no conclusion about cannabis for sickle cell anemia itself.', 'There is substantial evidence that cannabis helps chronic pain in adults in general. Keep working with your hematologist.'],
+  'spinal-cord-disease-injury': ['The National Academies found too little evidence about cannabinoids for spasticity after spinal cord injury.', 'There is substantial evidence that cannabis helps chronic pain in adults in general.'],
+  'tourette-syndrome': ['The National Academies found limited evidence that THC capsules improve symptoms of Tourette syndrome.', 'Keep working with your neurologist or psychiatrist on your treatment plan.'],
+  'traumatic-brain-injury': ['There is limited evidence of a link between cannabinoids and better outcomes after a traumatic brain injury. A link does not show cause and effect.', 'Keep working with your neurology or rehabilitation team.'],
+  'ulcerative-colitis': ['The National Academies’ 2017 review reached no conclusion about cannabis for ulcerative colitis.', 'Cannabis is not a treatment for ulcerative colitis. Keep following your gastroenterologist’s plan.'],
+};
