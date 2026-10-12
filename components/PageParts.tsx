@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Badge } from './Badge';
 import { FaqItem } from './FaqItem';
+import { Rich } from './Rich';
 import { author, brand, medicalReviewer } from '@/brand/site';
 import s from './page.module.css';
 
@@ -44,12 +45,15 @@ export function ReviewByline({ authorApprovedOn, reviewedOn }: { authorApprovedO
   );
 }
 
+/** Answers may use light markup ([label](href), **bold**); schema gets plain text. */
+const plain = (t: string) => t.replace(/\*\*/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+
 export function Faq({ items, title = 'Common questions' }: { items: [string, string][]; title?: string }) {
   return (
     <section className={s.section} aria-labelledby="faq">
       <h2 id="faq" className="type-h2">{title}</h2>
-      <div className={s.stack}>{items.map(([q, a]) => <FaqItem key={q} question={q}>{a}</FaqItem>)}</div>
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }} />
+      <div className={s.stack}>{items.map(([q, a]) => <FaqItem key={q} question={q}><Rich text={a} /></FaqItem>)}</div>
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: items.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: plain(a) } })) }} />
     </section>
   );
 }
