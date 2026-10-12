@@ -4,6 +4,7 @@ import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, Faq, PageHeader, Section, Sources } from '@/components/PageParts';
 import { pricing } from '@/brand/site';
+import { ArticleBottom, ArticleTop } from '@/components/ArticleExtras';
 import s from '@/components/page.module.css';
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function HowItWorks() {
       >
         <Button href="/eligibility">Check if you qualify</Button>
       </PageHeader>
+      <ArticleTop path="/how-it-works" title="How to get a medical marijuana card in Ohio" updated="2026-10-13" readMinutes={3} />
 
       <Section title="Who can get a card" id="who">
         <ul>
@@ -77,6 +79,7 @@ export default function HowItWorks() {
         ['Division of Cannabis Control — Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
       ]} />
 
+      <ArticleBottom path="/how-it-works" related={[['Qualifying conditions for a medical card in Ohio', '/conditions'], ['Medical records for your visit', '/guides/medical-records'], ['The Ohio Medical Marijuana Registry, explained', '/guides/ohio-medical-marijuana-registry'], ['What an Ohio medical marijuana card costs', '/pricing']]} />
       <ImportantInfo />
     </main>
   );
