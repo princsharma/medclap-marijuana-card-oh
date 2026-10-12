@@ -1,0 +1,23 @@
+{
+  "name": "marijuana-card-oh",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "tokens": "node scripts/build-tokens.mjs",
+    "dev": "next dev",
+    "build": "npm run tokens && next build",
+    "start": "next start",
+    "lint": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}
