@@ -328,14 +328,14 @@
   {
    "url": "/locations/columbus",
    "wave": 4,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
    "authorApproved": null
   },
   {
    "url": "/locations/cleveland",
    "wave": 4,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
    "authorApproved": null
   },

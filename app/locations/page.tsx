@@ -57,13 +57,13 @@ export default function Locations() {
 
       <section className={`${s.section} ${s.wide}`} aria-labelledby="cities">
         <h2 id="cities" className="type-h2">City guides</h2>
-        <p className="type-body" style={{ maxWidth: '48rem' }}>We’re writing a guide for each of Ohio’s largest cities, with local rules and checked facts from government sources. You can book from any of them today.</p>
+        <p className="type-body" style={{ maxWidth: '48rem' }}>Local rules and checked facts from government sources for Ohio’s largest cities. You can book from any of them today, and we add a city guide only once it has at least five dated local facts.</p>
         <div className={s.grid3}>
           {cities.map((c) => (
             <article key={c.slug} className={u.card}>
               <h3 className="type-h3">{c.published ? <Link href={`${PATH}/${c.slug}`}>{c.name}</Link> : c.name}</h3>
               <p className={`type-small ${u.muted}`}>{c.county}</p>
-              {c.published ? null : <p className={`type-small ${u.muted}`}>City guide coming soon</p>}
+              {c.published ? <p className="type-small"><Link href={`${PATH}/${c.slug}`}>Read the {c.name} guide<span className="visually-hidden"> for medical marijuana cards</span></Link></p> : <p className={`type-small ${u.muted}`}>City guide coming soon</p>}
             </article>
           ))}
         </div>

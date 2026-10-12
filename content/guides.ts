@@ -89,7 +89,7 @@ export const guides: Guide[] = [
       "Adults 21 and older can buy adult-use cannabis in Ohio without a card. People aged 18 to 20 need to be registered patients.",
       "Medical marijuana isn’t subject to Ohio’s 10% adult-use tax.",
       "Patients may have up to a 90-day supply. Adult-use limits are 2.5 ounces of plant material and 15 grams of extract.",
-      "Public use and impaired driving are illegal either way, and employers can enforce drug-free policies for both.",
+      "Smoking or vaping in public and impaired driving are illegal either way, and employers can enforce drug-free policies for both.",
     ],
     body: [
       '## Do you need a medical card to buy at an Ohio dispensary?',
@@ -100,7 +100,7 @@ export const guides: Guide[] = [
       '- **A larger supply.** Patients may possess up to a 90-day supply set by state rules. Adult-use consumers may possess up to 2.5 ounces of plant material and 15 grams of extract.',
       '- **Legal protections.** Ohio protects registered patients in custody decisions, medical care, housing applications and public benefits (Revised Code 3796.24). See [what a medical card means](/guides/what-a-medical-card-means).',
       '## What stays the same',
-      '- You can’t use marijuana in public places.',
+      '- You can’t smoke or vape marijuana in public places. Medical marijuana can only be vaporized on private property used mainly as a home or farm, and smoking it is not allowed (Revised Code 3796.06, as amended by SB 56 from 20 March 2026).',
       '- Driving while impaired is illegal for everyone.',
       '- Employers can enforce drug-free workplace policies for patients and adult-use consumers alike.',
       '## Home growing',
@@ -109,7 +109,7 @@ export const guides: Guide[] = [
     faq: [
       ['Do you need a medical card for a dispensary in Ohio?', 'Not if you’re 21 or older. Adults 21+ can buy adult-use cannabis. People aged 18 to 20 need to be registered patients.'],
       ['Is it worth getting a medical card in Ohio?', 'It can be if you’re 18 to 20, buy often enough that the 10% adult-use tax adds up, need more than the adult-use limit, or want the legal protections Ohio gives patients.'],
-      ['Is weed legal in Ohio without a medical card?', 'For adults 21 and older, yes, within Ohio’s adult-use limits. Public use and impaired driving are still illegal.'],
+      ['Is weed legal in Ohio without a medical card?', 'For adults 21 and older, yes, within Ohio’s adult-use limits. Smoking or vaping in public and impaired driving are still illegal.'],
     ],
     sources: [
       ['Ohio Revised Code 3796.40: adult-use excise tax', ORC('3796.40')],
