@@ -12,8 +12,10 @@ export type Post = {
   updated?: string;
   authorApprovedOn: string | null;
   medicallyReviewedOn: string | null;
+  keyTakeaways: string[]; // 3 to 5 short points shown above the article
   body: string[];
   sources: [string, string][];
+  related?: string[]; // slugs of other posts; the section shows only when at least one exists
 };
 
 export const posts: Post[] = [
@@ -25,6 +27,12 @@ export const posts: Post[] = [
     published: '2026-10-13',
     authorApprovedOn: null,
     medicallyReviewedOn: null,
+    keyTakeaways: [
+      'Ohio law has allowed the medical marijuana exam by telehealth since 23 March 2022.',
+      'The physician still needs a Certificate to Recommend, a review of your history and an Ohio prescription monitoring check.',
+      'Telehealth visits must meet the same standard of care as an in-person visit.',
+      'Your physician decides whether you qualify; telehealth changes where the visit happens, not the rules.',
+    ],
     body: [
       'Yes. Since 23 March 2022, Ohio law has let a physician examine a patient for a medical marijuana recommendation **either in person or through the use of telehealth services**. Here is what that means in practice.',
       '## What the law requires',
