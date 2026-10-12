@@ -18,9 +18,9 @@ async function copy(text: string) {
  * Gemini has no prompt-in-URL support, so the prompt is copied and Gemini opens for pasting.
  * Names only (no third-party logos).
  */
-export function Summarize({ url, title }: { url: string; title: string }) {
+export function Summarize({ url, title, source = "Marijuana Card OH Help Center" }: { url: string; title: string; source?: string }) {
   const [note, setNote] = useState("");
-  const prompt = `Summarize this article from Marijuana Card OH Help Center in plain language: "${title}" — ${url}`;
+  const prompt = `Summarize this article from ${source} in plain language: "${title}" — ${url}`;
   const q = encodeURIComponent(prompt);
   const tools: { name: string; href: string; copyFirst?: boolean }[] = [
     { name: "ChatGPT", href: `https://chatgpt.com/?q=${q}` },

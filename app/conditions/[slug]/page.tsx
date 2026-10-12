@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Rich } from '@/components/Rich';
+import { ArticleBottom, ArticleTop, readMinutes } from '@/components/ArticleExtras';
 import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
@@ -15,13 +16,20 @@ const find = (slug: string) => {
   return c && p ? { ...c, ...p } : null;
 };
 
+function related(slug: string): [string, string][] {
+  const i = conditions.findIndex((x) => x.slug === slug);
+  const near = [1, 2].map((k) => conditions[(i + k) % conditions.length]).map((x) => [x.name, `/conditions/${x.slug}`] as [string, string]);
+  return [...near, ['Medical records for your visit', '/guides/medical-records'], ['All 21 qualifying conditions', '/conditions']];
+}
+
 export function generateStaticParams() { return conditionPages.map((p) => ({ slug: p.slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params; const c = find(slug); if (!c) return {};
   const n = c.metaShort ?? c.short;
-  const t = `Medical Marijuana for ${n.charAt(0).toUpperCase()}${n.slice(1)} in Ohio`;
-  return { title: { absolute: t.length <= 60 ? t : `${c.short.charAt(0).toUpperCase()}${c.short.slice(1)} and Ohio Medical Marijuana` },
+  const tc = n.replace(/\b(\p{L})(\p{L}*)/gu, (w, a, b) => (['or', 'and', 'of'].includes(w) ? w : a.toUpperCase() + b));
+  const t = `Medical Marijuana for ${tc} in Ohio`;
+  return { title: { absolute: t },
     description: `Is ${c.short} a qualifying condition for an Ohio medical marijuana card? What the research says, what records help, and how to get evaluated.`,
     alternates: { canonical: `/conditions/${c.slug}` } };
 }
@@ -42,6 +50,7 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
         <Button href="/eligibility">Check if you qualify</Button>
       </PageHeader>
       <ReviewByline />
+      <ArticleTop path={`/conditions/${c.slug}`} title={`Medical marijuana for ${c.short} in Ohio`} updated="2026-10-13" readMinutes={readMinutes([...c.evidence, ...c.records, ...SAFETY])} />
 
       <Section title="What the research says" id="evidence">
         {c.evidence.map((e) => <p key={e}><Rich text={e} /></p>)}
@@ -63,6 +72,7 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
 
       <Faq items={faq} />
       <Sources checked="13 Oct 2026" items={EVIDENCE_SOURCES} />
+      <ArticleBottom path={`/conditions/${c.slug}`} related={related(c.slug)} />
       <ImportantInfo />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: `Medical marijuana for ${c.short} in Ohio`, url: `https://${brand.domain}/conditions/${c.slug}`,
         about: { '@type': 'MedicalCondition', name: c.name }, audience: 'Patient' }} />

@@ -4,6 +4,7 @@ import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, Faq, PageHeader, Section, Sources } from '@/components/PageParts';
 import { conditions } from '@/brand/conditions';
+import { ArticleBottom, ArticleTop } from '@/components/ArticleExtras';
 import s from '@/components/page.module.css';
 
 export const metadata: Metadata = {
@@ -27,6 +28,7 @@ export default function Conditions() {
         lead="Ohio law lists 21 qualifying conditions. To get a card you need a diagnosis of at least one, which your physician makes or confirms during your visit.">
         <Button href="/eligibility">Check if you qualify</Button>
       </PageHeader>
+      <ArticleTop path="/conditions" title="Qualifying conditions for a medical card in Ohio" updated="2026-10-13" readMinutes={2} />
 
       <section className={`${s.section} ${s.wide}`} aria-labelledby="list">
         <h2 id="list" className="type-h2">The 21 conditions</h2>
@@ -47,6 +49,7 @@ export default function Conditions() {
         ['Ohio Revised Code 3796.01 — qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
         ['Ohio Administrative Code 4731-32-03 — confirming a prior diagnosis', 'https://codes.ohio.gov/ohio-administrative-code/rule-4731-32-03'],
       ]} />
+      <ArticleBottom path="/conditions" related={[['How to get a medical marijuana card in Ohio', '/how-it-works'], ['Medical records for your visit', '/guides/medical-records'], ['Check if you qualify', '/eligibility'], ['Ohio medical marijuana card FAQ', '/faq']]} />
       <ImportantInfo />
     </main>
   );
