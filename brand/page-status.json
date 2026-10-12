@@ -153,21 +153,21 @@
   {
    "url": "/guides/what-a-medical-card-means",
    "wave": 3,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
    "authorApproved": null
   },
   {
    "url": "/guides/medical-card-vs-adult-use",
    "wave": 3,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
    "authorApproved": null
   },
   {
    "url": "/guides/medical-records",
    "wave": 3,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
    "authorApproved": null
   },
@@ -364,6 +364,41 @@
    "url": "/locations/akron",
    "wave": 4,
    "status": "planned",
+   "medicallyReviewed": null,
+   "authorApproved": null
+  },
+  {
+   "url": "/help",
+   "wave": 2,
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
+  },
+  {
+   "url": "/help/knowledge-base",
+   "wave": 2,
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
+  },
+  {
+   "url": "/help/contact",
+   "wave": 2,
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
+  },
+  {
+   "url": "/blog",
+   "wave": 3,
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
+  },
+  {
+   "url": "/blog/ohio-medical-marijuana-telehealth-law",
+   "wave": 3,
+   "status": "drafted",
    "medicallyReviewed": null,
    "authorApproved": null
   }
