@@ -10,6 +10,7 @@ export type Guide = {
   description: string;
   eyebrow: string;
   lead: string;
+  keyTakeaways: string[];
   body: string[];
   faq: [string, string][];
   sources: [string, string][];
@@ -28,6 +29,13 @@ export const guides: Guide[] = [
     description: 'What changes when you register as an Ohio medical marijuana patient: firearms, your job, driving, housing, custody and public benefits, from Ohio and federal law.',
     eyebrow: 'Guide',
     lead: 'Registering as a patient gives you real protections under Ohio law, but not everywhere. Employers can still enforce drug-free policies, driving while impaired is still illegal, and federal firearms law is still unsettled.',
+    keyTakeaways: [
+      "Ohio protects registered patients in custody decisions, medical care, housing applications and public benefits.",
+      "Employers can still enforce drug-free and zero-tolerance policies and act on marijuana use, even by patients.",
+      "Driving while impaired is illegal for everyone, patients included.",
+      "Federal firearms law changed in 2026 but is still settling. Talk to a firearms lawyer before buying or carrying a gun.",
+      "Registry information that identifies you is confidential and is not a public record.",
+    ],
     body: [
       '## Firearms',
       'Federal law (18 U.S.C. 922(g)(3)) bars an “unlawful user” of a controlled substance from having a gun. Two things changed in 2026:',
@@ -77,6 +85,12 @@ export const guides: Guide[] = [
     description: 'Adults 21+ can buy adult-use cannabis in Ohio. Here is what a medical card still adds: access from 18, no 10% adult-use tax, a 90-day supply and legal protections.',
     eyebrow: 'Guide',
     lead: 'Adults 21 and older can buy adult-use cannabis at Ohio dispensaries without a card. A medical card still matters if you’re 18 to 20, want to avoid the 10% adult-use tax, need more than the adult-use limit, or want the protections Ohio gives registered patients.',
+    keyTakeaways: [
+      "Adults 21 and older can buy adult-use cannabis in Ohio without a card. People aged 18 to 20 need to be registered patients.",
+      "Medical marijuana isn’t subject to Ohio’s 10% adult-use tax.",
+      "Patients may have up to a 90-day supply. Adult-use limits are 2.5 ounces of plant material and 15 grams of extract.",
+      "Public use and impaired driving are illegal either way, and employers can enforce drug-free policies for both.",
+    ],
     body: [
       '## Do you need a medical card to buy at an Ohio dispensary?',
       'Not if you’re 21 or older: Ohio allows adult-use purchases from licensed dispensaries. If you’re 18 to 20, you can only buy medical marijuana, as a registered patient.',
@@ -116,6 +130,12 @@ export const guides: Guide[] = [
     description: 'Which medical records help at your Ohio medical marijuana evaluation, how to get copies, and what happens if you don’t have any.',
     eyebrow: 'Guide',
     lead: 'Records aren’t always required, but they help. If another doctor already diagnosed your condition, Ohio lets your physician confirm it from your records, which keeps the visit short and the decision clear.',
+    keyTakeaways: [
+      "Records aren’t always required, but they let your physician confirm a diagnosis another doctor made.",
+      "Bring a note naming your diagnosis, related test or imaging results, and a list of treatments and current medicines.",
+      "You have a right to copies. A provider can charge reasonable copying costs but can’t refuse because you owe a bill.",
+      "No records? You can still book, and if you don’t qualify, we refund your fee in full.",
+    ],
     body: [
       '## Why records help',
       'Ohio’s standard of care (Administrative Code 4731-32-03) asks your physician to review your history, prior treatments and current medicines. If another licensed physician diagnosed your condition, your physician can confirm it using copies of your records or a detailed summary, and must keep copies of what they relied on.',
@@ -144,5 +164,12 @@ export const guides: Guide[] = [
     medicallyReviewedOn: null,
   },
 ];
+
+/** Every guide, for "Related guides" lists. */
+export const GUIDE_LINKS: [string, string][] = [
+  ['The Ohio Medical Marijuana Registry, explained', '/guides/ohio-medical-marijuana-registry'],
+  ...guides.map((g) => [g.title, `/guides/${g.slug}`] as [string, string]),
+];
+export const relatedGuides = (href: string) => GUIDE_LINKS.filter(([, h]) => h !== href);
 
 export const getGuide = (slug: string) => guides.find((g) => g.slug === slug);

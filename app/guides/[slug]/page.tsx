@@ -4,7 +4,8 @@ import { Body } from '@/components/Rich';
 import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Sources } from '@/components/PageParts';
-import { getGuide, guides } from '@/content/guides';
+import { getGuide, guides, relatedGuides } from '@/content/guides';
+import { ArticleEnd, ArticleTop, KeyTakeaways, ShareArticle, readMinutes } from '@/components/ArticleExtras';
 import { brand } from '@/brand/site';
 import s from '@/components/page.module.css';
 
@@ -23,8 +24,12 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <Breadcrumbs trail={[[g.title, `/guides/${g.slug}`]]} />
       <PageHeader eyebrow={g.eyebrow} title={g.title} lead={g.lead} />
       <ReviewByline authorApprovedOn={g.authorApprovedOn} reviewedOn={g.medicallyReviewedOn} />
+      <ArticleTop path={`/guides/${g.slug}`} title={g.title} updated="2026-10-13" readMinutes={readMinutes(g.body)} />
+      <ShareArticle path={`/guides/${g.slug}`} />
+      <KeyTakeaways items={g.keyTakeaways} />
       <article className={`${s.section} ${s.prose} type-body`}><Body lines={g.body} /></article>
       <div><Button href="/eligibility">Check if you qualify</Button></div>
+      <ArticleEnd relatedTitle="Related guides" related={relatedGuides(`/guides/${g.slug}`)} />
       <Faq items={g.faq} />
       <Sources checked={g.checked} items={g.sources} />
       <ImportantInfo />

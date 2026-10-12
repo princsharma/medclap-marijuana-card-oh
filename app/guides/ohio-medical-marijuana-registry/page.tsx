@@ -4,6 +4,8 @@ import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
 import { brand } from '@/brand/site';
 import { registry } from '@/brand/registry';
+import { ArticleEnd, ArticleTop, KeyTakeaways, ShareArticle } from '@/components/ArticleExtras';
+import { relatedGuides } from '@/content/guides';
 import s from '@/components/page.module.css';
 
 export const metadata: Metadata = {
@@ -11,6 +13,9 @@ export const metadata: Metadata = {
   description: 'What the Ohio Medical Marijuana Registry is, how to activate and sign in, how to renew, and who to contact when something goes wrong.',
   alternates: { canonical: '/guides/ohio-medical-marijuana-registry' },
 };
+
+const PATH = '/guides/ohio-medical-marijuana-registry';
+const TITLE = 'The Ohio Medical Marijuana Registry, explained';
 
 const faq: [string, string][] = [
   ['Where do I log in to the Ohio medical marijuana registry?', `The official sign-in page is ${registry.loginUrl.replace('https://', '')}, linked from the Division of Cannabis Control’s website. Marijuana Card OH is not the registry and can’t see your registry account.`],
@@ -27,6 +32,15 @@ export default function RegistryGuide() {
       <PageHeader eyebrow="Guide" title="The Ohio Medical Marijuana Registry, explained"
         lead={<>The registry is the state’s record of registered patients, run by the Division of Cannabis Control. Your physician registers you; you activate your account by email, then sign in at the <a href={registry.loginUrl} target="_blank" rel="noopener noreferrer">official registry login</a> to download your card and renew it each year.</>} />
       <ReviewByline />
+      <ArticleTop path={PATH} title={TITLE} updated="2026-10-13" readMinutes={3} />
+      <ShareArticle path={PATH} />
+      <KeyTakeaways items={[
+        `The registry is run by Ohio’s Division of Cannabis Control. ${brand.name} is not the registry and never asks for your registry password.`,
+        'Your physician registers you. You then activate your account by email and accept the legal statement.',
+        'Your registration lasts one year, and you can renew up to 30 days before it expires.',
+        `For registry problems, contact the Division of Cannabis Control at ${registry.email} or ${registry.helpline}.`,
+        'Registry information that identifies you is confidential and is not a public record.',
+      ]} />
 
       <aside className={s.callout}>
         <p><strong>Looking for the login?</strong> Go to the <a href={registry.loginUrl} target="_blank" rel="noopener noreferrer">official Ohio Medical Marijuana Registry sign-in</a>. {brand.name} is a private telehealth service, not the state, and never asks for your registry password.</p>
@@ -61,6 +75,8 @@ export default function RegistryGuide() {
           <li><strong>Wrong details on your registration:</strong> contact your recommending physician, who submitted them.</li>
         </ul>
       </Section>
+
+      <ArticleEnd relatedTitle="Related guides" related={relatedGuides(PATH)} />
 
       <Faq items={faq} />
 
