@@ -15,7 +15,7 @@ export function Footer() {
     <footer className={s.footer}>
       <div className={`container ${s.footerGrid}`}>
         <div className={s.footerBrand}>
-          <Link href="/" className={s.footerLogo}><LeafMark size={32} /> <span className="type-h3">{brand.name}</span></Link>
+          <Link href="/" className={s.footerLogo}><LeafMark size={32} inverse /> <span className="type-h3">{brand.name}</span></Link>
           <p className="type-small">Telehealth medical marijuana evaluations for adults across Ohio.</p>
           <p className="type-small">{brand.email}</p>
         </div>

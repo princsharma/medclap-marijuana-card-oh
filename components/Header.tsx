@@ -13,7 +13,7 @@ export function Header() {
     <header className={s.header}>
       <div className={`container ${s.headerInner}`}>
         <Link href="/" className={s.logo} aria-label="Marijuana Card OH home">
-          <LeafMark /> <span className="type-h3">Marijuana Card OH</span>
+          <LeafMark /> <span className={`type-h3 ${s.logoText}`}>Marijuana Card OH</span>
         </Link>
         <nav aria-label="Main" className={`${s.nav} ${s.navDesktop}`}>
           {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}

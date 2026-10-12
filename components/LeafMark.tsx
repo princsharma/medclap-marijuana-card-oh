@@ -1,11 +1,12 @@
-export function LeafMark({ size = 40 }: { size?: number }) {
+/** Ohio Leaf Check — official mark (brand/logo/1-ohio-leaf-check-*.svg, chosen 13 Oct 2026). */
+const LEAF = 'M18 13 L49 13 L56 20 L68 17 L82 27 L79 53 L72 60 L69 78 L55 88 L42 82 L31 87 L22 77 L18 60 L13 51 L16 34 Z';
+const CHECK = 'M25 54 L41 68 L72 32';
+
+export function LeafMark({ size = 40, inverse = false }: { size?: number; inverse?: boolean }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 64 64" aria-hidden="true">
-      <g transform="rotate(35 32 32)">
-        <path d="M32 4 C50 18 52 42 32 60 C12 42 14 18 32 4 Z" fill="var(--teal-600)" />
-        <rect x="29" y="20" width="6" height="22" rx="2" fill="var(--sun-400)" />
-        <rect x="21" y="28" width="22" height="6" rx="2" fill="var(--sun-400)" />
-      </g>
+    <svg width={size} height={size} viewBox="10 10 75 81" aria-hidden="true" focusable="false">
+      <path d={LEAF} fill={inverse ? 'var(--teal-50)' : 'var(--teal-600)'} />
+      <path d={CHECK} fill="none" stroke={inverse ? 'var(--teal-600)' : 'var(--sun-400)'} strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
