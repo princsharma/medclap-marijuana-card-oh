@@ -72,11 +72,11 @@ export default function HowItWorks() {
       <Faq items={faq} />
 
       <Sources checked="13 Oct 2026" items={[
-        ['Ohio Revised Code 4731.30 — certificate to recommend and the physician–patient relationship', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
-        ['Ohio Administrative Code 4731-32-03 — physician standard of care', 'https://codes.ohio.gov/ohio-administrative-code/rule-4731-32-03'],
-        ['Ohio Administrative Code 1301:18-10-01 — procedure for patient registration', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
-        ['Ohio Revised Code 3796.01 — qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
-        ['Division of Cannabis Control — Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
+        ['Ohio Revised Code 4731.30: certificate to recommend and the physician–patient relationship', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
+        ['Ohio Administrative Code 4731-32-03: physician standard of care', 'https://codes.ohio.gov/ohio-administrative-code/rule-4731-32-03'],
+        ['Ohio Administrative Code 1301:18-10-01: procedure for patient registration', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
+        ['Ohio Revised Code 3796.01: qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
+        ['Division of Cannabis Control: Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
       ]} />
 
       <ArticleBottom path="/how-it-works" related={[['Qualifying conditions for a medical card in Ohio', '/conditions'], ['Medical records for your visit', '/guides/medical-records'], ['The Ohio Medical Marijuana Registry, explained', '/guides/ohio-medical-marijuana-registry'], ['What an Ohio medical marijuana card costs', '/pricing']]} />

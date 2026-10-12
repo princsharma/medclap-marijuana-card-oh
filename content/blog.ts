@@ -43,8 +43,8 @@ export const posts: Post[] = [
     ],
     sources: [
       ['Ohio Revised Code 4731.30', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
-      ['Ohio Revised Code 4743.09 — telehealth', 'https://codes.ohio.gov/ohio-revised-code/section-4743.09'],
-      ['Division of Cannabis Control — Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
+      ['Ohio Revised Code 4743.09: telehealth', 'https://codes.ohio.gov/ohio-revised-code/section-4743.09'],
+      ['Division of Cannabis Control: Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
     ],
   },
 ];

@@ -99,10 +99,10 @@ export default function Home() {
       <Faq items={faq} />
 
       <Sources checked="13 Oct 2026" items={[
-        ['Ohio Revised Code 4731.30 — recommending medical marijuana', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
-        ['Ohio Revised Code 3796.01 — qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
-        ['Ohio Administrative Code 1301:18-10-01 — patient registration', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
-        ['Division of Cannabis Control — Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
+        ['Ohio Revised Code 4731.30: recommending medical marijuana', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
+        ['Ohio Revised Code 3796.01: qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
+        ['Ohio Administrative Code 1301:18-10-01: patient registration', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
+        ['Division of Cannabis Control: Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
       ]} />
 
       <ImportantInfo />

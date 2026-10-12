@@ -6,7 +6,7 @@ import { DoctorCard } from '@/components/DoctorCard';
 import { PriceCard } from '@/components/PriceCard';
 import tokens from '@/brand/tokens.json';
 
-export const metadata = { title: 'Design system — Marijuana Card OH', robots: { index: false, follow: false } };
+export const metadata = { title: 'Design system: Marijuana Card OH', robots: { index: false, follow: false } };
 
 const doctors = [
   { name: 'Dr. Johnathan Miller, MD', role: 'General Practice · Medical Director', license: '35.141126CTR', npi: '1235623372' },
@@ -37,7 +37,7 @@ export default function DesignSystem() {
         </section>
         <section style={{ display: 'grid', gap: 'var(--space-md)' }}>
           <h2 className="type-h2">Type</h2>
-          {Object.keys(tokens.type).map((k) => <p key={k} className={`type-${k}`}>{k} — Real Ohio doctors. Clear answers.</p>)}
+          {Object.keys(tokens.type).map((k) => <p key={k} className={`type-${k}`}>{k}: Real Ohio doctors. Clear answers.</p>)}
         </section>
         <section style={{ display: 'flex', flexWrap: 'wrap', gap: 'var(--space-md)' }}>
           <Button href="#">Check if you qualify</Button>

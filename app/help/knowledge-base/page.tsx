@@ -8,7 +8,7 @@ import { Icon } from "@/components/ui/Icon";
 import { articles, articlesIn, helpPaths, kbCategories } from "@/content/help";
 import { breadcrumbLd, ldScript } from "@/lib/helpJsonLd";
 
-const title = "Knowledge Base — Help Center | Marijuana Card OH";
+const title = "Knowledge Base: Help Center | Marijuana Card OH";
 const description =
   "Browse answers about services, providers, appointments, fees, privacy and service limitations. Search the Help Center or ask Instant AI Help.";
 

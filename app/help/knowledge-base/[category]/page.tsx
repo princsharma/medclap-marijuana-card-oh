@@ -19,7 +19,7 @@ type Props = { params: Promise<{ category: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const c = getCategory((await params).category);
   if (!c) return {};
-  const title = `${c.title} — Help Center | Marijuana Card OH`;
+  const title = `${c.title}: Help Center | Marijuana Card OH`;
   const description = `${c.description} Browse every ${c.title.toLowerCase()} article in Marijuana Card OH Help Center.`;
   return { title: { absolute: title }, description, alternates: { canonical: helpPaths.category(c.id) }, openGraph: { title, description, url: helpPaths.category(c.id) } };
 }

@@ -20,7 +20,7 @@ async function copy(text: string) {
  */
 export function Summarize({ url, title, source = "Marijuana Card OH Help Center" }: { url: string; title: string; source?: string }) {
   const [note, setNote] = useState("");
-  const prompt = `Summarize this article from ${source} in plain language: "${title}" — ${url}`;
+  const prompt = `Summarize this article from ${source} in plain language: "${title}" (${url})`;
   const q = encodeURIComponent(prompt);
   const tools: { name: string; href: string; copyFirst?: boolean }[] = [
     { name: "ChatGPT", href: `https://chatgpt.com/?q=${q}` },
@@ -46,7 +46,7 @@ export function Summarize({ url, title, source = "Marijuana Card OH Help Center"
                 t.copyFirst
                   ? async () => {
                       const ok = await copy(prompt);
-                      setNote(ok ? "Prompt copied — paste it into Gemini." : "Copy this prompt into Gemini: " + prompt);
+                      setNote(ok ? "Prompt copied. Paste it into Gemini." : "Copy this prompt into Gemini: " + prompt);
                     }
                   : undefined
               }
@@ -71,7 +71,7 @@ export function Helpful() {
     <div className={s.helpful}>
       {v ? (
         <p className="body" role="status">
-          {v === "yes" ? "Thanks for your feedback." : "Thanks — we’ll use this to improve the article. You can also ask Instant AI Help or contact us below."}
+          {v === "yes" ? "Thanks for your feedback." : "Thanks. We’ll use this to improve the article. You can also ask Instant AI Help or contact us below."}
         </p>
       ) : (
         <>

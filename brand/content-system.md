@@ -21,6 +21,7 @@ Every page: one H1, meta title ≤ 60 characters with the main keyword, meta des
 ## 2. Voice (from Positioning)
 
 - Calm, plain, exact. 7th–8th grade reading level. Short sentences.
+- No em dashes (—) anywhere on the site. Use a comma, colon, full stop or brackets instead. En dashes in ranges (6–12 months) are fine.
 - Say: medical marijuana, recommendation, evaluation, visit, registry card, "if you qualify", "your physician".
 - Don't say: prescription, script, approval (say "recommendation"), guaranteed approval, risk-free, weed/pot (except to match a search phrase in a title, H2 or FAQ question).
 - Name the doctor when we can. Use Ohio's terms: Division of Cannabis Control, State Medical Board of Ohio, Certificate to Recommend.

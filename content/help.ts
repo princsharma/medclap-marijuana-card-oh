@@ -93,13 +93,13 @@ export const helpPaths = {
 
 export const aiHelp = {
   seo: {
-    title: "Help Center — Instant AI Help | Marijuana Card OH",
+    title: "Help Center: Instant AI Help | Marijuana Card OH",
     description: "Instant answers about Ohio medical marijuana cards, visits, fees, the state registry and renewal, from the Marijuana Card OH Help Center.",
   },
   title: "Instant AI Help",
   lead: "Ask about getting or renewing your Ohio card, our doctors, fees or the state registry, and get an instant answer from our Help Center.",
   placeholder: "Ask us a question…",
-  disclaimer: "Instant AI Help answers only from the Marijuana Card OH Help Center. It can’t give medical advice, tell you whether you qualify, or book visits. Please don’t include personal health details — questions may be processed by a third-party AI service.",
+  disclaimer: "Instant AI Help answers only from the Marijuana Card OH Help Center. It can’t give medical advice, tell you whether you qualify, or book visits. Please don’t include personal health details, because questions may be processed by a third-party AI service.",
   suggestions: ["How much does an Ohio card cost?", "Can I do my visit by telehealth?", "How do I renew?", "I didn’t get the activation email"],
 };
 

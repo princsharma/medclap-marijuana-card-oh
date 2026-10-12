@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const t = getTopic((await params).topic);
   if (!t) return {};
   return {
-    title: { absolute: `${t.title} — Contact Us | Marijuana Card OH` },
+    title: { absolute: `${t.title}: Contact Us | Marijuana Card OH` },
     description: t.description,
     alternates: { canonical: helpPaths.topic(t.id) },
     // Step pages of the contact flow are not search landing pages.

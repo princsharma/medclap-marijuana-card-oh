@@ -130,7 +130,7 @@ function CallbackCard({ topic }: { topic: string }) {
       {status === "sent" ? (
         <div className={s.formDone} role="status">
           <Icon name="check-circle" size={22} />
-          <p className="body">Thanks — your request has been received. A member of our team will call you at the time you chose.</p>
+          <p className="body">Thanks, your request has been received. A member of our team will call you at the time you chose.</p>
         </div>
       ) : status === "demo" ? (
         <div className={s.formDone} role="status">
@@ -138,7 +138,7 @@ function CallbackCard({ topic }: { topic: string }) {
           <p className="body">
             {showPending ? (
               <>
-                <strong>Staging:</strong> the form works, but nothing was sent — connect a helpdesk or email service
+                <strong>Staging:</strong> the form works, but nothing was sent. Connect a helpdesk or email service
                 (CONTACT_WEBHOOK_URL) to receive call-back requests.
               </>
             ) : (

@@ -4,10 +4,10 @@
  * any "Medically reviewed" byline. Checked 13 Oct 2026.
  */
 export const EVIDENCE_SOURCES: [string, string][] = [
-  ['National Academies of Sciences, Engineering, and Medicine (2017) — committee conclusions', 'https://nap.nationalacademies.org/resource/24625/Cannabis_committee_conclusions.pdf'],
-  ['NIH National Center for Complementary and Integrative Health — Cannabis and cannabinoids', 'https://www.nccih.nih.gov/health/cannabis-marijuana-and-cannabinoids-what-you-need-to-know'],
-  ['Ohio Revised Code 3796.01 — qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
-  ['Ohio Administrative Code 4731-32-03 — physician standard of care', 'https://codes.ohio.gov/ohio-administrative-code/rule-4731-32-03'],
+  ['National Academies of Sciences, Engineering, and Medicine (2017): committee conclusions', 'https://nap.nationalacademies.org/resource/24625/Cannabis_committee_conclusions.pdf'],
+  ['NIH National Center for Complementary and Integrative Health: Cannabis and cannabinoids', 'https://www.nccih.nih.gov/health/cannabis-marijuana-and-cannabinoids-what-you-need-to-know'],
+  ['Ohio Revised Code 3796.01: qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
+  ['Ohio Administrative Code 4731-32-03: physician standard of care', 'https://codes.ohio.gov/ohio-administrative-code/rule-4731-32-03'],
 ];
 
 export type ConditionPage = {

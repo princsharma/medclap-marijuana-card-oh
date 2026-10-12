@@ -5,7 +5,7 @@ import s from "@/components/help/help.module.css";
 import { Icon } from "@/components/ui/Icon";
 import { contactTopics, helpPaths } from "@/content/help";
 
-const title = "Contact Us — Help Center | Marijuana Card OH";
+const title = "Contact Us: Help Center | Marijuana Card OH";
 const description =
   "Contact Marijuana Card OH about choosing a service, providers and booking, appointments, fees, privacy or website help. Chat with our team or request a call back.";
 
@@ -24,7 +24,7 @@ export default function ContactPage() {
           <h1 className={s.title}>Select a category</h1>
           <p className="lead">
             Choose what your question is about so we can show related answers and the best way to reach us. Our team helps with
-            booking, fees and using the platform — not clinical advice.
+            booking, fees and using the platform, not clinical advice.
           </p>
         </div>
         <ul className={s.topicList}>

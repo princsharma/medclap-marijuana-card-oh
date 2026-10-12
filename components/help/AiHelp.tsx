@@ -113,7 +113,7 @@ export function AiHelp({ placeholder, disclaimer, suggestions }: { placeholder: 
                 </p>
                 <p className="body">{t.reply.answer}</p>
                 {showPending && t.reply.mode === "match" ? (
-                  <p className={s.pendingNote}>Staging: AI model not connected — this answer was matched from Help Center articles.</p>
+                  <p className={s.pendingNote}>Staging: AI model not connected, so this answer was matched from Help Center articles.</p>
                 ) : null}
                 <SourceList sources={t.reply.sources} />
                 <div className={s.feedback}>
@@ -131,7 +131,7 @@ export function AiHelp({ placeholder, disclaimer, suggestions }: { placeholder: 
                         Yes
                       </button>
                       <button type="button" className={s.textBtn} onClick={() => setFeedback(t.id, "no")}>
-                        No — contact us <Icon name="arrow-right" size={16} />
+                        No, contact us <Icon name="arrow-right" size={16} />
                       </button>
                     </>
                   )}

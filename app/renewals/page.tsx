@@ -59,9 +59,9 @@ export default function Renewals() {
       <Faq items={faq} />
 
       <Sources checked="13 Oct 2026" items={[
-        ['Division of Cannabis Control — Renewing patient registration', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/patient-and-caregiver-registry/renewing-patient-registration'],
-        ['Ohio Administrative Code 1301:18-10-01 — registration length and renewal', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
-        ['Ohio Revised Code 4731.30 — recommendations and renewals', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
+        ['Division of Cannabis Control: Renewing patient registration', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/patient-and-caregiver-registry/renewing-patient-registration'],
+        ['Ohio Administrative Code 1301:18-10-01: registration length and renewal', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
+        ['Ohio Revised Code 4731.30: recommendations and renewals', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
       ]} />
       <ImportantInfo />
     </main>

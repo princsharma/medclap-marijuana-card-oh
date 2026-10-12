@@ -66,10 +66,10 @@ export default function Pricing() {
       <Faq items={faq} />
 
       <Sources checked="13 Oct 2026" items={[
-        ['Ohio Administrative Code 1301:18-10-01 — patient registration (no fee set)', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
-        ['Division of Cannabis Control — Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
-        ['Ohio Revised Code 4731.30 — who may recommend', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
-        ['Ohio Revised Code 3796.40 — adult-use excise tax', 'https://codes.ohio.gov/ohio-revised-code/section-3796.40'],
+        ['Ohio Administrative Code 1301:18-10-01: patient registration (no fee set)', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
+        ['Division of Cannabis Control: Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
+        ['Ohio Revised Code 4731.30: who may recommend', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
+        ['Ohio Revised Code 3796.40: adult-use excise tax', 'https://codes.ohio.gov/ohio-revised-code/section-3796.40'],
       ]} />
 
       <ArticleBottom path="/pricing" related={[['How to get a medical marijuana card in Ohio', '/how-it-works'], ['Renew your Ohio medical marijuana card', '/renewals'], ['Medical card or adult-use? What’s different in Ohio', '/guides/medical-card-vs-adult-use'], ['Refund policy', '/refund-policy']]} />

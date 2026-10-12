@@ -59,7 +59,7 @@ export default function FaqPage() {
         ['Ohio Revised Code 3796.01', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
         ['Ohio Revised Code 3796.08', 'https://codes.ohio.gov/ohio-revised-code/section-3796.08'],
         ['Ohio Administrative Code 1301:18-10-01', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
-        ['Division of Cannabis Control — Patient & Caregiver Registry', registry.registryPage],
+        ['Division of Cannabis Control: Patient & Caregiver Registry', registry.registryPage],
       ]} />
       <ImportantInfo />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: all.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }} />

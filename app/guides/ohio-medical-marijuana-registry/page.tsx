@@ -65,11 +65,11 @@ export default function RegistryGuide() {
       <Faq items={faq} />
 
       <Sources checked="13 Oct 2026" items={[
-        ['Division of Cannabis Control — Patient & Caregiver Registry', registry.registryPage],
-        ['Division of Cannabis Control — Renewing patient registration', registry.renewalPage],
-        ['Division of Cannabis Control — Obtain medical marijuana', registry.obtainPage],
-        ['Ohio Revised Code 3796.08 — registration and confidentiality', 'https://codes.ohio.gov/ohio-revised-code/section-3796.08'],
-        ['Ohio Administrative Code 1301:18-10-01 — procedure for patient registration', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
+        ['Division of Cannabis Control: Patient & Caregiver Registry', registry.registryPage],
+        ['Division of Cannabis Control: Renewing patient registration', registry.renewalPage],
+        ['Division of Cannabis Control: Obtain medical marijuana', registry.obtainPage],
+        ['Ohio Revised Code 3796.08: registration and confidentiality', 'https://codes.ohio.gov/ohio-revised-code/section-3796.08'],
+        ['Ohio Administrative Code 1301:18-10-01: procedure for patient registration', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
       ]} />
       <ImportantInfo />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'The Ohio Medical Marijuana Registry, explained', about: 'Ohio Medical Marijuana Control Program patient registry', audience: 'Patient' }} />

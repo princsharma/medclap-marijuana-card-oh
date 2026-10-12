@@ -19,7 +19,7 @@ export function LaunchGate({ title, children }: { title: string; children: React
   if (!showPending) return null;
   return (
     <aside className={styles.gate} aria-label={`Launch gate: ${title}`}>
-      <span className={styles.gateTitle}>Launch gate — {title}</span>
+      <span className={styles.gateTitle}>Launch gate: {title}</span>
       <span>{children}</span>
     </aside>
   );

@@ -46,8 +46,8 @@ export default function Conditions() {
 
       <Faq items={faq} />
       <Sources checked="13 Oct 2026" items={[
-        ['Ohio Revised Code 3796.01 — qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
-        ['Ohio Administrative Code 4731-32-03 — confirming a prior diagnosis', 'https://codes.ohio.gov/ohio-administrative-code/rule-4731-32-03'],
+        ['Ohio Revised Code 3796.01: qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
+        ['Ohio Administrative Code 4731-32-03: confirming a prior diagnosis', 'https://codes.ohio.gov/ohio-administrative-code/rule-4731-32-03'],
       ]} />
       <ArticleBottom path="/conditions" related={[['How to get a medical marijuana card in Ohio', '/how-it-works'], ['Medical records for your visit', '/guides/medical-records'], ['Check if you qualify', '/eligibility'], ['Ohio medical marijuana card FAQ', '/faq']]} />
       <ImportantInfo />
