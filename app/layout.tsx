@@ -19,13 +19,13 @@ const figtree = localFont({
   variable: '--font-figtree', display: 'swap',
 });
 
-// Staging is never indexed. Flip to index only at go-live (step 19).
-const isProduction = process.env.VERCEL_ENV === 'production';
+// Nothing is indexed until go-live (step 19): set ALLOW_INDEXING=true on the production environment only.
+const allowIndexing = process.env.ALLOW_INDEXING === 'true';
 
 export const metadata: Metadata = {
   title: 'Marijuana Card OH',
   description: 'Real Ohio doctors. Clear answers. Your money back if you don’t qualify.',
-  robots: isProduction ? undefined : { index: false, follow: false },
+  robots: allowIndexing ? undefined : { index: false, follow: false },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
