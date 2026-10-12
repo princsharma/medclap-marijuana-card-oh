@@ -104,7 +104,7 @@
 }
 
 .body {
-  padding-block: var(--space-32) var(--space-64);
+  padding-block: var(--space-40) var(--space-64);
 }
 
 .narrow {
@@ -118,7 +118,7 @@
   }
 
   .body {
-    padding-block: var(--space-40) var(--space-80);
+    padding-block: var(--space-48) var(--space-80);
   }
 }
 
