@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Badge } from './Badge';
 import { FaqItem } from './FaqItem';
-import { brand, medicalReviewer } from '@/brand/site';
+import { author, brand, medicalReviewer } from '@/brand/site';
 import s from './page.module.css';
 
 export function JsonLd({ data }: { data: object }) {
@@ -31,11 +31,14 @@ export function PageHeader({ eyebrow, title, lead, children }: { eyebrow: string
   );
 }
 
-// Shows only after Dr. Miller has actually reviewed the page (date from brand/page-status.json).
-export function ReviewByline({ reviewedOn, author }: { reviewedOn?: string | null; author?: string }) {
+// Bylines appear only after a real sign-off, with the date (from brand/page-status.json).
+// author: only once Carrie L. Gessler has read, edited and approved the page.
+// reviewedOn: only once Dr. Miller has medically reviewed the page.
+export function ReviewByline({ authorApprovedOn, reviewedOn }: { authorApprovedOn?: string | null; reviewedOn?: string | null }) {
+  if (!authorApprovedOn && !reviewedOn) return null;
   return (
     <p className={`${s.byline} type-small`}>
-      {author ? <>Written by {author}. </> : null}
+      {authorApprovedOn ? <>Written by {author.name}, {author.credentials}. </> : null}
       {reviewedOn ? <>Medically reviewed by <Link href={`/doctors/${medicalReviewer.slug}`}>{medicalReviewer.name}, {medicalReviewer.credential}</Link>, Medical Director · Last reviewed {reviewedOn}</> : null}
     </p>
   );

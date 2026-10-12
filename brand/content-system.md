@@ -46,7 +46,7 @@ Fails review if a page:
 
 ## 5. Authors and review
 
-- **Author:** Carrie L. Gessler, RN, MSN, ANP-BC (all guides, condition and city pages).
+- **Author:** Carrie L. Gessler, RN, MSN, ANP-BC (all guides, condition and city pages). Drafts are AI-written; her byline appears **only after she has read, edited and approved the page**, recorded with a date in `brand/page-status.json`. Until then the page has no author byline.
 - **Medical reviewer:** Dr. Johnathan Miller, MD, Medical Director. The byline "Medically reviewed by … · Last reviewed [date]" appears **only after he has reviewed that page**, with the date he did. Until then the page shows no review byline and stays on staging.
 - **Legal reviewer:** the AI legal and compliance reviewer; Prince approves.
 

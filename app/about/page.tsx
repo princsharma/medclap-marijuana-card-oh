@@ -25,7 +25,7 @@ export default function About() {
         </ul>
       </Section>
       <Section title="Who writes our content" id="content">
-        <p>Our guides are written by {author.name}, {author.credentials}. {author.bio} Medical pages are reviewed by Dr. Miller before they carry a review date. <Link href="/editorial-policy">How we write and review</Link>.</p>
+        <p>Our guides are edited and approved by {author.name}, {author.credentials}. {author.bio} A page shows her name only after she has approved it, and a medical review date only after Dr. Miller has reviewed it. <Link href="/editorial-policy">How we write and review</Link>.</p>
       </Section>
       <Section title="Contact" id="contact">
         <p>Email {brand.email}. <Link href="/contact">More ways to reach us</Link>.</p>

@@ -19,7 +19,7 @@ export default function Editorial() {
         <p>We don’t use other card services, dispensary blogs or unsourced articles as sources. Every page lists its sources and the date we checked them.</p>
       </Section>
       <Section title="Who writes and who reviews" id="review">
-        <p>Guides are written by {author.name}, {author.credentials}. Medical pages are reviewed by our Medical Director, Dr. Johnathan Miller, MD. A page shows “Medically reviewed” only after he has reviewed it, with the date he did.</p>
+        <p>We draft pages with the help of AI tools and check every fact against its source. {author.name}, {author.credentials}, edits and approves our guides; a page carries her name only after she has approved it. Medical pages are reviewed by our Medical Director, Dr. Johnathan Miller, MD, and show “Medically reviewed” only after he has reviewed them, with the date he did.</p>
         <p>We describe medical evidence with its limits, and we never say medical marijuana cures a condition.</p>
       </Section>
       <Section title="Keeping pages current" id="updates">

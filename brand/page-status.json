@@ -14,307 +14,358 @@
    "url": "/",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/how-it-works",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/pricing",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/doctors",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/doctors/johnathan-miller",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/doctors/kevin-kargman",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/about",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/editorial-policy",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/refund-policy",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/privacy",
    "wave": 1,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/notice-of-privacy-practices",
    "wave": 1,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/terms",
    "wave": 1,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/telehealth-consent",
    "wave": 1,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/contact",
    "wave": 1,
    "status": "drafted",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/renewals",
    "wave": 2,
-   "status": "planned",
-   "medicallyReviewed": null
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/guides/ohio-medical-marijuana-registry",
    "wave": 2,
-   "status": "planned",
-   "medicallyReviewed": null
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions",
    "wave": 2,
-   "status": "planned",
-   "medicallyReviewed": null
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/eligibility",
    "wave": 2,
-   "status": "planned",
-   "medicallyReviewed": null
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/book",
    "wave": 2,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/faq",
    "wave": 2,
-   "status": "planned",
-   "medicallyReviewed": null
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/guides/what-a-medical-card-means",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/guides/medical-card-vs-adult-use",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/guides/medical-records",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/aids",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/alzheimers-disease",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/als",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/cancer",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/chronic-traumatic-encephalopathy",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/crohns-disease",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/epilepsy-seizure-disorders",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/fibromyalgia",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/glaucoma",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/hepatitis-c",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/inflammatory-bowel-disease",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/multiple-sclerosis",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/chronic-pain",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/parkinsons-disease",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/hiv",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/ptsd",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/sickle-cell-anemia",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/spinal-cord-disease-injury",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/tourette-syndrome",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/traumatic-brain-injury",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/conditions/ulcerative-colitis",
    "wave": 3,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/locations",
    "wave": 4,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/locations/columbus",
    "wave": 4,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/locations/cleveland",
    "wave": 4,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/locations/cincinnati",
    "wave": 4,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/locations/dayton",
    "wave": 4,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/locations/toledo",
    "wave": 4,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   },
   {
    "url": "/locations/akron",
    "wave": 4,
    "status": "planned",
-   "medicallyReviewed": null
+   "medicallyReviewed": null,
+   "authorApproved": null
   }
  ]
 }
