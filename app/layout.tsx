@@ -1,6 +1,10 @@
 import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import './globals.css';
+import { Header } from '@/components/Header';
+import { Footer } from '@/components/Footer';
+import { JsonLd } from '@/components/PageParts';
+import { brand } from '@/brand/site';
 
 // Self-hosted (SIL Open Font License) so no visitor data goes to a font CDN.
 const bricolage = localFont({
@@ -23,7 +27,8 @@ const figtree = localFont({
 const allowIndexing = process.env.ALLOW_INDEXING === 'true';
 
 export const metadata: Metadata = {
-  title: 'Marijuana Card OH',
+  metadataBase: new URL(`https://${brand.domain}`),
+  title: { default: 'Ohio Medical Marijuana Card Online | Marijuana Card OH', template: '%s | Marijuana Card OH' },
   description: 'Real Ohio doctors. Clear answers. Your money back if you don’t qualify.',
   robots: allowIndexing ? undefined : { index: false, follow: false },
 };
@@ -31,7 +36,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${bricolage.variable} ${figtree.variable}`}>
-      <body>{children}</body>
+      <body>
+        <a href="#main" className="skip">Skip to content</a>
+        <Header />
+        <div id="main">{children}</div>
+        <Footer />
+        <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalOrganization', name: brand.name, url: `https://${brand.domain}`, email: brand.email, areaServed: { '@type': 'State', name: 'Ohio' }, medicalSpecialty: 'Telehealth medical marijuana evaluations' }} />
+      </body>
     </html>
   );
 }

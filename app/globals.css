@@ -7,3 +7,4 @@ a { color: var(--color-text-brand); }
 :focus-visible { outline: 3px solid var(--sun-500); outline-offset: 2px; }
 .container { width: 100%; max-width: 1200px; margin-inline: auto; padding-inline: var(--space-xl); }
 @media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+.skip { position: absolute; left: -9999px; } .skip:focus { left: var(--space-lg); top: var(--space-lg); background: var(--color-bg-surface); padding: var(--space-sm) var(--space-lg); z-index: 10; }

@@ -1,0 +1,25 @@
+// Ohio qualifying conditions, worded as in Ohio Revised Code 3796.01(A)(6) (effective 20 Mar 2026). Checked 13 Oct 2026.
+// The State Medical Board can add conditions under ORC 4731.302 — recheck at every content review.
+export const conditions = [
+  { slug: 'aids', name: 'Acquired immune deficiency syndrome (AIDS)' },
+  { slug: 'alzheimers-disease', name: 'Alzheimer’s disease' },
+  { slug: 'als', name: 'Amyotrophic lateral sclerosis (ALS)' },
+  { slug: 'cancer', name: 'Cancer' },
+  { slug: 'chronic-traumatic-encephalopathy', name: 'Chronic traumatic encephalopathy' },
+  { slug: 'crohns-disease', name: 'Crohn’s disease' },
+  { slug: 'epilepsy-seizure-disorders', name: 'Epilepsy or another seizure disorder' },
+  { slug: 'fibromyalgia', name: 'Fibromyalgia' },
+  { slug: 'glaucoma', name: 'Glaucoma' },
+  { slug: 'hepatitis-c', name: 'Hepatitis C' },
+  { slug: 'inflammatory-bowel-disease', name: 'Inflammatory bowel disease' },
+  { slug: 'multiple-sclerosis', name: 'Multiple sclerosis' },
+  { slug: 'chronic-pain', name: 'Pain that is chronic and severe, or intractable' },
+  { slug: 'parkinsons-disease', name: 'Parkinson’s disease' },
+  { slug: 'hiv', name: 'Positive status for HIV' },
+  { slug: 'ptsd', name: 'Post-traumatic stress disorder (PTSD)' },
+  { slug: 'sickle-cell-anemia', name: 'Sickle cell anemia' },
+  { slug: 'spinal-cord-disease-injury', name: 'Spinal cord disease or injury' },
+  { slug: 'tourette-syndrome', name: 'Tourette’s syndrome' },
+  { slug: 'traumatic-brain-injury', name: 'Traumatic brain injury' },
+  { slug: 'ulcerative-colitis', name: 'Ulcerative colitis' },
+] as const;

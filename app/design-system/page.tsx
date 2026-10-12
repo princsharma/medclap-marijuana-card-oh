@@ -1,4 +1,3 @@
-import { Header } from '@/components/Header';
 import { Button } from '@/components/Button';
 import { Badge } from '@/components/Badge';
 import { ImportantInfo } from '@/components/ImportantInfo';
@@ -17,7 +16,6 @@ const doctors = [
 export default function DesignSystem() {
   return (
     <>
-      <Header />
       <main className="container" style={{ display: 'grid', gap: 'var(--space-3xl)', paddingBlock: 'var(--space-3xl)' }}>
         <section style={{ display: 'grid', gap: 'var(--space-lg)' }}>
           <Badge>Design system</Badge>

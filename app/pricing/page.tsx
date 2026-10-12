@@ -1,0 +1,69 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { PriceCard } from '@/components/PriceCard';
+import { ImportantInfo } from '@/components/ImportantInfo';
+import { Breadcrumbs, Faq, JsonLd, PageHeader, Section, Sources } from '@/components/PageParts';
+import { brand, pricing } from '@/brand/site';
+import s from '@/components/page.module.css';
+
+export const metadata: Metadata = {
+  title: 'Ohio Medical Marijuana Card Cost',
+  description: `What an Ohio medical marijuana card costs: $${pricing.newEvaluation} for a new evaluation, $${pricing.renewalEvaluation} to renew, $0 state fee, and a full refund if you don’t qualify.`,
+  alternates: { canonical: '/pricing' },
+};
+
+const faq: [string, string][] = [
+  ['How much is a medical marijuana card in Ohio?', `With us, $${pricing.newEvaluation} for a new evaluation. Ohio’s current registration rule sets no state fee, so that is the total cost of getting registered.`],
+  ['How much does it cost to renew?', `$${pricing.renewalEvaluation} for a renewal evaluation. There is no state renewal fee under the current rule.`],
+  ['Is there a free Ohio medical card?', 'The state registration itself is free. The physician evaluation is not: a licensed physician has to examine you, review your history and check Ohio’s prescription database before recommending.'],
+  ['What if I don’t qualify?', 'We refund your evaluation fee in full, with no deductions and no no-show fee.'],
+  ['Does insurance cover it?', 'We don’t bill insurance. You pay the evaluation fee directly.'],
+];
+
+export default function Pricing() {
+  return (
+    <main className={`container ${s.main}`}>
+      <Breadcrumbs trail={[['Pricing', '/pricing']]} />
+      <PageHeader
+        eyebrow="Pricing"
+        title="What an Ohio medical marijuana card costs"
+        lead={<>${pricing.newEvaluation} for a new card evaluation and ${pricing.renewalEvaluation} to renew. Ohio currently charges no state registration fee, so there is nothing else to pay to get registered. If you don’t qualify, we refund you in full.</>}
+      />
+
+      <section className={s.grid2} aria-label="Prices"><PriceCard type="new" /><PriceCard type="renewal" /></section>
+
+      <Section title="What’s included" id="included">
+        <ul>
+          <li>A telehealth visit with an Ohio-licensed physician who holds a Certificate to Recommend</li>
+          <li>A review of your medical history, medicines and Ohio prescription monitoring report</li>
+          <li>Your recommendation submitted to the Ohio registry right after your visit, if you qualify</li>
+          <li>Reminders before your registration expires</li>
+        </ul>
+        <p>What you buy at a dispensary is separate and paid to the dispensary.</p>
+      </Section>
+
+      <Section title="Why the evaluation isn’t free" id="why">
+        <p>
+          Ohio’s registration is free, but the law only lets a physician with a Certificate to Recommend sign you up, and only after a real exam.
+          Your fee pays for that physician’s time, the checks Ohio requires, and a refund if they find you don’t qualify.
+        </p>
+      </Section>
+
+      <Section title="Refunds" id="refunds">
+        <p>{pricing.guaranteeTerms} <Link href="/refund-policy">Read the refund policy</Link>.</p>
+      </Section>
+
+      <Faq items={faq} />
+
+      <Sources checked="13 Oct 2026" items={[
+        ['Ohio Administrative Code 1301:18-10-01 — patient registration (no fee set)', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
+        ['Division of Cannabis Control — Obtain medical marijuana', 'https://com.ohio.gov/divisions-and-programs/cannabis-control/patients-caregivers/obtain-medical-marijuana'],
+        ['Ohio Revised Code 4731.30 — who may recommend', 'https://codes.ohio.gov/ohio-revised-code/section-4731.30'],
+      ]} />
+
+      <ImportantInfo />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Service', name: 'Ohio medical marijuana card evaluation', provider: { '@type': 'MedicalOrganization', name: brand.name }, areaServed: 'Ohio',
+        offers: [{ '@type': 'Offer', name: 'New patient evaluation', price: pricing.newEvaluation, priceCurrency: 'USD' }, { '@type': 'Offer', name: 'Renewal evaluation', price: pricing.renewalEvaluation, priceCurrency: 'USD' }] }} />
+    </main>
+  );
+}
