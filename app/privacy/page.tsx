@@ -11,20 +11,21 @@ export const metadata: Metadata = {
   alternates: { canonical: PATH },
 };
 
-const contact = <><Tbc v={legal.privacyContactEmail} label="privacy email" /> or {brand.email}</>;
+const contact = <>{legal.privacyContactEmail ?? brand.email}</>;
 
 const sections: LegalSection[] = [
   { id: 'who', title: 'Who we are and what this policy covers', body: <>
-    <p>{brand.name} ({brand.domain}) is operated by <Tbc v={legal.company} label="company legal name" />. We help Ohio adults book a telehealth evaluation with independent, Ohio-licensed physicians who hold a Certificate to Recommend medical marijuana.</p>
+    <p>{brand.name} ({brand.domain}) is operated by {legal.company}, {legal.companyAddress}. We help Ohio adults book a telehealth evaluation with independent, Ohio-licensed physicians who hold a Certificate to Recommend medical marijuana.</p>
     <p>This policy covers our website and the non-medical information we handle, such as your contact details, booking and payment. Health information you give your physician for your visit is protected health information. How it is used and shared is described in the <Link href="/notice-of-privacy-practices">Notice of Privacy Practices</Link>, which takes priority over this policy for that information.</p>
   </> },
   { id: 'collect', title: 'Information we collect', body: <>
     <ul>
       <li><strong>Details you give us:</strong> your name, email, phone number, date of birth and address when you book, and anything you write to us.</li>
       <li><strong>Health information for your visit:</strong> your medical history, records, medicines and qualifying condition. This goes to your physician and is covered by the Notice of Privacy Practices.</li>
-      <li><strong>Payment details:</strong> handled by our payment processor, <Tbc v={legal.paymentProcessor} label="payment processor" />. We don’t store full card numbers.</li>
+      <li><strong>Payment details:</strong> handled by our payment processor, {legal.paymentProcessor}. We don’t store full card numbers.</li>
       <li><strong>Email sign-ups:</strong> if you ask for our free checklist or a link to finish the sign-up form later, your email address and your consent, so we can send it and occasional updates. We don’t record which page you were reading. Unsubscribe anytime with the link in any email.</li>
-      <li><strong>Help Center questions and contact forms:</strong> the questions you type into Instant AI Help and the messages you send through our contact forms. Please don’t include health details in them.</li>
+      <li><strong>Help Center questions, chat and contact forms:</strong> the questions you type into Instant AI Help, messages you send through our chat (part of our own EHR system) and our contact forms. Please don’t include health details in them.</li>
+      <li><strong>Usage information:</strong> pages you visit, clicks and scrolling, the site that sent you, and your device, collected through the tools described under “Cookies, analytics and tracking”.</li>
       <li><strong>Technical information:</strong> your browser, device and IP address, collected by our hosting provider ({legal.hosting}) to deliver and secure the website.</li>
     </ul>
     <p>Some tools on our website work only in your browser and send nothing to us: the eligibility check, and the location you share with the dispensary locator to sort results by distance.</p>
@@ -39,17 +40,24 @@ const sections: LegalSection[] = [
   </ul> },
   { id: 'share', title: 'How we share your information', body: <>
     <ul>
-      <li><strong>With your physician and their medical practice,</strong> <Tbc v={legal.practice} label="medical practice name" />, so they can evaluate you.</li>
+      <li><strong>With your physician,</strong> an independent, Ohio-licensed physician who makes their own medical decisions, so they can evaluate you.</li>
       <li><strong>With the State of Ohio:</strong> if you qualify, your physician submits your recommendation and registration to the Ohio Medical Marijuana Control Program’s patient registry, as Ohio law requires.</li>
-      <li><strong>With service providers</strong> who work for us under contract and only for the purposes above: booking (<Tbc v={legal.bookingTool} label="booking tool" />), video visits (<Tbc v={legal.videoPlatform} label="video platform" />), payments (<Tbc v={legal.paymentProcessor} label="payment processor" />), email (<Tbc v={legal.emailProvider} label="email provider" />) and website hosting ({legal.hosting}). Providers that handle health information sign a business associate agreement.</li>
+      <li><strong>With service providers</strong> who work for us under contract and only for the purposes above: booking (<Tbc v={legal.bookingTool} label="booking tool" />), video visits (<Tbc v={legal.videoPlatform} label="video platform" />), payments ({legal.paymentProcessor}), email (<Tbc v={legal.emailProvider} label="email provider" />) and website hosting ({legal.hosting}). Providers that handle health information sign a business associate agreement.</li>
       <li><strong>When the law requires it,</strong> or to protect someone’s safety, our rights or the rights of others.</li>
       <li><strong>If our business changes hands,</strong> with the new owner, who must protect your information as this policy describes.</li>
     </ul>
     <p>We don’t sell your personal information, and we don’t use or share your health information for advertising.</p>
   </> },
   { id: 'cookies', title: 'Cookies, analytics and tracking', body: <>
-    <p>Our website currently sets no advertising or analytics cookies. {legal.analytics ? <>We use {legal.analytics} to measure site traffic. </> : null}If we add or change an analytics tool, we will update this policy first, and we will not place advertising pixels or third-party tracking on pages where you book, pay or share health information.</p>
-    <p>Your browser lets you block or delete cookies. Blocking essential cookies may stop booking from working.</p>
+    <p>We use these tools, which set cookies or similar technologies, to understand how our website is used and to measure our advertising:</p>
+    <ul>
+      <li><strong>Google Tag Manager and Google Analytics</strong> (Google): which pages are visited, how visitors arrived, their device and approximate location.</li>
+      <li><strong>Microsoft Clarity</strong> (Microsoft): how visitors click and scroll, including recordings of page sessions. Text you type into forms is masked and not recorded.</li>
+      <li><strong>Meta Pixel</strong> (Meta): to measure and improve our ads on Facebook and Instagram.</li>
+      <li><strong>Google Search Console</strong> (Google): reports on how our site appears in Google search. It sets no cookies on our website.</li>
+    </ul>
+    <p>We don’t load Google Analytics, Clarity or the Meta Pixel on pages where you answer health questions, book or pay, or on pages about specific medical conditions, and we don’t send them your health information. We don’t sell your personal information or use your health information for advertising.</p>
+    <p>Your choices: block or delete cookies in your browser settings; opt out of Google Analytics with Google’s <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer">browser add-on</a>; and control ads from Meta in your <a href="https://www.facebook.com/adpreferences" target="_blank" rel="noopener noreferrer">Facebook ad preferences</a>. Blocking essential cookies may stop booking from working.</p>
   </> },
   { id: 'rights', title: 'Your choices and rights', body: <>
     <ul>
@@ -66,7 +74,7 @@ const sections: LegalSection[] = [
   </> },
   { id: 'eligibility', title: 'Adults in Ohio only', body: <p>Our service is for adults aged 18 or older in Ohio. We don’t knowingly collect information from anyone under 18. If you think we have, contact us and we will delete it.</p> },
   { id: 'changes', title: 'Changes to this policy', body: <p>We will post any change on this page with a new date. If a change materially affects how we use information we already hold, we will tell you before it takes effect.</p> },
-  { id: 'contact', title: 'Contact us', body: <p>Questions about privacy: {contact}. Mail: <Tbc v={legal.company} label="company legal name" />, <Tbc v={legal.companyAddress} label="mailing address" />.</p> },
+  { id: 'contact', title: 'Contact us', body: <p>Questions about privacy: {contact}. Mail: {legal.company}, {legal.companyAddress}.</p> },
 ];
 
 export default function Privacy() {

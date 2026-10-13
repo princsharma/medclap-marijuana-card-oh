@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   alternates: { canonical: PATH },
 };
 
-const officer = <><Tbc v={legal.privacyContactEmail} label="privacy officer email" />, <Tbc v={legal.privacyContactPhone} label="privacy officer phone" />, <Tbc v={legal.practiceAddress} label="practice mailing address" /></>;
+const officer = <>{legal.privacyContactEmail}, <Tbc v={legal.privacyContactPhone} label="privacy officer phone" />, {legal.company}, {legal.companyAddress}</>;
 
 const sections: LegalSection[] = [
   { id: 'rights', title: 'Your rights', body: <>
@@ -37,7 +37,7 @@ const sections: LegalSection[] = [
       <li><strong>To treat you.</strong> Your physician reviews your history, records and medicines, checks the Ohio Automated Rx Reporting System (OARRS), as Ohio rules require before a recommendation, and may share information with other professionals treating you.</li>
       <li><strong>To submit your registration to the State of Ohio.</strong> If you qualify, your physician submits your recommendation and registration to the Ohio Medical Marijuana Control Program’s patient registry. Ohio law requires this, and registry information that identifies you is confidential under Ohio law.</li>
       <li><strong>To bill you.</strong> We use your information to take payment for your visit and to process refunds.</li>
-      <li><strong>To run our practice.</strong> For example, to schedule visits, train staff, improve quality and meet our legal duties. Service providers who help us do this sign a business associate agreement and must protect your information.</li>
+      <li><strong>To run the service.</strong> For example, to schedule visits, train staff, improve quality and meet our legal duties. Service providers who help us do this sign a business associate agreement and must protect your information.</li>
     </ul>
     <p>We are also allowed or required to share your information in other ways, usually for the public good, and only when the law’s conditions are met:</p>
     <ul>
@@ -57,7 +57,7 @@ const sections: LegalSection[] = [
   </ul> },
   { id: 'changes', title: 'Changes to this notice', body: <p>We can change the terms of this notice, and the changes will apply to all information we have about you. The new notice will be on this page, and we will give you a copy on request.</p> },
   { id: 'contact', title: 'Contact our privacy officer', body: <>
-    <p>This notice is given by <Tbc v={legal.practice} label="medical practice legal name" />, the medical practice through which our physicians see you. {brand.name}, operated by <Tbc v={legal.company} label="company legal name" />, handles booking and support for the practice as its business associate.</p>
+    <p>This notice is given on behalf of the independent, Ohio-licensed physicians who see patients through {brand.name}. Each physician is responsible for the medical record of the visits they provide. {brand.name} runs booking, the records system and support for these physicians as their business associate, and must protect your information as this notice describes.</p>
     <p>Privacy officer: {officer}.</p>
     <p>For how we handle non-medical information on our website, see our <Link href="/privacy">privacy policy</Link>.</p>
   </> },
@@ -65,6 +65,6 @@ const sections: LegalSection[] = [
 
 export default function Npp() {
   return <LegalDoc path={PATH} eyebrow="Notice of privacy practices" title="Notice of privacy practices" sections={sections}
-    lead="Your rights to your medical information, and how your physician’s practice may use and share it."
+    lead="Your rights to your medical information, and how your physician may use and share it."
     preface={<p className={l.caps} style={{ maxWidth: '48rem' }}>This notice describes how medical information about you may be used and disclosed and how you can get access to this information. Please review it carefully.</p>} />;
 }
