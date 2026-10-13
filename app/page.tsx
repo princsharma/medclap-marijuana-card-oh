@@ -64,8 +64,8 @@ export default function Home() {
           <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
             '@context': 'https://schema.org', '@type': 'VideoObject',
             name: storyVideo.title, description: storyVideo.description,
-            thumbnailUrl: `https://${brand.domain}${storyVideo.poster}`,
-            contentUrl: `https://${brand.domain}${storyVideo.src}`,
+            thumbnailUrl: new URL(storyVideo.poster, `https://${brand.domain}`).href,
+            contentUrl: new URL(storyVideo.src, `https://${brand.domain}`).href,
             uploadDate: storyVideo.uploadDate, duration: storyVideo.durationIso,
             transcript: storyVideo.transcript.join(' '),
           }) }} />

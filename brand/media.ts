@@ -1,11 +1,12 @@
 // Homepage story video. Files live in /public/media. Keep `ready` false until
 // the MP4, poster and captions are committed, so the section never renders a broken player.
 export const storyVideo = {
-  ready: false,
+  ready: true,
   title: 'How Maya got her Ohio medical marijuana card',
   description: 'A one-minute animated story: an Ohio adult answers a few questions, gathers her records, sees an Ohio physician by video, and activates her registration.',
-  src: '/media/maya-story.mp4',
-  poster: '/media/maya-story-poster.jpg',
+  // Hosted on the Higgsfield CDN for now; swap to /media/maya-story.mp4 once the file is committed.
+  src: 'https://d2ol7oe51mr4n9.cloudfront.net/user_37xuX69L5la49WcVV6KjtPSFDAb/fbf11b35-9eb4-4ad6-9d15-1b85f5c2b468.mp4',
+  poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_37xuX69L5la49WcVV6KjtPSFDAb/7051293b-5302-4663-bf88-2545ed116e09.jpg',
   captions: '/media/maya-story.vtt',
   durationIso: 'PT1M',
   uploadDate: '2026-10-13',
