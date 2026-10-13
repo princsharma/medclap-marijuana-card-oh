@@ -26,7 +26,7 @@ export default function Conditions() {
       <Breadcrumbs trail={[['Qualifying conditions', '/conditions']]} />
       <PageHeader eyebrow="Qualifying conditions" title="Qualifying conditions for a medical card in Ohio"
         lead="Ohio law lists 21 qualifying conditions. To get a card you need a diagnosis of at least one, which your physician makes or confirms during your visit.">
-        <Button href="/eligibility">Check if you qualify</Button>
+        <Button href="/get-started">Check if you qualify</Button>
       </PageHeader>
       <ArticleTop path="/conditions" title="Qualifying conditions for a medical card in Ohio" updated="2026-10-13" readMinutes={2} />
 
@@ -49,7 +49,7 @@ export default function Conditions() {
         ['Ohio Revised Code 3796.01: qualifying medical conditions', 'https://codes.ohio.gov/ohio-revised-code/section-3796.01'],
         ['Ohio Administrative Code 4731-32-03: confirming a prior diagnosis', 'https://codes.ohio.gov/ohio-administrative-code/rule-4731-32-03'],
       ]} />
-      <ArticleBottom path="/conditions" related={[['How to get a medical marijuana card in Ohio', '/how-it-works'], ['Medical records for your visit', '/guides/medical-records'], ['Check if you qualify', '/eligibility'], ['Ohio medical marijuana card FAQ', '/faq']]} />
+      <ArticleBottom path="/conditions" related={[['How to get a medical marijuana card in Ohio', '/how-it-works'], ['Medical records for your visit', '/guides/medical-records'], ['Check if you qualify', '/get-started'], ['Ohio medical marijuana card FAQ', '/faq']]} />
       <ImportantInfo />
     </main>
   );

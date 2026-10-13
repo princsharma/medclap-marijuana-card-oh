@@ -28,7 +28,7 @@ export default function Renewals() {
       <Breadcrumbs trail={[['Renewals', '/renewals']]} />
       <PageHeader eyebrow="Renewals" title="Renew your Ohio medical marijuana card"
         lead={<>Renewal is two steps: a new recommendation from your Ohio physician, then a click on Renew Card in the state registry. With us the visit is by video and costs ${pricing.renewalEvaluation}. Ohio charges no renewal fee.</>}>
-        <Button href="/book?type=renewal">Book your renewal</Button>
+        <Button href="/get-started?type=renewal">Book your renewal</Button>
       </PageHeader>
 
       <Section title="Step 1: get a new recommendation" id="step1">

@@ -45,7 +45,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
       <Breadcrumbs trail={[['Locations', '/locations'], [c.name, path]]} />
       <PageHeader eyebrow={`${c.name}, ${c.county}`} title={title}
         lead={<>See an Ohio-licensed physician by video from home in {c.name}. It’s ${pricing.newEvaluation} for a new evaluation, the same as everywhere in Ohio, and you get a full refund if you don’t qualify.</>}>
-        <Button href="/eligibility">Check if you qualify</Button>
+        <Button href="/get-started">Check if you qualify</Button>
       </PageHeader>
       <ReviewByline />
       <ArticleTop path={path} title={title} updated="2026-10-13" readMinutes={3} />
@@ -74,7 +74,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
       <Section title={`How your visit works from ${c.name}`} id="how">
         <ol>
-          <li><Link href="/eligibility">Check if you qualify</Link> and book a time with one of our physicians.</li>
+          <li><Link href="/get-started">Answer a few questions</Link> and book a time with one of our physicians.</li>
           <li>Join your video visit from home on a phone or computer. Your physician reviews your history and records and checks Ohio’s prescription monitoring report.</li>
           <li>If you qualify, your physician submits your recommendation to the state registry right after your visit. You activate it by email and download your card. <Link href="/guides/ohio-medical-marijuana-registry">Registry guide</Link>.</li>
         </ol>

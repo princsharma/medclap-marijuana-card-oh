@@ -37,7 +37,7 @@ export default function Home() {
             If you don’t qualify, we refund you in full.
           </p>
           <div className={s.actions}>
-            <Button href="/eligibility">Check if you qualify</Button>
+            <Button href="/get-started">Check if you qualify</Button>
             <Button href="/doctors" variant="accent">See our doctors</Button>
           </div>
           <p className="type-small" style={{ color: 'var(--color-text-secondary)' }}>

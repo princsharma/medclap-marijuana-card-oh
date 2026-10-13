@@ -53,7 +53,7 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
       <Breadcrumbs trail={[['Qualifying conditions', '/conditions'], [c.name, `/conditions/${c.slug}`]]} />
       <PageHeader eyebrow="Qualifying condition" title={`Medical marijuana for ${c.short} in Ohio`}
         lead={<>“{c.name}” is one of Ohio’s 21 qualifying conditions for a medical marijuana card. An Ohio physician confirms your diagnosis and decides whether you qualify.</>}>
-        <Button href="/eligibility">Check if you qualify</Button>
+        <Button href={`/get-started?condition=${c.slug}`}>Check if you qualify</Button>
       </PageHeader>
       <ReviewByline />
       <ArticleTop path={`/conditions/${c.slug}`} title={`Medical marijuana for ${c.short} in Ohio`} updated="2026-10-13" readMinutes={readMinutes([...c.evidence, ...c.records, ...SAFETY])} />

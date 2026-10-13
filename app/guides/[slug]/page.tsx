@@ -28,7 +28,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <ShareArticle path={`/guides/${g.slug}`} />
       <KeyTakeaways items={g.keyTakeaways} />
       <article className={`${s.section} ${s.prose} type-body`}><Body lines={g.body} /></article>
-      <div><Button href="/eligibility">Check if you qualify</Button></div>
+      <div><Button href="/get-started">Check if you qualify</Button></div>
       <ArticleEnd relatedTitle="Related guides" related={relatedGuides(`/guides/${g.slug}`)} />
       <Faq items={g.faq} />
       <Sources checked={g.checked} items={g.sources} />

@@ -39,7 +39,7 @@ export default async function DoctorProfile({ params }: { params: Promise<{ slug
           <p>As Medical Director, Dr. Miller interviews the physicians who see our patients and medically reviews the information on this site. Each page he reviews shows the date of his review.</p>
         </Section>
       ) : null}
-      <div><Button href="/book">Book a visit</Button></div>
+      <div><Button href="/get-started">Book a visit</Button></div>
       <ImportantInfo />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Physician', name: `${p.name}, ${p.credential}`, identifier: { '@type': 'PropertyValue', propertyID: 'NPI', value: p.npi },
         memberOf: { '@type': 'MedicalOrganization', name: brand.name }, areaServed: 'Ohio', url: `https://${brand.domain}/doctors/${p.slug}` }} />

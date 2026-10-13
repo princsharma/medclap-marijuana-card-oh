@@ -17,14 +17,14 @@ export function Header() {
         </Link>
         <nav aria-label="Main" className={`${s.nav} ${s.navDesktop}`}>
           {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
-          <Button href="/eligibility">Check if you qualify</Button>
+          <Button href="/get-started">Check if you qualify</Button>
         </nav>
         {/* Phones: a native disclosure, so the menu works without JavaScript. */}
         <details className={s.navMobile}>
           <summary aria-label="Menu">Menu</summary>
           <nav aria-label="Main mobile" className={s.mobilePanel}>
             {links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}
-            <Button href="/eligibility" full>Check if you qualify</Button>
+            <Button href="/get-started" full>Check if you qualify</Button>
           </nav>
         </details>
       </div>

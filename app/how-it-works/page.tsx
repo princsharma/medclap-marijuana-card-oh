@@ -30,7 +30,7 @@ export default function HowItWorks() {
         title="How to get a medical marijuana card in Ohio"
         lead={<>See an Ohio physician who holds a Certificate to Recommend, by telehealth or in person. If you have a qualifying condition, the physician submits your registration to the state and you activate it by email. With us, the visit is by video and costs ${pricing.newEvaluation}; Ohio charges no state fee.</>}
       >
-        <Button href="/eligibility">Check if you qualify</Button>
+        <Button href="/get-started">Check if you qualify</Button>
       </PageHeader>
       <ArticleTop path="/how-it-works" title="How to get a medical marijuana card in Ohio" updated="2026-10-13" readMinutes={3} />
 

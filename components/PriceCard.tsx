@@ -3,8 +3,8 @@ import s from './ui.module.css';
 
 type Props = { type: 'new' | 'renewal' };
 const data = {
-  new: { label: 'New patient evaluation', price: '$149', cta: 'Book your evaluation', href: '/book' },
-  renewal: { label: 'Renewal evaluation', price: '$129', cta: 'Book your renewal', href: '/book?type=renewal' },
+  new: { label: 'New patient evaluation', price: '$149', cta: 'Book your evaluation', href: '/get-started?type=new' },
+  renewal: { label: 'Renewal evaluation', price: '$129', cta: 'Book your renewal', href: '/get-started?type=renewal' },
 };
 
 // The guarantee line must stay beside the price (16 CFR 239.3).

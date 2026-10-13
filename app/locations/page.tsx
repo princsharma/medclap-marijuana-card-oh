@@ -34,7 +34,7 @@ export default function Locations() {
       <Breadcrumbs trail={[['Locations', PATH]]} />
       <PageHeader eyebrow="Locations" title={TITLE}
         lead={<>{brand.name} is a statewide telehealth service. Wherever you live in Ohio, you see the same Ohio-licensed physicians by video, pay the same ${pricing.newEvaluation}, and get a full refund if you don’t qualify.</>}>
-        <Button href="/eligibility">Check if you qualify</Button>
+        <Button href="/get-started">Check if you qualify</Button>
       </PageHeader>
       <ArticleTop path={PATH} title={TITLE} updated="2026-10-13" readMinutes={3} />
       <ShareArticle path={PATH} />
@@ -48,7 +48,7 @@ export default function Locations() {
 
       <Section title="How it works from anywhere in Ohio" id="how">
         <ol>
-          <li><Link href="/eligibility">Check if you qualify</Link> and book a time with one of our physicians.</li>
+          <li><Link href="/get-started">Answer a few questions</Link> and book a time with one of our physicians.</li>
           <li>Join your video visit from home. Your physician reviews your history and records and checks Ohio’s prescription monitoring report.</li>
           <li>If you qualify, your physician submits your recommendation to the state registry right after your visit, and you activate it by email.</li>
         </ol>

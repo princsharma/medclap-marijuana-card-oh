@@ -25,7 +25,7 @@ export function Checker() {
     if (age === 'no') result = <><h2 className="type-h3">We can’t see patients under 18</h2><p>Ohio patients under 18 need a parent’s consent and a registered caregiver. We see adults only. An Ohio physician who treats children can help.</p></>;
     else if (ohio === 'no') result = <><h2 className="type-h3">Ohio residents only</h2><p>Ohio’s registry is for Ohio residents with a valid photo ID. If you’re moving to Ohio, come back once you have an Ohio address.</p></>;
     else if (condition === 'none') result = <><h2 className="type-h3">Your condition may not be on Ohio’s list</h2><p>Ohio only allows the 21 listed conditions. If you also have one of them, such as chronic and severe pain or PTSD, a physician can evaluate you for it. <Link href="/conditions">See the list</Link>.</p></>;
-    else result = <><h2 className="type-h3">{condition === 'unsure' ? 'A physician can help you find out' : 'You may qualify'}</h2><p>Book a telehealth visit and your Ohio physician will decide. Have your photo ID and any medical records ready. If you don’t qualify, we refund your fee in full.</p><div><Button href="/book">Book your evaluation</Button></div></>;
+    else result = <><h2 className="type-h3">{condition === 'unsure' ? 'A physician can help you find out' : 'You may qualify'}</h2><p>Book a telehealth visit and your Ohio physician will decide. Have your photo ID and any medical records ready. If you don’t qualify, we refund your fee in full.</p><div><Button href={condition && condition !== 'unsure' ? `/get-started?condition=${condition}` : '/get-started'}>Book your evaluation</Button></div></>;
   }
 
   return (
