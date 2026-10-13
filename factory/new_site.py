@@ -19,7 +19,7 @@ SRC = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SKIP_DIRS = {'.git', 'node_modules', '.next', 'qa-shots', '.cache'}
 # Source-brand assets that must never be carried over (regenerated per site).
 DROP = ['public/doctors', 'public/infographics', 'public/guides', 'public/media', 'public/data', 'brand/logo',
-        'brand/keyword-map.csv', 'content/dispensaries.json', 'content/infographic-sizes.json', 'qa/fingerprint.json.gz']
+        'brand/keyword-map.csv', 'content/posts', 'content/dispensaries.json', 'content/infographic-sizes.json', 'qa/fingerprint.json.gz']
 TEXT_EXT = ('.ts', '.tsx', '.md', '.json', '.mjs', '.css', '.csv', '.txt', '.py')
 
 
@@ -39,7 +39,7 @@ def main():
                 continue
             os.makedirs(os.path.join(dst, rel), exist_ok=True)
             shutil.copy2(os.path.join(SRC, r), os.path.join(dst, r))
-    for d in ['public/doctors', 'public/infographics', 'public/guides', 'public/media', 'public/data', 'brand/logo', 'qa/siblings']:
+    for d in ['public/doctors', 'public/infographics', 'public/guides', 'public/media', 'public/data', 'brand/logo', 'qa/siblings', 'content/posts']:
         os.makedirs(os.path.join(dst, d), exist_ok=True)
 
     keep = {k.strip().lower() for k in a.keep.split(',') if k.strip()}

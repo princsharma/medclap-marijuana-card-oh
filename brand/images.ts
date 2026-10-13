@@ -1,6 +1,8 @@
 // Site illustrations (content-system §9). All generated in Higgsfield in the
 // "Maya's card" style: our own card design, never the state card; no AI people
 // presented as real doctors or patients; no text inside images.
+import { posts } from '@/content/blog';
+
 export type SiteImage = { src: string; alt: string; w: number; h: number };
 
 const CDN = 'https://d8j0ntlcm91z4.cloudfront.net/user_37xuX69L5la49WcVV6KjtPSFDAb/hf_20261013_';
@@ -19,7 +21,6 @@ export const IMG = {
   conditions: std('105502_e845de3e-ee27-4bce-8c71-ba0267e35659', 'Illustration of a folder of medical records with a stethoscope and a phone photo of a page'),
   locations: std('105634_e0fd673c-9d3b-487f-8cf4-0c0a2dbcec68', 'Illustration of a countryside map with towns marked by map pins'),
   faq: std('105633_4ab1bd63-c334-4596-9c48-79aea0502bae', 'Illustration of a woman thinking, with speech bubbles showing a question mark, a light bulb and a check mark'),
-  blogTelehealthLaw: wide('105500_a0fb3b21-17dc-42fa-a465-958db2580117', 'Illustration of a laptop video visit on a desk beside a balance scale and a law book'),
   guideCardMeans: wide('105633_ec388438-4da2-4d90-8e39-b1d28bd7a9e1', 'Illustration of a medical card linked to icons for work, driving, housing and the law'),
   guideMedVsAdult: wide('105634_64cc9e68-2f7a-4a1b-84f0-ef9d842225e1', 'Illustration of a woman at a fork in a path choosing between a medical card sign and a shopping bag sign'),
   guideRecords: wide('105635_4d5a2b4e-2377-4e48-b780-d940e9c9576c', 'Illustration of a desk with a folder of medical records and a phone photographing a page'),
@@ -35,9 +36,8 @@ export const guideImage: Record<string, SiteImage> = {
   'medical-card-vs-adult-use': IMG.guideMedVsAdult,
   'medical-records': IMG.guideRecords,
 };
-export const postImage: Record<string, SiteImage> = {
-  'ohio-medical-marijuana-telehealth-law': IMG.blogTelehealthLaw,
-};
+// Post images live in each post's JSON (content/posts/<slug>.json).
+export const postImage: Record<string, SiteImage> = Object.fromEntries(posts.filter((p) => p.image).map((p) => [p.slug, p.image!]));
 export const cityImage: Record<string, SiteImage> = {
   columbus: IMG.cityColumbus,
   cleveland: IMG.cityCleveland,
