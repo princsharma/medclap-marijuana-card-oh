@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { ImportantInfo } from '@/components/ImportantInfo';
-import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
+import { Breadcrumbs, PageHeader, Section, JsonLd } from '@/components/PageParts';
 import { author, brand } from '@/brand/site';
 import s from '@/components/page.module.css';
+import { pageNode, ORG } from '@/lib/schema';
 
 export const metadata: Metadata = { title: 'About Our Ohio Telehealth Service', description: 'Marijuana Card OH is an Ohio-only telehealth service that connects adults with Ohio-licensed physicians for medical marijuana evaluations.', alternates: { canonical: '/about' } };
 
@@ -32,6 +33,7 @@ export default function About() {
         <p>Email {brand.email}. <Link href="/contact">More ways to reach us</Link>.</p>
       </Section>
       <ImportantInfo />
+      <JsonLd data={pageNode({ type: 'AboutPage', path: '/about', name: 'About Marijuana Card OH', description: metadata.description as string, image: IMG.about.src, about: ORG, mainEntity: ORG })} />
     </main>
   );
 }

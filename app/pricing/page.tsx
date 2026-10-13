@@ -7,6 +7,7 @@ import { ArticleBottom, ArticleTop } from '@/components/ArticleExtras';
 import { Breadcrumbs, Faq, JsonLd, PageHeader, Section, Sources } from '@/components/PageParts';
 import { brand, pricing } from '@/brand/site';
 import s from '@/components/page.module.css';
+import { ORG, BASE, abs } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Ohio Medical Marijuana Card Cost',
@@ -75,8 +76,11 @@ export default function Pricing() {
 
       <ArticleBottom path="/pricing" related={[['How to get a medical marijuana card in Ohio', '/how-it-works'], ['Renew your Ohio medical marijuana card', '/renewals'], ['Medical card or adult-use? What’s different in Ohio', '/guides/medical-card-vs-adult-use'], ['Refund policy', '/refund-policy']]} />
       <ImportantInfo />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Service', name: 'Ohio medical marijuana card evaluation', provider: { '@type': 'MedicalOrganization', name: brand.name }, areaServed: 'Ohio',
-        offers: [{ '@type': 'Offer', name: 'New patient evaluation', price: pricing.newEvaluation, priceCurrency: 'USD' }, { '@type': 'Offer', name: 'Renewal evaluation', price: pricing.renewalEvaluation, priceCurrency: 'USD' }] }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Service', '@id': `${BASE}/pricing#service`, name: 'Ohio medical marijuana card evaluation', serviceType: 'Telehealth medical evaluation', provider: ORG, areaServed: { '@type': 'State', name: 'Ohio' },
+        description: `Telehealth evaluation with an Ohio-licensed physician for a medical marijuana recommendation. ${pricing.guaranteeTerms}`,
+        offers: [
+          { '@type': 'Offer', name: 'New patient evaluation', price: pricing.newEvaluation, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: abs('/get-started'), areaServed: { '@type': 'State', name: 'Ohio' } },
+          { '@type': 'Offer', name: 'Renewal evaluation', price: pricing.renewalEvaluation, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: abs('/get-started'), areaServed: { '@type': 'State', name: 'Ohio' } }] }} />
     </main>
   );
 }

@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import { IMG } from '@/brand/images';
-import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
+import { Breadcrumbs, PageHeader, Section, JsonLd } from '@/components/PageParts';
 import { brand, pricing } from '@/brand/site';
 import s from '@/components/page.module.css';
+import { pageNode } from '@/lib/schema';
 
 export const metadata: Metadata = { title: 'Refund Policy', description: 'Our 100% money-back guarantee: if your Ohio physician finds you don’t qualify for a medical marijuana recommendation, we refund your evaluation fee in full.', alternates: { canonical: '/refund-policy' } };
 
@@ -24,6 +25,7 @@ export default function Refund() {
         <p>The guarantee covers our evaluation fee. Ohio currently charges no state registration fee. Purchases at dispensaries are not part of our service.</p>
       </Section>
       <p className="type-small" style={{ color: 'var(--color-text-secondary)' }}>Last updated 13 October 2026.</p>
+      <JsonLd data={pageNode({ path: '/refund-policy', name: 'Refund policy', description: metadata.description as string, image: IMG.pricing.src })} />
     </main>
   );
 }

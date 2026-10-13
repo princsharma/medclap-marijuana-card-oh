@@ -12,6 +12,7 @@ import { siteUrl } from '@/lib/site';
 import { postImage } from '@/brand/images';
 import s from '@/components/page.module.css';
 import h from '@/components/help/help.module.css';
+import { ORG, BASE, authorRef, reviewerRef } from '@/lib/schema';
 
 export function generateStaticParams() { return posts.map((p) => ({ slug: p.slug })); }
 
@@ -73,10 +74,12 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
       </article>
       <Sources checked={fmt(p.updated ?? p.published)} items={p.sources} />
       <ImportantInfo />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Article', headline: p.title, description: p.description, datePublished: p.published, dateModified: p.updated ?? p.published,
-        publisher: { '@type': 'MedicalOrganization', name: brand.name }, mainEntityOfPage: url,
-        ...(p.authorApprovedOn ? { author: { '@type': 'Person', name: `${author.name}, ${author.credentials}` } } : {}),
-        ...(p.medicallyReviewedOn ? { reviewedBy: { '@type': 'Person', name: `${medicalReviewer.name}, ${medicalReviewer.credential}` } } : {}) }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BlogPosting', '@id': `${url}#article`, headline: p.title, description: p.description, datePublished: p.published, dateModified: p.updated ?? p.published,
+        inLanguage: 'en-US', publisher: ORG, isPartOf: { '@id': `${BASE}/#website` }, mainEntityOfPage: url,
+        ...(postImage[p.slug] ? { image: { '@type': 'ImageObject', url: postImage[p.slug].src, width: postImage[p.slug].w, height: postImage[p.slug].h } } : {}),
+        // Author is the approving nurse practitioner only once she has approved it; until then the organization.
+        author: p.authorApprovedOn ? authorRef() : ORG,
+        ...(p.medicallyReviewedOn ? { reviewedBy: reviewerRef() } : {}) }} />
     </main>
   );
 }

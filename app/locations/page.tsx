@@ -11,6 +11,7 @@ import { brand, physicians, pricing } from '@/brand/site';
 import { cities, DISPENSARY_LIST, DISPENSARY_MAP, ohioFigures as f } from '@/content/locations';
 import s from '@/components/page.module.css';
 import u from '@/components/ui.module.css';
+import { ORG, BASE } from '@/lib/schema';
 
 const PATH = '/locations';
 const TITLE = 'Ohio medical marijuana cards, wherever you live in Ohio';
@@ -117,7 +118,7 @@ export default function Locations() {
       ]} />
       <ImportantInfo />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: TITLE, url: `https://${brand.domain}${PATH}`,
-        about: { '@type': 'Service', name: 'Ohio medical marijuana card evaluation by telehealth', provider: { '@type': 'MedicalOrganization', name: brand.name }, areaServed: { '@type': 'State', name: 'Ohio' } } }} />
+        about: { '@type': 'Service', name: 'Ohio medical marijuana card evaluation by telehealth', provider: ORG, areaServed: { '@type': 'State', name: 'Ohio' } }, '@id': `${BASE}${PATH}#webpage`, isPartOf: { '@id': `${BASE}/#website` }, inLanguage: 'en-US' }} />
     </main>
   );
 }

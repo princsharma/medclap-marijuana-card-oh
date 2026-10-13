@@ -11,6 +11,7 @@ import { conditionPages, EVIDENCE_SOURCES, SAFETY, TAKEAWAYS } from '@/content/c
 import { brand, pricing } from '@/brand/site';
 import { conditionImage } from '@/brand/images';
 import s from '@/components/page.module.css';
+import { pageNode } from '@/lib/schema';
 
 const find = (slug: string) => {
   const c = conditions.find((x) => x.slug === slug); const p = conditionPages.find((x) => x.slug === slug);
@@ -90,8 +91,8 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
       <Sources checked="13 Oct 2026" items={EVIDENCE_SOURCES} />
       <ArticleBottom path={`/conditions/${c.slug}`} related={related(c.slug)} />
       <ImportantInfo />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: `Medical marijuana for ${c.short} in Ohio`, url: `https://${brand.domain}/conditions/${c.slug}`,
-        about: { '@type': 'MedicalCondition', name: c.name }, audience: 'Patient' }} />
+      <JsonLd data={pageNode({ type: 'MedicalWebPage', path: `/conditions/${c.slug}`, name: `Medical marijuana for ${c.short} in Ohio`, image: conditionImage[c.slug]?.src, dateModified: '2026-10-13',
+        about: { '@type': 'MedicalCondition', name: c.name } })} />
     </main>
   );
 }

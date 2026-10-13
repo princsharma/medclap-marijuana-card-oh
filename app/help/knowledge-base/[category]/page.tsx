@@ -8,7 +8,8 @@ import { Breadcrumb } from "@/components/sections/ServiceSections";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { articlesIn, getCategory, helpPaths, kbCategories } from "@/content/help";
-import { breadcrumbLd, ldScript } from "@/lib/helpJsonLd";
+import { ldScript } from "@/lib/helpJsonLd";
+import { BASE } from "@/lib/schema";
 import { siteUrl } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -38,9 +39,10 @@ export default async function CategoryPage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={ldScript([
-          breadcrumbLd(crumbs),
           {
             "@type": "CollectionPage",
+            isPartOf: { "@id": `${BASE}/#website` },
+            publisher: { "@id": `${BASE}/#organization` },
             name: c.title,
             url: `${siteUrl}${helpPaths.category(c.id)}`,
             hasPart: list.map((a) => ({ "@type": "Article", headline: a.question, url: `${siteUrl}${helpPaths.article(a.slug)}` })),

@@ -11,6 +11,7 @@ import { guideImage } from '@/brand/images';
 import { InfographicBlock } from '@/components/infographics/InfographicBlock';
 import { infographicFor } from '@/content/infographics';
 import s from '@/components/page.module.css';
+import { pageNode, authorRef } from '@/lib/schema';
 
 export function generateStaticParams() { return guides.map((g) => ({ slug: g.slug })); }
 
@@ -39,7 +40,8 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <Faq items={g.faq} />
       <Sources checked={g.checked} items={g.sources} />
       <ImportantInfo />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: g.title, description: g.description, url: `https://${brand.domain}/guides/${g.slug}`, audience: 'Patient' }} />
+      <JsonLd data={pageNode({ type: 'MedicalWebPage', path: `/guides/${g.slug}`, name: g.title, description: g.description, image: guideImage[g.slug]?.src,
+        dateModified: '2026-10-13', reviewedOn: g.medicallyReviewedOn, extra: g.authorApprovedOn ? { author: authorRef() } : {} })} />
     </main>
   );
 }

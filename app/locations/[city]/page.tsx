@@ -12,6 +12,7 @@ import { brand, physicians, pricing } from '@/brand/site';
 import { cities, DISPENSARY_LIST, DISPENSARY_LIST_DATE, DISPENSARY_MAP, getCity, SB56, type Fact } from '@/content/locations';
 import s from '@/components/page.module.css';
 import u from '@/components/ui.module.css';
+import { pageNode, ORG, abs } from '@/lib/schema';
 
 export function generateStaticParams() { return cities.filter((c) => c.published).map((c) => ({ city: c.slug })); }
 export const dynamicParams = false;
@@ -122,9 +123,10 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         ['Division of Cannabis Control: Cannabis dispensary map', DISPENSARY_MAP],
       ]} />
       <ImportantInfo />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: title, url: `https://${brand.domain}${path}`,
-        about: { '@type': 'Service', name: 'Ohio medical marijuana card evaluation by telehealth', provider: { '@type': 'MedicalOrganization', name: brand.name },
-          areaServed: { '@type': 'City', name: `${c.name}, Ohio` } } }} />
+      <JsonLd data={pageNode({ type: 'MedicalWebPage', path, name: title, image: cityImage[c.slug]?.src, dateModified: '2026-10-13',
+        about: { '@type': 'Service', name: 'Ohio medical marijuana card evaluation by telehealth', provider: ORG, serviceType: 'Telehealth medical evaluation',
+          areaServed: { '@type': 'City', name: c.name, containedInPlace: { '@type': 'State', name: 'Ohio' } },
+          offers: { '@type': 'Offer', price: pricing.newEvaluation, priceCurrency: 'USD', url: abs('/pricing') } } })} />
     </main>
   );
 }

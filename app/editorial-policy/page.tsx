@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
-import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
+import { Breadcrumbs, PageHeader, Section, JsonLd } from '@/components/PageParts';
 import { author, brand } from '@/brand/site';
 import s from '@/components/page.module.css';
+import { pageNode, ORG, authorRef, reviewerRef } from '@/lib/schema';
 
 export const metadata: Metadata = { title: 'Editorial and Medical Review Policy', description: 'How Marijuana Card OH researches, writes, medically reviews and updates its content, using Ohio primary sources with the date each fact was checked.', alternates: { canonical: '/editorial-policy' } };
 
@@ -28,6 +29,7 @@ export default function Editorial() {
       <Section title="Corrections" id="corrections">
         <p>If you spot something wrong, email {brand.email}. We check every report and correct confirmed errors.</p>
       </Section>
+      <JsonLd data={pageNode({ path: '/editorial-policy', name: 'Editorial and medical review policy', description: metadata.description as string, about: ORG, extra: { mentions: [authorRef(), reviewerRef()] } })} />
     </main>
   );
 }

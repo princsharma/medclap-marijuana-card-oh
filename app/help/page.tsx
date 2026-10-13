@@ -3,6 +3,8 @@ import { AiHelp } from "@/components/help/AiHelp";
 import { CrisisNote } from "@/components/help/Answer";
 import s from "@/components/help/help.module.css";
 import { aiHelp as c, helpPaths } from "@/content/help";
+import { pageNode } from "@/lib/schema";
+import { brand } from "@/brand/site";
 
 export const metadata: Metadata = {
   title: { absolute: c.seo.title },
@@ -14,6 +16,8 @@ export const metadata: Metadata = {
 export default function HelpCenterPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(pageNode({ path: helpPaths.ai, name: c.title, description: c.seo.description,
+        extra: { '@type': 'WebPage', mainEntity: { '@type': 'ContactPoint', contactType: 'customer support', email: brand.email, areaServed: 'US-OH', availableLanguage: 'English' } } })) }} />
       <section className={`${s.band} ${s.aiHero}`} aria-labelledby="ai-title">
         <div className="container">
           <h1 id="ai-title" className={s.title}>

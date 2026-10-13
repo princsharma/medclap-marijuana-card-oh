@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { articles, articlesIn, helpPaths, kbCategories } from "@/content/help";
 import { breadcrumbLd, ldScript } from "@/lib/helpJsonLd";
+import { BASE } from "@/lib/schema";
 
 const title = "Knowledge Base: Help Center | Marijuana Card OH";
 const description =
@@ -29,6 +30,9 @@ export default function KnowledgeBasePage() {
             { label: "Help Center", href: helpPaths.ai },
             { label: "Knowledge Base", href: helpPaths.kb },
           ]),
+          { "@type": "CollectionPage", "@id": `${BASE}${helpPaths.kb}#webpage`, url: `${BASE}${helpPaths.kb}`, name: "Knowledge Base", description,
+            isPartOf: { "@id": `${BASE}/#website` }, publisher: { "@id": `${BASE}/#organization` },
+            hasPart: kbCategories.map((k) => ({ "@type": "CollectionPage", name: k.title, url: `${BASE}${helpPaths.category(k.id)}` })) },
         ])}
       />
       <KbBand>

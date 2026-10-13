@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
+import { Breadcrumbs, PageHeader, Section, JsonLd } from '@/components/PageParts';
 import { brand } from '@/brand/site';
 import s from '@/components/page.module.css';
+import { pageNode } from '@/lib/schema';
 
 export const metadata: Metadata = { title: 'Contact Us', description: 'Email Marijuana Card OH about booking, your visit, fees, refunds or the Ohio registry. Please don’t send medical details by email; your physician covers them.', alternates: { canonical: '/contact' } };
 
@@ -20,6 +21,7 @@ export default function Contact() {
       <Section title="In an emergency" id="emergency">
         <p>We can’t help with emergencies. Call 911, or call or text 988 if you’re in crisis.</p>
       </Section>
+      <JsonLd data={pageNode({ type: 'ContactPage', path: '/contact', name: 'Contact Marijuana Card OH', description: metadata.description as string, mainEntity: { '@type': 'ContactPoint', contactType: 'customer support', email: brand.email, areaServed: 'US-OH', availableLanguage: 'English' } })} />
     </main>
   );
 }

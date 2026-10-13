@@ -1,8 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Breadcrumbs, PageHeader } from '@/components/PageParts';
+import { Breadcrumbs, PageHeader, JsonLd } from '@/components/PageParts';
 import { posts } from '@/content/blog';
 import s from '@/components/page.module.css';
+import { pageNode, abs } from '@/lib/schema';
 
 export const metadata: Metadata = { title: 'Ohio Medical Marijuana News', description: 'News and plain-language explainers on Ohio’s medical marijuana program: law changes, registry updates and what they mean for patients, checked against Ohio law.', alternates: { canonical: '/blog' } };
 
@@ -23,6 +24,7 @@ export default function Blog() {
           </article>
         ))}
       </section>
+      <JsonLd data={pageNode({ type: 'CollectionPage', path: '/blog', name: 'Ohio medical marijuana news', description: metadata.description as string, mainEntity: { '@type': 'ItemList', itemListElement: list.map((x, i) => ({ '@type': 'ListItem', position: i + 1, url: abs(`/blog/${x.slug}`), name: x.title })) } })} />
     </main>
   );
 }

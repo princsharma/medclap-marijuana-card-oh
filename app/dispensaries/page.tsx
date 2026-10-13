@@ -40,6 +40,9 @@ export default function Dispensaries() {
         <ImportantInfo />
         <JsonLd data={{ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Ohio dispensary locator', url: `https://${brand.domain}${PATH}`,
           description: `Map and list of Ohio’s ${data.count} licensed cannabis dispensaries from state data.` }} />
+        <JsonLd data={{ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: `https://${brand.domain}/` },
+          { '@type': 'ListItem', position: 2, name: 'Dispensary locator', item: `https://${brand.domain}${PATH}` }] }} />
       </main>
     </>
   );

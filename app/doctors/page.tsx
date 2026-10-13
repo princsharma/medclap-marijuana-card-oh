@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { DoctorCard } from '@/components/DoctorCard';
 import { ImportantInfo } from '@/components/ImportantInfo';
-import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
+import { Breadcrumbs, PageHeader, Section, JsonLd } from '@/components/PageParts';
 import { physicians, licenseLookupUrl } from '@/brand/site';
 import s from '@/components/page.module.css';
+import { pageNode, physicianList } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: 'Our Ohio Medical Marijuana Doctors',
@@ -35,6 +36,7 @@ export default function Doctors() {
         <p>Dr. Johnathan Miller, MD is our Medical Director. He interviews the physicians who see our patients and reviews our medical content.</p>
       </Section>
       <ImportantInfo />
+      <JsonLd data={pageNode({ type: 'CollectionPage', path: '/doctors', name: 'Our Ohio medical marijuana doctors', description: metadata.description as string, mainEntity: physicianList() })} />
     </main>
   );
 }

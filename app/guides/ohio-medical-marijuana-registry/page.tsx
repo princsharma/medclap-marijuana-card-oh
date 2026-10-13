@@ -9,6 +9,7 @@ import { ArticleEnd, ArticleTop, KeyTakeaways, ShareArticle } from '@/components
 import { relatedGuides } from '@/content/guides';
 import { InfographicBlock } from '@/components/infographics/InfographicBlock';
 import s from '@/components/page.module.css';
+import { pageNode } from '@/lib/schema';
 
 export const metadata: Metadata = {
   title: { absolute: 'Ohio Medical Marijuana Registry: Login and Help' },
@@ -92,7 +93,8 @@ export default function RegistryGuide() {
         ['Ohio Administrative Code 1301:18-10-01: procedure for patient registration', 'https://codes.ohio.gov/ohio-administrative-code/rule-1301:18-10-01'],
       ]} />
       <ImportantInfo />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalWebPage', name: 'The Ohio Medical Marijuana Registry, explained', about: 'Ohio Medical Marijuana Control Program patient registry', audience: 'Patient' }} />
+      <JsonLd data={pageNode({ type: 'MedicalWebPage', path: '/guides/ohio-medical-marijuana-registry', name: 'The Ohio Medical Marijuana Registry, explained', description: metadata.description as string,
+        image: IMG.guideRegistry.src, dateModified: '2026-10-13', about: { '@type': 'GovernmentService', name: 'Ohio Medical Marijuana Control Program patient registry', provider: { '@type': 'GovernmentOrganization', name: 'Ohio Division of Cannabis Control' }, areaServed: { '@type': 'State', name: 'Ohio' } } })} />
     </main>
   );
 }

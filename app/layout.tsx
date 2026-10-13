@@ -7,7 +7,7 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { HideInFunnel } from '@/components/HideInFunnel';
 import { JsonLd } from '@/components/PageParts';
-import { brand } from '@/brand/site';
+import { brand, physicians } from '@/brand/site';
 
 // Self-hosted (SIL Open Font License) so no visitor data goes to a font CDN.
 const bricolage = localFont({
@@ -51,7 +51,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           { '@type': 'MedicalOrganization', '@id': `https://${brand.domain}/#organization`, name: brand.name, url: `https://${brand.domain}`,
             logo: `https://${brand.domain}/apple-icon.png`, image: IMG.social.src, description: brand.tagline, email: brand.email,
             areaServed: { '@type': 'State', name: 'Ohio' }, isAcceptingNewPatients: true,
-            knowsAbout: ['Ohio Medical Marijuana Control Program', 'Medical marijuana recommendations', 'Telehealth'] },
+            knowsAbout: ['Ohio Medical Marijuana Control Program', 'Medical marijuana recommendations', 'Telehealth'],
+            employee: physicians.map((p) => ({ '@id': `https://${brand.domain}/doctors/${p.slug}#physician` })),
+            contactPoint: { '@type': 'ContactPoint', contactType: 'customer support', email: brand.email, areaServed: 'US-OH', availableLanguage: 'English' } },
           { '@type': 'WebSite', '@id': `https://${brand.domain}/#website`, url: `https://${brand.domain}`, name: brand.name, inLanguage: 'en-US',
             publisher: { '@id': `https://${brand.domain}/#organization` } },
         ] }} />

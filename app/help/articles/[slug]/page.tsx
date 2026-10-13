@@ -9,7 +9,8 @@ import { Breadcrumb } from "@/components/sections/ServiceSections";
 import { Button } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { articles, getArticle, getCategory, helpPaths, related } from "@/content/help";
-import { breadcrumbLd, ldScript } from "@/lib/helpJsonLd";
+import { ldScript } from "@/lib/helpJsonLd";
+import { BASE } from "@/lib/schema";
 import { siteName, siteUrl } from "@/lib/site";
 
 export const dynamicParams = false;
@@ -54,7 +55,6 @@ export default async function ArticlePage({ params }: Props) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={ldScript([
-          breadcrumbLd(crumbs),
           {
             "@type": "Article",
             headline: a.question,
@@ -63,7 +63,11 @@ export default async function ArticlePage({ params }: Props) {
             dateModified: a.updated,
             url,
             mainEntityOfPage: url,
-            publisher: { "@type": "Organization", name: siteName, url: siteUrl },
+            datePublished: a.updated,
+            author: { "@id": `${BASE}/#organization` },
+            publisher: { "@id": `${BASE}/#organization` },
+            isPartOf: { "@id": `${BASE}/#website` },
+            inLanguage: "en-US",
           },
         ])}
       />

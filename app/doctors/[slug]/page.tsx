@@ -56,8 +56,16 @@ export default async function DoctorProfile({ params }: { params: Promise<{ slug
         thumbnailUrl: new URL(p.video.poster, `https://${brand.domain}`).href, contentUrl: new URL(p.video.src, `https://${brand.domain}`).href,
         uploadDate: p.video.uploadDate, duration: p.video.durationIso, transcript: p.video.transcript.join(' '),
         about: { '@id': `https://${brand.domain}/doctors/${p.slug}#physician` } }} /> : null}
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Physician', '@id': `https://${brand.domain}/doctors/${p.slug}#physician`, name: `${p.name}, ${p.credential}`, identifier: { '@type': 'PropertyValue', propertyID: 'NPI', value: p.npi },
-        memberOf: { '@id': `https://${brand.domain}/#organization` }, areaServed: 'Ohio', ...(p.photo ? { image: `https://${brand.domain}${p.photo}` } : {}), url: `https://${brand.domain}/doctors/${p.slug}` }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'ProfilePage', '@id': `https://${brand.domain}/doctors/${p.slug}#webpage`, url: `https://${brand.domain}/doctors/${p.slug}`,
+        isPartOf: { '@id': `https://${brand.domain}/#website` }, mainEntity: { '@id': `https://${brand.domain}/doctors/${p.slug}#physician` } }} />
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': ['Person', 'IndividualPhysician'], '@id': `https://${brand.domain}/doctors/${p.slug}#physician`,
+        name: p.name.replace(/^Dr\. /, ''), honorificPrefix: 'Dr.', honorificSuffix: p.credential, jobTitle: p.isMedicalDirector ? 'Medical Director' : 'Physician',
+        identifier: [{ '@type': 'PropertyValue', propertyID: 'NPI', value: p.npi }, { '@type': 'PropertyValue', propertyID: 'Ohio Certificate to Recommend', value: p.ohioLicense }],
+        hasCredential: { '@type': 'EducationalOccupationalCredential', credentialCategory: 'license', name: 'Ohio medical license with Certificate to Recommend', identifier: p.ohioLicense,
+          recognizedBy: { '@type': 'GovernmentOrganization', name: 'State Medical Board of Ohio' } },
+        alumniOf: p.education.map((e) => ({ '@type': 'EducationalOrganization', name: e.replace(/^(MD|DO|[A-Za-z ]+residency),\s*/, '').replace(/,\s*\d{4}(–\d{4})?$/, '') })),
+        worksFor: { '@id': `https://${brand.domain}/#organization` }, memberOf: { '@id': `https://${brand.domain}/#organization` },
+        areaServed: { '@type': 'State', name: 'Ohio' }, ...(p.photo ? { image: `https://${brand.domain}${p.photo}` } : {}), url: `https://${brand.domain}/doctors/${p.slug}` }} />
     </main>
   );
 }
