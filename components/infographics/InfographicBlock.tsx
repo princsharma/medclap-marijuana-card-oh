@@ -5,6 +5,8 @@ import { siteUrl } from '@/lib/site';
 import { Infographic } from './Infographic';
 import { EmbedInfographic } from './EmbedInfographic';
 import { JsonLd } from '@/components/PageParts';
+import Image from 'next/image';
+import v from './views.module.css';
 
 const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
@@ -18,7 +20,12 @@ export function InfographicBlock({ slug }: { slug: string }) {
   const code = `<a href="${pageUrl}"><img src="${png}" alt="${esc(ig.alt)}" width="1200"${h ? ` height="${h}"` : ''} style="max-width:100%;height:auto" loading="lazy"></a>\n<p>Infographic: <a href="${pageUrl}">${esc(ig.title)}</a> by ${esc(brand.name)}</p>`;
   return (
     <div style={{ display: 'grid', gap: 'var(--space-md)' }}>
-      <Infographic ig={ig} />
+      {/* Tablet/desktop: the PNG itself (saveable, pinnable, ranks in Google Images).
+          Phones: the HTML version, which reflows; it stays in the page for screen readers and search on every size. */}
+      <div className={v.views}>
+        {h ? <Image unoptimized className={v.imgView} src={infographicPng(ig.slug)} alt={ig.alt} width={1200} height={h} sizes="(min-width: 1024px) 960px, 100vw" /> : null}
+        <div className={h ? v.htmlView : undefined}><Infographic ig={ig} /></div>
+      </div>
       <EmbedInfographic code={code} png={infographicPng(ig.slug)} title={ig.slug} />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'ImageObject', contentUrl: png, name: ig.title, description: ig.alt,
         width: 1200, ...(h ? { height: h } : {}), creditText: brand.name, creator: { '@id': `https://${brand.domain}/#organization` },
