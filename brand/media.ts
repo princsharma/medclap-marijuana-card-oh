@@ -1,6 +1,11 @@
 // Homepage story video. Files live in /public/media. Keep `ready` false until
 // the MP4, poster and captions are committed, so the section never renders a broken player.
-export const storyVideo = {
+export type SiteVideo = {
+  title: string; description: string; src: string; poster: string; captions: string;
+  durationIso: string; durationLabel: string; uploadDate: string; label: string; transcript: string[];
+};
+
+export const storyVideo: SiteVideo & { ready: boolean } = {
   ready: true,
   title: 'How Maya got her Ohio medical marijuana card',
   description: 'A one-minute animated story: an Ohio adult answers a few questions, gathers her records, sees an Ohio physician by video, and activates her registration.',
@@ -9,6 +14,7 @@ export const storyVideo = {
   poster: 'https://d2ol7oe51mr4n9.cloudfront.net/user_37xuX69L5la49WcVV6KjtPSFDAb/7051293b-5302-4663-bf88-2545ed116e09.jpg',
   captions: '/media/maya-story.vtt',
   durationIso: 'PT1M',
+  durationLabel: '1:00',
   uploadDate: '2026-10-13',
   label: 'Dramatization. AI-generated characters.',
   transcript: [

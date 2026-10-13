@@ -33,6 +33,8 @@ export type Physician = {
   isMedicalDirector?: boolean;
   /** Headshot in /public/doctors, 800x800. Real photo supplied by Prince (14 Oct 2026). */
   photo?: string;
+  /** Intro video recorded by the physician (never AI-generated). The profile shows it only when set. */
+  video?: import('./media').SiteVideo;
   source: string;
 };
 

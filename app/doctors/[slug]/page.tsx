@@ -5,6 +5,7 @@ import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, JsonLd, PageHeader, Section } from '@/components/PageParts';
 import { brand, physicians, licenseLookupUrl } from '@/brand/site';
 import Image from 'next/image';
+import { StoryVideo } from '@/components/StoryVideo';
 import s from '@/components/page.module.css';
 
 export function generateStaticParams() { return physicians.map((p) => ({ slug: p.slug })); }
@@ -29,6 +30,11 @@ export default async function DoctorProfile({ params }: { params: Promise<{ slug
         {p.photo ? <Image className={s.doctorPhoto} src={p.photo} alt={`Photo of ${p.name}, ${p.credential}`} width={240} height={240} priority sizes="240px" /> : null}
         <PageHeader eyebrow={p.isMedicalDirector ? 'Medical Director' : 'Physician'} title={`${p.name}, ${p.credential}`} lead={p.role} />
       </div>
+      {p.video ? (
+        <Section title={`Meet ${p.name.replace(' Chance', '').replace(/ [A-Z]\. /, ' ')}`} id="intro">
+          <StoryVideo video={p.video} event="doctor_video" />
+        </Section>
+      ) : null}
       <Section title="Ohio license" id="license">
         <div className={s.panel}>
           <p><strong>Ohio license / Certificate to Recommend:</strong> {p.ohioLicense}</p>
@@ -46,7 +52,11 @@ export default async function DoctorProfile({ params }: { params: Promise<{ slug
       ) : null}
       <div><Button href="/get-started">Book a visit</Button></div>
       <ImportantInfo />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Physician', name: `${p.name}, ${p.credential}`, identifier: { '@type': 'PropertyValue', propertyID: 'NPI', value: p.npi },
+      {p.video ? <JsonLd data={{ '@context': 'https://schema.org', '@type': 'VideoObject', name: p.video.title, description: p.video.description,
+        thumbnailUrl: new URL(p.video.poster, `https://${brand.domain}`).href, contentUrl: new URL(p.video.src, `https://${brand.domain}`).href,
+        uploadDate: p.video.uploadDate, duration: p.video.durationIso, transcript: p.video.transcript.join(' '),
+        about: { '@id': `https://${brand.domain}/doctors/${p.slug}#physician` } }} /> : null}
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Physician', '@id': `https://${brand.domain}/doctors/${p.slug}#physician`, name: `${p.name}, ${p.credential}`, identifier: { '@type': 'PropertyValue', propertyID: 'NPI', value: p.npi },
         memberOf: { '@id': `https://${brand.domain}/#organization` }, areaServed: 'Ohio', ...(p.photo ? { image: `https://${brand.domain}${p.photo}` } : {}), url: `https://${brand.domain}/doctors/${p.slug}` }} />
     </main>
   );
