@@ -1,5 +1,5 @@
-.shell { display: grid; gap: var(--space-xl); align-items: start; padding-block: var(--space-xl) var(--space-3xl); }
-@media (min-width: 960px) { .shell { grid-template-columns: minmax(0, 1fr) 320px; gap: var(--space-2xl); } .trust { position: sticky; top: var(--space-xl); } }
+.shell { max-width: 44rem; margin-inline: auto; display: grid; gap: var(--space-xl); align-items: start; padding-block: var(--space-xl) var(--space-3xl); }
+
 .main { display: grid; gap: var(--space-md); min-width: 0; }
 .progress { display: grid; gap: 6px; }
 .bar { height: 8px; border-radius: 99px; background: var(--color-bg-subtle); overflow: hidden; }
@@ -59,12 +59,3 @@
 .done { display: grid; gap: var(--space-lg); }
 .doneIcon { display: grid; place-items: center; width: 56px; height: 56px; border-radius: 50%; background: var(--color-status-success-bg); color: var(--color-status-success); }
 .small { font-size: .875rem; margin: 0; }
-.trust { display: grid; gap: var(--space-md); }
-.trustBlock { padding: var(--space-lg); border: 1px solid var(--color-border-default); border-radius: var(--radius-md); background: var(--color-bg-surface); display: grid; gap: var(--space-sm); }
-.trustPrice { margin: 0; font: 800 2rem/1 var(--font-display); color: var(--color-text-brand); }
-.trustPrice span { font: 600 .9375rem var(--font-body); color: var(--color-text-secondary); }
-.trustLine { margin: 0; display: flex; gap: var(--space-sm); align-items: flex-start; font-size: .9375rem; }
-.trustLine svg { flex: none; margin-top: 2px; color: var(--color-text-brand); }
-.trustTitle { margin: 0; font-weight: 700; }
-.doc { margin: 0; display: grid; font-size: .875rem; }
-.doc span { color: var(--color-text-secondary); }

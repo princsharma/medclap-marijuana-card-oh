@@ -3,7 +3,6 @@
  * Onboarding survey (multistep). CRO notes:
  * - Easy first question (one tap), auto-advance on single choice, progress bar, "about 2 minutes".
  * - Value before contact details: an encouraging fit screen comes before the contact step.
- * - Trust panel on every step: price + guarantee, named Ohio physicians with license numbers, privacy.
  * - Prefill from the URL: ?type=renewal, ?condition=<slug>; UTM/referrer captured for attribution.
  * Compliance: never says "you qualify" or promises approval. The physician decides.
  * Privacy: answers live in memory only (no browser storage). Analytics events carry no health data.
@@ -12,7 +11,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { conditions } from '@/brand/conditions';
-import { physicians, pricing } from '@/brand/site';
+import { pricing } from '@/brand/site';
 import { Icon } from '@/components/ui/Icon';
 import s from './survey.module.css';
 
@@ -323,24 +322,6 @@ export function Survey() {
         </form>
       </div>
 
-      <aside className={s.trust} aria-label="Why patients choose us">
-        <div className={s.trustBlock}>
-          <p className={s.trustPrice}>${isRenewal ? pricing.renewalEvaluation : pricing.newEvaluation}<span> {isRenewal ? 'renewal' : 'evaluation'}</span></p>
-          <p className={s.trustLine}><Icon name="shield-check" size={18} /> 100% money back if you don’t qualify</p>
-          <p className={s.trustLine}><Icon name="receipt" size={18} /> No Ohio state registration fee</p>
-          <p className={s.trustLine}><Icon name="video" size={18} /> Video visit from home</p>
-        </div>
-        <div className={s.trustBlock}>
-          <p className={s.trustTitle}>Your Ohio physicians</p>
-          {physicians.map((p) => (
-            <p key={p.npi} className={s.doc}><strong>{p.name}, {p.credential}</strong><span>Ohio license {p.ohioLicense}</span></p>
-          ))}
-          <a className={s.small} href="https://elicense.ohio.gov/oh_verifylicense" target="_blank" rel="noopener noreferrer">Verify on Ohio eLicense</a>
-        </div>
-        <div className={s.trustBlock}>
-          <p className={s.trustLine}><Icon name="user-check" size={18} /> <span>Your answers are private, sent securely, and covered by our <Link href="/notice-of-privacy-practices">notice of privacy practices</Link>.</span></p>
-        </div>
-      </aside>
     </div>
   );
 }
