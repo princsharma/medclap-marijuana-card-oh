@@ -27,6 +27,9 @@ const esc = (t: string) => t.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&
 const fullAddress = (d: Dispensary) => `${d.address}, ${d.city}, OH ${d.zip}`;
 const directions = (d: Dispensary) => `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${d.name}, ${fullAddress(d)}`)}`;
 
+// Ohio's bounding box plus ~25 miles, so people near the state line still get distances.
+const inOhio = (lat: number, lng: number) => lat > 38.0 && lat < 42.7 && lng > -85.3 && lng < -80.0;
+
 export function Locator() {
   const [query, setQuery] = useState('');
   const [origin, setOrigin] = useState<Origin | null>(null);
@@ -42,6 +45,7 @@ export function Locator() {
   const mapEl = useRef<HTMLDivElement>(null);
   const map = useRef<LMap | null>(null);
   const markers = useRef(new Map<number, CircleMarker>());
+  const you = useRef<CircleMarker | null>(null);
   const places = useRef<Places | null>(null);
   const listEl = useRef<HTMLOListElement>(null);
 
@@ -72,7 +76,7 @@ export function Locator() {
       });
       map.current = m;
     })();
-    return () => { cancelled = true; map.current?.remove(); map.current = null; markers.current.clear(); };
+    return () => { cancelled = true; map.current?.remove(); map.current = null; you.current = null; markers.current.clear(); };
   }, []);
 
   // Show only the current results and fit the view to them.
@@ -84,6 +88,11 @@ export function Locator() {
       const L = (await import('leaflet')).default;
       const pts = (origin ? results.slice(0, 15) : results).map((x) => [x.d.lat, x.d.lng] as [number, number]);
       if (origin) pts.push([origin.lat, origin.lng]);
+      you.current?.remove(); you.current = null;
+      if (origin) {
+        you.current = L.circleMarker([origin.lat, origin.lng], { radius: 9, color: '#ffffff', weight: 3, fillColor: '#2F7DD1', fillOpacity: 1 })
+          .bindTooltip(origin.label === 'your location' ? 'You are here' : origin.label, { direction: 'top' }).addTo(m);
+      }
       if (pts.length) m.fitBounds(L.latLngBounds(pts), { padding: [40, 40], maxZoom: 13 });
     })();
   }, [results, origin]);
@@ -123,12 +132,29 @@ export function Locator() {
   };
 
   const locate = () => {
+    if (typeof window !== 'undefined' && !window.isSecureContext) { setMessage('Location only works on a secure (https) page. Search by city or ZIP instead.'); return; }
     if (!('geolocation' in navigator)) { setMessage('Your browser can’t share your location. Search by city or ZIP instead.'); return; }
     setLocating(true); setMessage('');
     navigator.geolocation.getCurrentPosition(
-      (pos) => { setOrigin({ lat: pos.coords.latitude, lng: pos.coords.longitude, label: 'your location' }); setSort('nearest'); setText(''); setQuery(''); setLocating(false); },
-      () => { setMessage('We couldn’t get your location. Search by city or ZIP instead.'); setLocating(false); },
-      { enableHighAccuracy: false, timeout: 10000 },
+      (pos) => {
+        const { latitude: lat, longitude: lng } = pos.coords;
+        setLocating(false);
+        if (!inOhio(lat, lng)) {
+          setMessage('Your location looks to be outside Ohio, so we can’t sort by distance. Search an Ohio city, ZIP or county instead.');
+          return;
+        }
+        setOrigin({ lat, lng, label: 'your location' }); setSort('nearest'); setText(''); setQuery(''); setCounty(''); setSelected(null);
+        listEl.current?.scrollTo({ top: 0 });
+      },
+      (err) => {
+        setLocating(false);
+        setMessage(err.code === 1
+          ? 'Location is blocked for this site. Allow it from the icon at the left of your address bar (and in your device’s location settings), then try again, or search by city or ZIP.'
+          : err.code === 3
+            ? 'Finding your location took too long. Try again, or search by city or ZIP.'
+            : 'Your device couldn’t find your location. Check that location services are on, or search by city or ZIP.');
+      },
+      { enableHighAccuracy: false, timeout: 15000, maximumAge: 300000 },
     );
   };
 
