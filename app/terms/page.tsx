@@ -37,7 +37,7 @@ const sections: LegalSection[] = [
   { id: 'fees', title: 'Fees and refunds', body: <>
     <ul>
       <li>Fees are ${pricing.newEvaluation} for a new evaluation and ${pricing.renewalEvaluation} for a renewal evaluation, shown before you pay. We don’t charge facility, origination or equipment fees.</li>
-      <li>If your physician finds you don’t qualify, we refund your evaluation fee in full, with no deductions and no no-show fee, as set out in our <Link href="/refund-policy">refund policy</Link>. Refunds go back to your original payment method within <Tbc v={legal.refundBusinessDays} label="number of" /> business days.</li>
+      <li>If your physician finds you don’t qualify, we refund your evaluation fee in full, with no deductions and no no-show fee, as set out in our <Link href="/refund-policy">refund policy</Link>. Refunds go back to your original payment method usually within {legal.refundDays.usual}, and no later than {legal.refundDays.max} days.</li>
       <li>We don’t bill insurance. Ohio’s current rule sets no state registration fee.</li>
     </ul>
   </> },
@@ -58,7 +58,7 @@ const sections: LegalSection[] = [
   { id: 'links', title: 'Links to other websites', body: <p>We link to sources such as the Ohio registry and state agencies. We aren’t responsible for other websites or how they handle your information.</p> },
   { id: 'disclaimers', title: 'Disclaimers', body: <p>To the extent the law allows, the website is provided “as is” and we don’t promise it will always be available or error-free. Nothing in these terms limits the professional duties your physician owes you.</p> },
   { id: 'liability', title: 'Limits on our liability', body: <p>To the extent the law allows, {co} is not liable for indirect or consequential losses arising from your use of the website, and our total liability to you is limited to the fees you paid us in the 12 months before the claim. These limits don’t apply where the law doesn’t allow them.</p> },
-  { id: 'law', title: 'Governing law', body: <p>Ohio law governs these terms. Any dispute will be heard in the state or federal courts located in <Tbc v={legal.venueCounty} label="county" /> County, Ohio, unless the law requires otherwise. Before going to court, please email us so we can try to resolve it.</p> },
+  { id: 'law', title: 'Governing law', body: <p>The laws of the State of {legal.venue.state} govern these terms, without regard to its conflict-of-law rules. Your medical care is governed by Ohio law and the standards of the State Medical Board of Ohio. Any dispute about these terms will be heard in the state or federal courts located in {legal.venue.county}, {legal.venue.state}, unless the law requires otherwise. Before going to court, please email us so we can try to resolve it.</p> },
   { id: 'changes', title: 'Changes to these terms', body: <p>We may update these terms. We will post the new version on this page with a new date. Changes don’t affect a visit you have already booked.</p> },
   { id: 'contact', title: 'Contact us', body: <p>Email {brand.email}. Mail: {co}, <Tbc v={legal.companyAddress} label="mailing address" />.</p> },
 ];

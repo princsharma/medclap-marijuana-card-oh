@@ -4,6 +4,7 @@ import { Breadcrumbs, PageHeader, Section, JsonLd } from '@/components/PageParts
 import { brand, pricing } from '@/brand/site';
 import s from '@/components/page.module.css';
 import { pageNode } from '@/lib/schema';
+import { legal } from '@/brand/legal';
 
 export const metadata: Metadata = { title: 'Refund Policy', description: 'Our 100% money-back guarantee: if your Ohio physician finds you don’t qualify for a medical marijuana recommendation, we refund your evaluation fee in full.', alternates: { canonical: '/refund-policy' } };
 
@@ -20,11 +21,12 @@ export default function Refund() {
       </Section>
       <Section title="How to ask for a refund" id="how">
         <p>If you don’t qualify, we start your refund for you. If you have any question about a refund, email {brand.email} with your name and the email you booked with.</p>
+        <p>Refunds go back to your original payment method, usually within {legal.refundDays.usual} and no later than {legal.refundDays.max} days. Your bank may take a little longer to show it.</p>
       </Section>
       <Section title="What the guarantee covers" id="scope">
         <p>The guarantee covers our evaluation fee. Ohio currently charges no state registration fee. Purchases at dispensaries are not part of our service.</p>
       </Section>
-      <p className="type-small" style={{ color: 'var(--color-text-secondary)' }}>Last updated 13 October 2026.</p>
+      <p className="type-small" style={{ color: 'var(--color-text-secondary)' }}>Last updated 14 October 2026.</p>
       <JsonLd data={pageNode({ path: '/refund-policy', name: 'Refund policy', description: metadata.description as string, image: IMG.pricing.src })} />
     </main>
   );

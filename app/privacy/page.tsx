@@ -48,7 +48,7 @@ const sections: LegalSection[] = [
     <p>We don’t sell your personal information, and we don’t use or share your health information for advertising.</p>
   </> },
   { id: 'cookies', title: 'Cookies, analytics and tracking', body: <>
-    <p>Our website currently sets no advertising or analytics cookies. If we add an analytics tool (<Tbc v={legal.analytics} label="analytics tool, if any" />), we will update this policy first, and we will not place advertising pixels or third-party tracking on pages where you book, pay or share health information.</p>
+    <p>Our website currently sets no advertising or analytics cookies. {legal.analytics ? <>We use {legal.analytics} to measure site traffic. </> : null}If we add or change an analytics tool, we will update this policy first, and we will not place advertising pixels or third-party tracking on pages where you book, pay or share health information.</p>
     <p>Your browser lets you block or delete cookies. Blocking essential cookies may stop booking from working.</p>
   </> },
   { id: 'rights', title: 'Your choices and rights', body: <>

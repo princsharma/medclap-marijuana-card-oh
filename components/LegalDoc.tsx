@@ -22,7 +22,7 @@ export function LegalDoc({ path, eyebrow, title, lead, sections, preface, after 
           <strong>Draft for legal review.</strong> This page is not yet in effect. Highlighted items are still being confirmed.
         </aside>
       ) : null}
-      <p className={l.dates}>Effective date: <Tbc v={legal.effectiveDate} label="effective date" /> · Last updated 13 October 2026</p>
+      <p className={l.dates}>Effective date: <Tbc v={legal.effectiveDate} label="effective date" /> · Last updated 14 October 2026</p>
       {preface}
       <nav className={l.toc} aria-labelledby={`${path.slice(1)}-toc`}>
         <h2 id={`${path.slice(1)}-toc`} className={l.tocTitle}>On this page</h2>
