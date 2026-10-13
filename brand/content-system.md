@@ -68,3 +68,19 @@ Tracked in `brand/page-status.json`: `planned → drafted → ai-reviewed → pr
 ## 8. Re-review
 
 Medical and legal pages are re-checked every 6–12 months, and immediately when Ohio law changes (step 27). "Last reviewed" dates update only after a real review.
+
+## 9. Images and video (Prince, 13 Oct 2026)
+
+**Where images go**
+- Blog posts: where an image helps understanding (a step, a comparison, a scene), not as decoration on every paragraph.
+- Brand pages: home, about, doctors, locations hub.
+- Product pages: how it works, pricing, renewals, get started.
+- Card imagery is on-brand: we sell evaluations for a card, so cards are a good visual subject.
+
+**Rules**
+- Card images use our own design (Marijuana Card OH colors, Four-Leaf Cross, "sample" text). Never copy or imitate the official Ohio registry card, the state seal, state logos, or real names and numbers.
+- No AI-generated person is ever presented as our physician or a real patient. Real doctors appear only from real photos or video, with their consent. No AI avatars or voice clones of real people.
+- No smoking, vaping or consumption scenes (Ohio bans smoking medical marijuana), no minors, no dispensary or product brand names or logos, no cure or approval claims in on-screen text.
+- Story videos and lifestyle scenes are dramatizations: label them "Dramatization. Actors are AI-generated." in the caption or end card.
+- Every image: descriptive alt text, served through next/image (AVIF/WebP), sized for its slot. Every video: captions, a poster image, no autoplay with sound, loads only when played.
+- Tools: Higgsfield (video, image), Magnific (image, upscale, voiceover, video edits). Keep generated originals in the brand folder of each tool.
