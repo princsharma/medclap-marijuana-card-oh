@@ -76,30 +76,34 @@
   {
    "url": "/privacy",
    "wave": 1,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
-   "authorApproved": null
+   "authorApproved": null,
+   "note": "Draft for legal review; placeholders in brand/legal.ts"
   },
   {
    "url": "/notice-of-privacy-practices",
    "wave": 1,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
-   "authorApproved": null
+   "authorApproved": null,
+   "note": "Draft for legal review; placeholders in brand/legal.ts"
   },
   {
    "url": "/terms",
    "wave": 1,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
-   "authorApproved": null
+   "authorApproved": null,
+   "note": "Draft for legal review; placeholders in brand/legal.ts"
   },
   {
    "url": "/telehealth-consent",
    "wave": 1,
-   "status": "planned",
+   "status": "drafted",
    "medicallyReviewed": null,
-   "authorApproved": null
+   "authorApproved": null,
+   "note": "Draft for legal review; placeholders in brand/legal.ts"
   },
   {
    "url": "/contact",
