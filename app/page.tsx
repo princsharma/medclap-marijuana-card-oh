@@ -6,7 +6,10 @@ import { DoctorCard } from '@/components/DoctorCard';
 import { PriceCard } from '@/components/PriceCard';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Faq, Section, Sources } from '@/components/PageParts';
-import { physicians, pricing } from '@/brand/site';
+import { brand, physicians, pricing } from '@/brand/site';
+import { storyVideo } from '@/brand/media';
+import { StoryVideo } from '@/components/StoryVideo';
+import st from '@/components/story.module.css';
 import { conditions } from '@/brand/conditions';
 import s from '@/components/page.module.css';
 
@@ -46,6 +49,28 @@ export default function Home() {
         </div>
         <PriceCard type="new" />
       </section>
+
+      {storyVideo.ready && (
+        <section className={`${s.section} ${s.wide}`} aria-labelledby="story">
+          <div className={st.wrap}>
+            <div className={st.copy}>
+              <Badge>One-minute story</Badge>
+              <h2 id="story" className="type-h2">Follow Maya’s path to an Ohio card</h2>
+              <p>A short animated story of how the process works from home: a few questions, your records, a video visit with an Ohio physician, then activating your registration.</p>
+              <Button href="/get-started">Start your own story</Button>
+            </div>
+            <StoryVideo />
+          </div>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+            '@context': 'https://schema.org', '@type': 'VideoObject',
+            name: storyVideo.title, description: storyVideo.description,
+            thumbnailUrl: `https://${brand.domain}${storyVideo.poster}`,
+            contentUrl: `https://${brand.domain}${storyVideo.src}`,
+            uploadDate: storyVideo.uploadDate, duration: storyVideo.durationIso,
+            transcript: storyVideo.transcript.join(' '),
+          }) }} />
+        </section>
+      )}
 
       <section className={`${s.section} ${s.wide}`} aria-labelledby="how">
         <h2 id="how" className="type-h2">How it works</h2>
