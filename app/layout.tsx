@@ -38,7 +38,11 @@ export const metadata: Metadata = {
   openGraph: { type: 'website', siteName: brand.name, images: [{ url: IMG.social.src, width: IMG.social.w, height: IMG.social.h, alt: IMG.social.alt }] },
   twitter: { card: 'summary_large_image' },
   // Google Search Console HTML-tag verification (URL-prefix property). A DNS TXT record (Domain property) needs nothing here.
-  ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
+  // Search engine ownership tags (production env vars): Google Search Console, Bing Webmaster Tools.
+  verification: {
+    ...(process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : {}),
+    ...(process.env.BING_SITE_VERIFICATION ? { other: { 'msvalidate.01': process.env.BING_SITE_VERIFICATION } } : {}),
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
