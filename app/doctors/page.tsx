@@ -21,7 +21,7 @@ export default function Doctors() {
       <section className={s.grid2} aria-label="Physicians">
         {physicians.map((p) => (
           <div key={p.npi} className={s.stack}>
-            <DoctorCard doctor={{ name: `${p.name}, ${p.credential}`, role: p.role, license: p.ohioLicense, npi: p.npi }} />
+            <DoctorCard doctor={{ name: `${p.name}, ${p.credential}`, role: p.role, license: p.ohioLicense, npi: p.npi, photo: p.photo }} />
             <Link href={`/doctors/${p.slug}`}>Full profile</Link>
           </div>
         ))}

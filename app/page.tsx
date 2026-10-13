@@ -91,7 +91,7 @@ export default function Home() {
         </p>
         <div className={s.grid2}>
           {physicians.map((p) => (
-            <DoctorCard key={p.npi} doctor={{ name: `${p.name}, ${p.credential}`, role: p.role, license: p.ohioLicense, npi: p.npi }} />
+            <DoctorCard key={p.npi} doctor={{ name: `${p.name}, ${p.credential}`, role: p.role, license: p.ohioLicense, npi: p.npi, photo: p.photo }} />
           ))}
         </div>
       </section>

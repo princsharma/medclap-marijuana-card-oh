@@ -96,7 +96,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         <h2 id="doctors" className="type-h2">Physicians who see patients in {c.name}</h2>
         <div className={s.grid2}>
           {physicians.map((p) => (
-            <DoctorCard key={p.npi} doctor={{ name: `${p.name}, ${p.credential}`, role: p.role, license: p.ohioLicense, npi: p.npi }} />
+            <DoctorCard key={p.npi} doctor={{ name: `${p.name}, ${p.credential}`, role: p.role, license: p.ohioLicense, npi: p.npi, photo: p.photo }} />
           ))}
         </div>
         <p><Link href="/doctors">Meet our doctors</Link></p>

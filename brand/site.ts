@@ -31,6 +31,8 @@ export type Physician = {
   npi: string;
   education: string[];
   isMedicalDirector?: boolean;
+  /** Headshot in /public/doctors, 800x800. Real photo supplied by Prince (14 Oct 2026). */
+  photo?: string;
   source: string;
 };
 
@@ -48,6 +50,7 @@ export const physicians: Physician[] = [
       'Orthopaedic Surgery residency, Washington University/B-JH/SLCH Consortium, 2018–2020',
     ],
     isMedicalDirector: true,
+    photo: '/doctors/johnathan-miller.jpg',
     source: 'mymmjdoctor.com profile read 12 Oct 2026; role confirmed by Prince 13 Oct 2026',
   },
   {
@@ -61,6 +64,7 @@ export const physicians: Physician[] = [
       'DO, Kansas City University of Medicine and Biosciences College of Osteopathic Medicine',
       'Pediatrics residency, Geisinger Health System, 1996–1999',
     ],
+    photo: '/doctors/kevin-kargman.jpg',
     source: 'mymmjdoctor.com profile read 12 Oct 2026; NPI registry 12 Oct 2026',
   },
 ];

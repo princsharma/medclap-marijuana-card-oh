@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import s from './ui.module.css';
 
 export type Doctor = { name: string; role: string; license: string; npi: string; photo?: string };
@@ -6,7 +7,7 @@ export type Doctor = { name: string; role: string; license: string; npi: string;
 export function DoctorCard({ doctor }: { doctor: Doctor }) {
   return (
     <article className={s.card}>
-      {doctor.photo ? <img className={s.photo} src={doctor.photo} alt={`Photo of ${doctor.name}`} /> : <div className={s.photo} aria-hidden="true" />}
+      {doctor.photo ? <Image className={s.photo} src={doctor.photo} alt={`Photo of ${doctor.name}`} width={96} height={96} sizes="96px" /> : <div className={s.photo} aria-hidden="true" />}
       <h3 className="type-h3">{doctor.name}</h3>
       <p className={`type-small ${s.muted}`}>{doctor.role}</p>
       <dl className={`${s.creds} type-small`}>
