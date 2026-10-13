@@ -1,0 +1,24 @@
+# Terms unique to THIS site. When this repo is the source for a new site, every term here is forbidden on the
+# new site's rendered pages (unless the new site's intake legitimately uses it, e.g. a shared doctor).
+# One term per line. Keep it current when you add cities, people or programs.
+Ohio
+Marijuana Card OH
+marijuanacardoh
+Columbus
+Cleveland
+Cincinnati
+Toledo
+Akron
+Dayton
+Franklin County
+Sawmill
+Division of Cannabis Control
+OARRS
+eLicense
+3796
+State Medical Board of Ohio
+Johnathan
+Miller
+Kargman
+Gessler
+Certificate to Recommend

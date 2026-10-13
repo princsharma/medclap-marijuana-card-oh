@@ -7,7 +7,13 @@
     "dev": "next dev",
     "build": "npm run tokens && next build",
     "start": "next start",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "qa:audit": "python3 scripts/qa/audit.py --start",
+    "qa:schema": "python3 scripts/qa/schema_check.py --start",
+    "qa:unique": "python3 scripts/qa/uniqueness.py --start",
+    "qa:tracking": "NEXT_PUBLIC_SITE_ENV=production NEXT_PUBLIC_GTM_ID=GTM-QATEST next build && node scripts/qa/tracking.mjs",
+    "qa:screens": "node scripts/qa/screens.mjs",
+    "qa": "npm run build && npm run qa:audit && npm run qa:schema && node scripts/qa/screens.mjs && npm run qa:tracking && npm run build"
   },
   "dependencies": {
     "leaflet": "^1.9.4",

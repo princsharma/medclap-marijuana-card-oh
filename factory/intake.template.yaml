@@ -1,0 +1,64 @@
+# Site intake: the only thing the owner fills in. Everything else (laws, fees, registry steps, cities, competitors,
+# keywords, design, copy, images) is researched and built by the site-factory skill.
+# Leave a field blank if unknown; the skill asks for blanks in ONE message, never one by one.
+# Copy to factory/intake.yaml in the new repo.
+
+site:
+  domain: ""                    # e.g. medicalmarijuanacardmaryland.com
+  brand_name: ""                # shown on the site; must be unique in the network
+  coverage: ""                  # "state: Maryland" or "city: Fresno, California"
+  site_history: ""              # new | existing (give current platform; every old URL gets a redirect)
+  relation_to_other_brands: ""  # what may be said publicly; default: nothing (no cross-links between network sites)
+
+offer:
+  services: []                  # e.g. [new card evaluation, renewal]; say explicitly if caregiver cards are NOT offered
+  price_new: null
+  price_renewal: null
+  other_fees: []                # e.g. physical card $25
+  guarantee: ""                 # exact promise AND its condition, e.g. "full refund if the physician finds you don't qualify"
+  delivery: telehealth          # telehealth | in-person | both
+
+people:                         # only clinicians licensed in THIS state may be named as certifying physicians
+  physicians:
+    - name: ""                  # exactly as on the license
+      credential: ""            # MD | DO | NP …
+      profile_url: ""           # practice profile used to pull bio and education
+      state_license: ""         # license number in this state (verified on the state board site)
+      npi: ""
+      medical_director: false
+  medical_reviewer: ""          # must hold a license in this state; signs dated reviews
+  author: ""                    # named author; byline only after they approve each page
+  photos_consent: false         # headshots may be published
+
+business:
+  operator_name: ""             # legal entity or registered trade name shown in legal pages
+  mailing_address: ""           # exact text; used in Privacy, Terms, NPP
+  support_email: ""
+  phone: ""                     # optional; Call buttons hide until set
+  privacy_officer_email: ""
+  privacy_officer_phone: ""     # required by HIPAA for the Notice of Privacy Practices
+  payment_processors: []        # e.g. [Stripe, Braintree]
+  email_provider: ""            # e.g. own EHR
+  video_platform: ""            # e.g. 100ms inside own EHR
+  booking_tool: ""              # e.g. own EHR
+  refund_timing: ""             # e.g. "usually 5 to 7 business days, no later than 30 days"
+  governing_law_county: ""      # county for the Terms venue clause
+  legal_approval: ""            # who approves legal pages (attorney / owner)
+
+integrations:                   # can be added after launch; forms fail safely until set
+  ehr_webhook_url: ""
+  ehr_webhook_secret: ""
+  contact_webhook_url: ""
+  leads_webhook_url: ""
+  gtm_id: ""
+  google_site_verification: ""
+  bing_site_verification: ""
+
+access:                         # done by the owner once per site (2 minutes)
+  github_repo: ""               # empty private repo, with the Claude GitHub App given access
+  vercel_team: team_kdbWz4vYZzfEB2Jh9VC3Sns0
+  dns_host: ""                  # SiteGround / Namecheap / Cloudflare …
+
+network:
+  source_repo: princsharma/medclap-marijuana-card-oh   # starting codebase (latest proven site)
+  sibling_repos: []             # every other network site, for the uniqueness check
