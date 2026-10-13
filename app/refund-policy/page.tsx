@@ -4,7 +4,7 @@ import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
 import { brand, pricing } from '@/brand/site';
 import s from '@/components/page.module.css';
 
-export const metadata: Metadata = { title: 'Refund Policy', description: '100% money-back guarantee if you don’t qualify for an Ohio medical marijuana recommendation.', alternates: { canonical: '/refund-policy' } };
+export const metadata: Metadata = { title: 'Refund Policy', description: 'Our 100% money-back guarantee: if your Ohio physician finds you don’t qualify for a medical marijuana recommendation, we refund your evaluation fee in full.', alternates: { canonical: '/refund-policy' } };
 
 export default function Refund() {
   return (

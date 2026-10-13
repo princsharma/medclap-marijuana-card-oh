@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const tc = n.replace(/\b(\p{L})(\p{L}*)/gu, (w, a, b) => (['or', 'and', 'of'].includes(w) ? w : a.toUpperCase() + b));
   const t = `Medical Marijuana for ${tc} in Ohio`;
   return { title: { absolute: t },
-    description: `Is ${c.short} a qualifying condition for an Ohio medical marijuana card? What the research says, what records help, and how to get evaluated.`,
+    description: ((d) => d.length <= 160 ? d : `Is ${c.short} a qualifying condition for an Ohio medical card? Research, records that help, and how to get evaluated.`)(`Is ${c.short} a qualifying condition for an Ohio medical marijuana card? What the research says, what records help, and how to get evaluated.`),
     alternates: { canonical: `/conditions/${c.slug}` } };
 }
 

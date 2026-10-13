@@ -45,7 +45,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <HideInFunnel><Header /></HideInFunnel>
         <div id="main">{children}</div>
         <HideInFunnel><Footer /></HideInFunnel>
-        <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalOrganization', name: brand.name, url: `https://${brand.domain}`, email: brand.email, areaServed: { '@type': 'State', name: 'Ohio' }, medicalSpecialty: 'Telehealth medical marijuana evaluations' }} />
+        <JsonLd data={{ '@context': 'https://schema.org', '@graph': [
+          { '@type': 'MedicalOrganization', '@id': `https://${brand.domain}/#organization`, name: brand.name, url: `https://${brand.domain}`,
+            logo: `https://${brand.domain}/apple-icon.png`, image: IMG.social.src, description: brand.tagline, email: brand.email,
+            areaServed: { '@type': 'State', name: 'Ohio' }, isAcceptingNewPatients: true,
+            knowsAbout: ['Ohio Medical Marijuana Control Program', 'Medical marijuana recommendations', 'Telehealth'] },
+          { '@type': 'WebSite', '@id': `https://${brand.domain}/#website`, url: `https://${brand.domain}`, name: brand.name, inLanguage: 'en-US',
+            publisher: { '@id': `https://${brand.domain}/#organization` } },
+        ] }} />
       </body>
     </html>
   );

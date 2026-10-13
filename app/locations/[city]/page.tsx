@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
   const { city } = await params; const c = getCity(city); if (!c) return {};
   return {
     title: { absolute: `Medical Marijuana Card in ${c.name}, Ohio by Telehealth` },
-    description: `Get evaluated for an Ohio medical marijuana card from home in ${c.name}. Ohio-licensed physicians by video, $${pricing.newEvaluation}, full refund if you don’t qualify. Local rules, checked.`,
+    description: `Get evaluated for an Ohio medical marijuana card from home in ${c.name}. Ohio-licensed physicians by video, $${pricing.newEvaluation}, full refund if you don’t qualify.`,
     alternates: { canonical: `/locations/${c.slug}` },
     ...(cityImage[c.slug] ? { openGraph: { images: [{ url: cityImage[c.slug].src, width: 2048, height: 1152, alt: cityImage[c.slug].alt }] } } : {}),
   };

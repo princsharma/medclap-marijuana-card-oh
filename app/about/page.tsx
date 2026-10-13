@@ -6,7 +6,7 @@ import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
 import { author, brand } from '@/brand/site';
 import s from '@/components/page.module.css';
 
-export const metadata: Metadata = { title: 'About Us', description: 'Marijuana Card OH is an Ohio-only telehealth service that connects adults with Ohio-licensed physicians for medical marijuana evaluations.', alternates: { canonical: '/about' } };
+export const metadata: Metadata = { title: 'About Our Ohio Telehealth Service', description: 'Marijuana Card OH is an Ohio-only telehealth service that connects adults with Ohio-licensed physicians for medical marijuana evaluations.', alternates: { canonical: '/about' } };
 
 export default function About() {
   return (

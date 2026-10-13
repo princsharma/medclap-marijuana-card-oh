@@ -22,7 +22,8 @@ const desc = (t: string) => (t.length > 158 ? `${t.slice(0, 155).replace(/\s+\S*
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const a = getArticle((await params).slug);
   if (!a) return {};
-  const title = `${a.question} | ${siteName} Help Center`;
+  // Keep titles within ~60 characters: add the brand only when it fits.
+  const title = a.question.length <= 40 ? `${a.question} | ${siteName}` : a.question;
   const url = helpPaths.article(a.slug);
   return {
     title: { absolute: title },

@@ -7,7 +7,7 @@ import { legal } from '@/brand/legal';
 const PATH = '/terms';
 export const metadata: Metadata = {
   title: 'Terms of Use',
-  description: `The terms for using ${brand.name} and booking an Ohio medical marijuana card evaluation by telehealth.`,
+  description: `The terms for using ${brand.name} and booking an Ohio medical marijuana card evaluation by telehealth, including fees, refunds and your responsibilities.`,
   alternates: { canonical: PATH },
 };
 

@@ -26,7 +26,7 @@ export function StoryVideo() {
             <track kind="captions" src={v.captions} srcLang="en" label="English" default />
           </video>
         ) : (
-          <button type="button" className={st.poster} onClick={play} aria-label={`Play video: ${v.title} (1 minute)`}>
+          <button type="button" className={st.poster} onClick={play} aria-label={`Play video, 1:00: ${v.title}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={v.poster} alt="" width={1280} height={720} loading="lazy" />
             <span className={st.play} aria-hidden="true">

@@ -4,7 +4,7 @@ import { Breadcrumbs, PageHeader } from '@/components/PageParts';
 import { posts } from '@/content/blog';
 import s from '@/components/page.module.css';
 
-export const metadata: Metadata = { title: 'Blog', description: 'News and plain-language explainers about Ohio’s medical marijuana program.', alternates: { canonical: '/blog' } };
+export const metadata: Metadata = { title: 'Ohio Medical Marijuana News', description: 'News and plain-language explainers on Ohio’s medical marijuana program: law changes, registry updates and what they mean for patients, checked against Ohio law.', alternates: { canonical: '/blog' } };
 
 const fmt = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 

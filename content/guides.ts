@@ -26,7 +26,7 @@ export const guides: Guide[] = [
     slug: 'what-a-medical-card-means',
     title: 'What an Ohio medical card means for guns, work, driving and housing',
     metaTitle: 'Ohio Medical Card: Guns, Jobs, Driving and Housing',
-    description: 'What changes when you register as an Ohio medical marijuana patient: firearms, your job, driving, housing, custody and public benefits, from Ohio and federal law.',
+    description: 'What registering as an Ohio medical marijuana patient means for firearms, your job, driving, housing, custody and benefits, under Ohio and federal law.',
     eyebrow: 'Guide',
     lead: 'Registering as a patient gives you real protections under Ohio law, but not everywhere. Employers can still enforce drug-free policies, driving while impaired is still illegal, and federal firearms law is still unsettled.',
     keyTakeaways: [
@@ -82,7 +82,7 @@ export const guides: Guide[] = [
     slug: 'medical-card-vs-adult-use',
     title: 'Medical card or adult-use? What’s different in Ohio',
     metaTitle: 'Ohio Medical Card vs Adult-Use: What’s Different',
-    description: 'Adults 21+ can buy adult-use cannabis in Ohio. Here is what a medical card still adds: access from 18, no 10% adult-use tax, a 90-day supply and legal protections.',
+    description: 'Adults 21+ can buy adult-use cannabis in Ohio. What a medical card still adds: access from 18, no 10% adult-use tax, a 90-day supply and legal protections.',
     eyebrow: 'Guide',
     lead: 'Adults 21 and older can buy adult-use cannabis at Ohio dispensaries without a card. A medical card still matters if you’re 18 to 20, want to avoid the 10% adult-use tax, need more than the adult-use limit, or want the protections Ohio gives registered patients.',
     keyTakeaways: [

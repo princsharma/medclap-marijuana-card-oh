@@ -7,7 +7,7 @@ import { contactTopics, helpPaths } from "@/content/help";
 
 const title = "Contact Us: Help Center | Marijuana Card OH";
 const description =
-  "Contact Marijuana Card OH about choosing a service, providers and booking, appointments, fees, privacy or website help. Chat with our team or request a call back.";
+  "Contact Marijuana Card OH about booking, your visit, fees and refunds, the Ohio registry, privacy or website help. Pick a topic to reach the right person.";
 
 export const metadata: Metadata = {
   title: { absolute: title },

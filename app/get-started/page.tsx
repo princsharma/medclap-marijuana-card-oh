@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   title: { absolute: 'Get Started: Ohio Medical Marijuana Card | Marijuana Card OH' },
   description: `Answer a few quick questions to start your Ohio medical marijuana card evaluation by video. $${pricing.newEvaluation}, full refund if you don’t qualify.`,
   alternates: { canonical: '/get-started' },
+  // Funnel step: kept out of search results, links still followed.
+  robots: { index: false, follow: true },
 };
 
 export default function GetStarted() {

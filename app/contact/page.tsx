@@ -4,7 +4,7 @@ import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
 import { brand } from '@/brand/site';
 import s from '@/components/page.module.css';
 
-export const metadata: Metadata = { title: 'Contact Us', description: 'How to reach Marijuana Card OH.', alternates: { canonical: '/contact' } };
+export const metadata: Metadata = { title: 'Contact Us', description: 'Email Marijuana Card OH about booking, your visit, fees, refunds or the Ohio registry. Please don’t send medical details by email; your physician covers them.', alternates: { canonical: '/contact' } };
 
 export default function Contact() {
   return (

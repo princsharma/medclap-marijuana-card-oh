@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const p = physicians.find((d) => d.slug === slug);
   if (!p) return {};
   const short = p.name.replace(' Chance', '');
-  return { title: { absolute: `${short}, ${p.credential} | Ohio Medical Marijuana Doctor` }, description: `${p.name}, ${p.credential}: Ohio license ${p.ohioLicense}, NPI ${p.npi}. ${p.role}.`, alternates: { canonical: `/doctors/${p.slug}` } };
+  return { title: { absolute: `${short}, ${p.credential} | Ohio Medical Marijuana Doctor` }, description: ((d) => d.length <= 160 ? d : `${p.name}, ${p.credential} (${p.role}). Ohio license ${p.ohioLicense}, NPI ${p.npi}. Telehealth card evaluations.`)(`${p.name}, ${p.credential} (${p.role}). Ohio license ${p.ohioLicense}, NPI ${p.npi}. Ohio medical marijuana card evaluations by telehealth.`), alternates: { canonical: `/doctors/${p.slug}` } };
 }
 
 export default async function DoctorProfile({ params }: { params: Promise<{ slug: string }> }) {
@@ -42,7 +42,7 @@ export default async function DoctorProfile({ params }: { params: Promise<{ slug
       <div><Button href="/get-started">Book a visit</Button></div>
       <ImportantInfo />
       <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Physician', name: `${p.name}, ${p.credential}`, identifier: { '@type': 'PropertyValue', propertyID: 'NPI', value: p.npi },
-        memberOf: { '@type': 'MedicalOrganization', name: brand.name }, areaServed: 'Ohio', url: `https://${brand.domain}/doctors/${p.slug}` }} />
+        memberOf: { '@id': `https://${brand.domain}/#organization` }, areaServed: 'Ohio', url: `https://${brand.domain}/doctors/${p.slug}` }} />
     </main>
   );
 }

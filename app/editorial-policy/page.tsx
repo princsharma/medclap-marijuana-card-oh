@@ -3,7 +3,7 @@ import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
 import { author, brand } from '@/brand/site';
 import s from '@/components/page.module.css';
 
-export const metadata: Metadata = { title: 'Editorial and Medical Review Policy', description: 'How Marijuana Card OH researches, writes, medically reviews and updates its content.', alternates: { canonical: '/editorial-policy' } };
+export const metadata: Metadata = { title: 'Editorial and Medical Review Policy', description: 'How Marijuana Card OH researches, writes, medically reviews and updates its content, using Ohio primary sources with the date each fact was checked.', alternates: { canonical: '/editorial-policy' } };
 
 export default function Editorial() {
   return (
