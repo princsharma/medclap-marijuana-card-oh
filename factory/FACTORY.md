@@ -41,7 +41,7 @@ dispensary locator only if the state publishes a dataset; city pages only where 
 | Full QA (build, audit, schema, screenshots, tracking guard) | `npm run qa` |
 | Leftover/placeholder/SEO audit only | `npm run qa:audit` |
 | schema.org validation | `npm run qa:schema` |
-| Uniqueness vs siblings | `npm run build && python3 scripts/qa/uniqueness.py --start --against qa/siblings/<file>.json.gz …` |
+| Uniqueness vs siblings | `npm run build && python3 scripts/qa/uniqueness.py --start --against qa/siblings/*.json.gz` |
 | Save this site's fingerprint (after every content change) | `python3 scripts/qa/uniqueness.py --start --export qa/fingerprint.json.gz` |
 | Infographic PNGs + checklist PDF | `node scripts/export-infographics.mjs` |
 | Resubmit all pages to IndexNow | `GET /api/indexnow?mode=all&token=$INDEXNOW_TOKEN` |

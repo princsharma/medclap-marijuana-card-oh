@@ -49,7 +49,7 @@ def site_pages(base):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument('--base'); ap.add_argument('--start', action='store_true'); ap.add_argument('--port', type=int, default=3311)
-    ap.add_argument('--against', action='append', default=[]); ap.add_argument('--export')
+    ap.add_argument('--against', action='extend', nargs='+', default=[]); ap.add_argument('--export')
     ap.add_argument('--max-page', type=float, default=0.15); ap.add_argument('--max-site', type=float, default=0.05)
     a = ap.parse_args()
     proc = None
