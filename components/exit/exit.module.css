@@ -1,0 +1,35 @@
+.backdrop { position: fixed; inset: 0; z-index: 2000; background: rgb(8 44 42 / 0.55); display: grid; place-items: center; padding: 16px; animation: fade .18s ease-out; }
+.dialog:focus { outline: none; }
+.dialog { position: relative; width: min(100%, 34rem); max-height: calc(100dvh - 32px); overflow-y: auto; background: var(--color-bg-surface); border-radius: var(--radius-lg); box-shadow: 0 24px 64px rgb(8 44 42 / 0.3); padding: clamp(24px, 5vw, 40px); display: grid; gap: var(--space-md); color: var(--color-text-primary); border-top: 6px solid var(--sun-400); animation: rise .22s ease-out; }
+@media (max-width: 560px) { .row .primary { flex: 1 1 100%; } .backdrop { place-items: end center; padding: 0; } .dialog { width: 100%; border-radius: var(--radius-lg) var(--radius-lg) 0 0; max-height: 92dvh; } }
+.close { position: absolute; top: 12px; right: 12px; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 999px; background: transparent; color: var(--color-text-secondary); cursor: pointer; }
+.close:hover { background: var(--teal-50); color: var(--color-text-primary); }
+.kicker { margin: 0; font: 700 .8125rem/1.2 var(--font-body); letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-brand); }
+.title { margin: 0; padding-right: 36px; font: 800 clamp(1.5rem, 4vw, 1.9rem)/1.15 var(--font-display); }
+.text { margin: 0; color: var(--color-text-secondary); font: 400 1.0625rem/1.55 var(--font-body); }
+.points { margin: 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.points li { position: relative; padding-left: 28px; font: 600 1rem/1.45 var(--font-body); }
+.points li::before { content: ''; position: absolute; left: 0; top: 3px; width: 18px; height: 18px; border-radius: 999px; background: var(--teal-600) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/12px no-repeat; }
+.form { display: grid; gap: 10px; }
+.label { font: 600 .9rem var(--font-body); }
+.row { display: flex; gap: 8px; flex-wrap: wrap; }
+.input { flex: 1 1 14rem; min-width: 0; min-height: 48px; padding: 0 16px; border: 1.5px solid var(--color-border-strong); border-radius: var(--radius-full); font: 400 1rem var(--font-body); color: var(--color-text-primary); background: var(--color-bg-surface); }
+.input[aria-invalid="true"] { border-color: #B3402F; }
+.primary, .secondary { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: var(--radius-full); font: 700 1rem var(--font-body); cursor: pointer; text-decoration: none; text-align: center; }
+.primary { border: 0; background: var(--color-action-primary); color: var(--color-text-inverse); }
+.primary:hover { background: var(--color-action-primary-hover); }
+.primary:disabled { opacity: .7; cursor: progress; }
+.secondary { border: 2px solid var(--color-border-strong); background: var(--color-bg-surface); color: var(--color-text-brand); }
+.check { display: flex; gap: 10px; align-items: flex-start; font: 400 .875rem/1.45 var(--font-body); color: var(--color-text-secondary); }
+.check input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--teal-600); flex: none; }
+.check a { color: var(--color-text-brand); }
+.error { margin: 0; color: #9A3324; font: 600 .9rem var(--font-body); }
+.textBtn { justify-self: center; background: none; border: 0; padding: 8px; font: 600 .95rem var(--font-body); color: var(--color-text-secondary); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.actions > * { flex: 1 1 12rem; }
+.later { display: grid; gap: 8px; border-top: 1px solid var(--color-border-default); padding-top: var(--space-md); }
+.laterTitle { margin: 0; font: 800 1.1rem var(--font-display); }
+.small { margin: 0; font: 400 .9375rem/1.5 var(--font-body); color: var(--color-text-secondary); }
+@keyframes fade { from { opacity: 0; } }
+@keyframes rise { from { opacity: 0; transform: translateY(16px); } }
+@media (prefers-reduced-motion: reduce) { .backdrop, .dialog { animation: none; } }

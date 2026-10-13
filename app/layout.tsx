@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { IMG } from '@/brand/images';
+import { GuidePopup } from '@/components/exit/GuidePopup';
 import localFont from 'next/font/local';
 import './globals.css';
 import { Header } from '@/components/Header';
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <HideInFunnel><Header /></HideInFunnel>
         <div id="main">{children}</div>
         <HideInFunnel><Footer /></HideInFunnel>
+        <HideInFunnel><GuidePopup /></HideInFunnel>
         <JsonLd data={{ '@context': 'https://schema.org', '@graph': [
           { '@type': 'MedicalOrganization', '@id': `https://${brand.domain}/#organization`, name: brand.name, url: `https://${brand.domain}`,
             logo: `https://${brand.domain}/apple-icon.png`, image: IMG.social.src, description: brand.tagline, email: brand.email,

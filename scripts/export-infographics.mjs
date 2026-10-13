@@ -18,4 +18,11 @@ for (const slug of slugs) {
   console.log(slug, Math.round(box.width), 'x', Math.round(box.height));
 }
 fs.writeFileSync('content/infographic-sizes.json', JSON.stringify(sizes, null, 2) + '\n');
+// Free checklist PDF (lead magnet): cover + every infographic + next steps, 1200x900 pages.
+fs.mkdirSync('public/guides', { recursive: true });
+await p.goto(`${BASE}/infographic-render/guide`, { waitUntil: 'networkidle' });
+await p.evaluate(() => document.fonts.ready);
+await p.emulateMedia({ media: 'screen' });
+await p.pdf({ path: 'public/guides/ohio-medical-card-checklist.pdf', width: '1200px', height: '900px', printBackground: true, margin: { top: '0', right: '0', bottom: '0', left: '0' } });
+console.log('pdf written');
 await b.close();

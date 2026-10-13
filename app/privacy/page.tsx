@@ -23,6 +23,7 @@ const sections: LegalSection[] = [
       <li><strong>Details you give us:</strong> your name, email, phone number, date of birth and address when you book, and anything you write to us.</li>
       <li><strong>Health information for your visit:</strong> your medical history, records, medicines and qualifying condition. This goes to your physician and is covered by the Notice of Privacy Practices.</li>
       <li><strong>Payment details:</strong> handled by our payment processor, <Tbc v={legal.paymentProcessor} label="payment processor" />. We don’t store full card numbers.</li>
+      <li><strong>Email sign-ups:</strong> if you ask for our free checklist or a link to finish the sign-up form later, your email address and your consent, so we can send it and occasional updates. We don’t record which page you were reading. Unsubscribe anytime with the link in any email.</li>
       <li><strong>Help Center questions and contact forms:</strong> the questions you type into Instant AI Help and the messages you send through our contact forms. Please don’t include health details in them.</li>
       <li><strong>Technical information:</strong> your browser, device and IP address, collected by our hosting provider ({legal.hosting}) to deliver and secure the website.</li>
     </ul>

@@ -11,6 +11,7 @@
  * Submits to /api/onboarding, which forwards to the EHR when EHR_WEBHOOK_URL is set.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { SurveyExitPopup } from '@/components/exit/SurveyExitPopup';
 import { conditions } from '@/brand/conditions';
 import { phone, physicians, pricing } from '@/brand/site';
 import { ohioFigures } from '@/content/locations';
@@ -387,6 +388,7 @@ export function Survey() {
       </div>
       </div>
       </div>
+      <SurveyExitPopup active={!done && !exit} step={step} email={a.email} />
       <footer className={s.fFoot}>
         <p>© {new Date().getFullYear()} Marijuana Card OH · <a href="/privacy" target="_blank" rel="noopener">Privacy</a> · <a href="/terms" target="_blank" rel="noopener">Terms</a></p>
         <p>In crisis? Call or text 988. In an emergency, call 911.</p>
