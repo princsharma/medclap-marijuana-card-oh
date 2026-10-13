@@ -38,7 +38,9 @@ export async function POST(req: Request) {
   if (Object.keys(errors).length) return NextResponse.json({ ok: false, errors }, { status: 422 });
 
   const hook = process.env.CONTACT_WEBHOOK_URL;
-  if (!hook) return NextResponse.json({ ok: true, delivered: false });
+  if (!hook) return process.env.NEXT_PUBLIC_SITE_ENV === 'production'
+    ? NextResponse.json({ ok: false, error: 'Our contact form is unavailable right now. Please email us instead.' }, { status: 503 })
+    : NextResponse.json({ ok: true, delivered: false });
 
   try {
     const res = await fetch(hook, {

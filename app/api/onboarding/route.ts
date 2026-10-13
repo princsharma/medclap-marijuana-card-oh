@@ -42,7 +42,10 @@ export async function POST(req: Request) {
   if (missing) return NextResponse.json({ ok: false, error: 'Some answers are missing.' }, { status: 422 });
 
   const url = process.env.EHR_WEBHOOK_URL;
-  if (!url) return NextResponse.json({ ok: true, forwarded: false });
+  // Staging may run unconnected; production must never accept answers that go nowhere.
+  if (!url) return process.env.NEXT_PUBLIC_SITE_ENV === 'production'
+    ? NextResponse.json({ ok: false, error: 'Booking is temporarily unavailable.' }, { status: 503 })
+    : NextResponse.json({ ok: true, forwarded: false });
 
   const body = JSON.stringify(record);
   const headers: Record<string, string> = { 'content-type': 'application/json' };

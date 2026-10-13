@@ -13,11 +13,12 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { SurveyExitPopup } from '@/components/exit/SurveyExitPopup';
 import { conditions } from '@/brand/conditions';
-import { phone, physicians, pricing } from '@/brand/site';
+import { brand, phone, physicians, pricing } from '@/brand/site';
 import { ohioFigures } from '@/content/locations';
 import { LeafMark } from '@/components/LeafMark';
 import { Icon } from '@/components/ui/Icon';
 import s from './survey.module.css';
+import { showPending } from '@/lib/site';
 
 type VisitType = 'new' | 'renewal';
 type Answers = {
@@ -147,7 +148,7 @@ export function Survey() {
       setDone({ forwarded: Boolean(j.forwarded) });
       window.scrollTo({ top: 0, behavior: 'smooth' });
     } catch {
-      setError(`Something went wrong sending your answers. Please try again, or email us and we’ll help you book.`);
+      setError(`Something went wrong sending your answers. Please try again, or email ${brand.email} and we’ll help you book.`);
     } finally { setSending(false); }
   };
 
@@ -349,9 +350,9 @@ export function Survey() {
         ) : <span />}
         {phone ? (
           <a className={s.call} href={`tel:${phone.tel}`} onClick={() => track('onboarding_call_click', { step_name: step })}><Icon name="phone" size={16} /> <span>Call {phone.display}</span></a>
-        ) : (
+        ) : showPending ? (
           <span className={`${s.call} ${s.callTbc}`} title="Phone number to be confirmed"><Icon name="phone" size={16} /> <span>Call [number TBC]</span></span>
-        )}
+        ) : <span />}
       </header>
       <div className={s.stage}>
       <div className={s.shell}>
