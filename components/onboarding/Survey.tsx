@@ -3,15 +3,18 @@
  * Onboarding survey (multistep). CRO notes:
  * - Easy first question (one tap), auto-advance on single choice, progress bar, "about 2 minutes".
  * - Value before contact details: an encouraging fit screen comes before the contact step.
+ * - Funnel layout: no site nav or footer links (exit points); logo, time-left estimate and Call button only.
+ * - Trust screens: Ohio patient numbers + privacy (after age), the physicians with license numbers (after history).
  * - Prefill from the URL: ?type=renewal, ?condition=<slug>; UTM/referrer captured for attribution.
  * Compliance: never says "you qualify" or promises approval. The physician decides.
  * Privacy: answers live in memory only (no browser storage). Analytics events carry no health data.
  * Submits to /api/onboarding, which forwards to the EHR when EHR_WEBHOOK_URL is set.
  */
 import { useEffect, useMemo, useRef, useState } from 'react';
-import Link from 'next/link';
 import { conditions } from '@/brand/conditions';
-import { pricing } from '@/brand/site';
+import { phone, physicians, pricing } from '@/brand/site';
+import { ohioFigures } from '@/content/locations';
+import { LeafMark } from '@/components/LeafMark';
 import { Icon } from '@/components/ui/Icon';
 import s from './survey.module.css';
 
@@ -22,7 +25,7 @@ type Answers = {
   firstName: string; lastName: string; email: string; phone: string; zip: string; smsOptIn: boolean;
   consentTelehealth: boolean; consentTerms: boolean; heardFrom: string;
 };
-type StepId = 'type' | 'ohio' | 'dob' | 'condition' | 'history' | 'fit' | 'contact' | 'consent';
+type StepId = 'type' | 'ohio' | 'dob' | 'trust-ohio' | 'condition' | 'history' | 'trust-doctors' | 'fit' | 'contact' | 'consent';
 type Exit = 'not-ohio' | 'under-18' | null;
 
 declare global { interface Window { dataLayer?: Record<string, unknown>[] } }
@@ -51,8 +54,10 @@ export function Survey() {
   const ohioZips = useRef<Record<string, unknown> | null>(null);
   const headingRef = useRef<HTMLHeadingElement>(null);
   const started = useRef(false);
+  // Estimated time left: an honest estimate from the screens remaining, not a deadline.
+  const [secsLeft, setSecsLeft] = useState(120);
 
-  const steps: StepId[] = useMemo(() => ['type', 'ohio', 'dob', 'condition', 'history', 'fit', 'contact', 'consent'], []);
+  const steps: StepId[] = useMemo(() => ['type', 'ohio', 'dob', 'trust-ohio', 'condition', 'history', 'trust-doctors', 'fit', 'contact', 'consent'], []);
   const step = steps[i];
   const isRenewal = a.visitType === 'renewal';
   const set = (p: Partial<Answers>) => { setA((x) => ({ ...x, ...p })); setError(''); };
@@ -69,6 +74,13 @@ export function Survey() {
     if (document.referrer) attribution.current.referrer = document.referrer.slice(0, 300);
     attribution.current.landing = window.location.pathname;
   }, []);
+
+  useEffect(() => {
+    if (done) return;
+    const floor = Math.max(steps.length - i - 1, 0) * 8;
+    const id = setInterval(() => setSecsLeft((v) => Math.max(v - 1, floor, 5)), 1000);
+    return () => clearInterval(id);
+  }, [i, done, steps.length]);
 
   // Move focus to the question on each step; fire a step event (no health data).
   useEffect(() => {
@@ -167,11 +179,11 @@ export function Survey() {
         <h2 className={s.h2}>Before your visit</h2>
         <ul className={s.prep}>
           <li><Icon name="user-check" size={18} /> Have a photo ID ready.</li>
-          <li><Icon name="list-checks" size={18} /> Gather any records that name your diagnosis. <Link href="/guides/medical-records">What helps</Link></li>
+          <li><Icon name="list-checks" size={18} /> Gather any records that name your diagnosis. <a href="/guides/medical-records" target="_blank" rel="noopener">What helps</a></li>
           <li><Icon name="map-pin" size={18} /> Be somewhere private and physically in Ohio for the video call.</li>
           <li><Icon name="receipt" size={18} /> If your physician finds you don’t qualify, you get a full refund.</li>
         </ul>
-        <p className={s.small}>Questions? Visit the <Link href="/help">Help Center</Link>.</p>
+        <p className={s.small}>Questions? Visit the <a href="/help" target="_blank" rel="noopener">Help Center</a>.</p>
       </div>
     );
   } else if (exit === 'not-ohio') {
@@ -202,6 +214,34 @@ export function Survey() {
       <p className={s.why}>You need to be 18 or older. Your physician confirms it with your photo ID.</p>
       <label className={s.label} htmlFor="dob">Date of birth</label>
       <input id="dob" className={s.input} inputMode="numeric" autoComplete="bday" placeholder="MM/DD/YYYY" value={a.dob} onChange={(e) => set({ dob: maskDob(e.target.value) })} aria-invalid={Boolean(error)} aria-describedby={error ? 'q-err' : undefined} />
+    </>);
+  } else if (step === 'trust-ohio') {
+    body = (<>
+      <p className={s.kicker}>You’re in good company</p>
+      <p className={s.bigStat}>{ohioFigures.registeredPatients.value}</p>
+      <H>Ohioans have registered as medical marijuana patients</H>
+      <p className={s.why}>Division of Cannabis Control, as of {ohioFigures.registeredPatients.asOf}.</p>
+      <ul className={s.trustList}>
+        <li><span className={s.trustIcon}><Icon name="shield-check" /></span><span><strong>Private by law.</strong> Registry information that identifies you is confidential under Ohio law and isn’t a public record.</span></li>
+        <li><span className={s.trustIcon}><Icon name="receipt" /></span><span><strong>No state fee.</strong> Ohio’s current rule sets no registration fee. You pay only for your visit.</span></li>
+        <li><span className={s.trustIcon}><Icon name="video" /></span><span><strong>From home.</strong> Your visit is a video call, so there’s no waiting room.</span></li>
+      </ul>
+    </>);
+  } else if (step === 'trust-doctors') {
+    body = (<>
+      <p className={s.kicker}>Real Ohio doctors</p>
+      <H>Meet the physicians who see our patients</H>
+      <p className={s.why}>Both hold an Ohio license and a Certificate to Recommend from the State Medical Board of Ohio.</p>
+      <div className={s.docs}>
+        {physicians.map((p) => (
+          <div key={p.npi} className={s.docCard}>
+            <span className={s.docAvatar} aria-hidden="true">{p.name.replace('Dr. ', '').split(' ').filter((w) => /^[A-Z]/.test(w)).map((w) => w[0]).filter((_, k, arr) => k === 0 || k === arr.length - 1).join('')}</span>
+            <span className={s.docText}><strong>{p.name}, {p.credential}</strong><span>{p.role}</span><span>Ohio license {p.ohioLicense}</span><span>NPI {p.npi}</span></span>
+          </div>
+        ))}
+      </div>
+      <p className={s.guaranteeBox}><Icon name="shield-check" size={20} /> <span><strong>100% money-back guarantee if you don’t qualify.</strong> No deductions, no no-show fee.</span></p>
+      <p className={s.small}>Check their licenses yourself on <a href="https://elicense.ohio.gov/oh_verifylicense" target="_blank" rel="noopener noreferrer">Ohio eLicense</a>.</p>
     </>);
   } else if (step === 'condition') {
     body = (<>
@@ -252,7 +292,7 @@ export function Survey() {
         <li><Icon name="receipt" size={18} /> ${isRenewal ? pricing.renewalEvaluation : pricing.newEvaluation} evaluation, no state fee, full refund if you don’t qualify</li>
         <li><Icon name="clock" size={18} /> If you qualify, your recommendation is submitted to the Ohio registry right after your visit</li>
       </ul>
-      {!isRenewal && a.records === 'none' ? <p className={s.notice}>No records? You can still book. Your physician may ask for them before deciding. <Link href="/guides/medical-records">How to get your records</Link></p> : null}
+      {!isRenewal && a.records === 'none' ? <p className={s.notice}>No records? You can still book. Your physician may ask for them before deciding.</p> : null}
       {isRenewal && a.expires === 'expired' ? <p className={s.notice}>Your card can’t be used while it’s expired. Once your physician submits a new recommendation, the Renew Card button appears in your registry account.</p> : null}
     </>);
   } else if (step === 'contact') {
@@ -281,9 +321,9 @@ export function Survey() {
         <div><dt>Contact</dt><dd>{a.firstName} {a.lastName}, {a.email}, {a.phone}</dd></div>
       </dl>
       <label className={s.check}><input type="checkbox" checked={a.consentTelehealth} onChange={(e) => set({ consentTelehealth: e.target.checked })} />
-        <span>I’m 18 or older, I’ll be in Ohio for my visit, and I agree to the <Link href="/telehealth-consent" target="_blank">telehealth consent</Link>. <em className={s.req}>Required</em></span></label>
+        <span>I’m 18 or older, I’ll be in Ohio for my visit, and I agree to the <a href="/telehealth-consent" target="_blank" rel="noopener">telehealth consent</a>. <em className={s.req}>Required</em></span></label>
       <label className={s.check}><input type="checkbox" checked={a.consentTerms} onChange={(e) => set({ consentTerms: e.target.checked })} />
-        <span>I agree to the <Link href="/terms" target="_blank">terms of use</Link> and have read the <Link href="/privacy" target="_blank">privacy policy</Link> and <Link href="/notice-of-privacy-practices" target="_blank">notice of privacy practices</Link>. <em className={s.req}>Required</em></span></label>
+        <span>I agree to the <a href="/terms" target="_blank" rel="noopener">terms of use</a> and have read the <a href="/privacy" target="_blank" rel="noopener">privacy policy</a> and <a href="/notice-of-privacy-practices" target="_blank" rel="noopener">notice of privacy practices</a>. <em className={s.req}>Required</em></span></label>
       <label className={s.label} htmlFor="heard">How did you hear about us? <span className={s.opt}>Optional</span></label>
       <select id="heard" className={s.input} value={a.heardFrom} onChange={(e) => set({ heardFrom: e.target.value })}>
         <option value="">Choose one</option>
@@ -295,8 +335,25 @@ export function Survey() {
   const singleTap = step === 'type' || step === 'ohio' || (step === 'history' && isRenewal);
   const showNav = !done && !exit;
 
+  const mm = Math.floor(secsLeft / 60); const ss = String(secsLeft % 60).padStart(2, '0');
+
   return (
-    <div className={s.shell}>
+    <div className={s.funnel}>
+      <header className={s.fHead}>
+        <span className={s.brand}><LeafMark size={32} /> <span>Marijuana Card OH</span></span>
+        {!done ? (
+          <span className={s.timer} role="timer" aria-label={`About ${mm} minutes ${ss} seconds left`}>
+            <Icon name="clock" size={16} /> <span className={s.timerLabel}>Time left</span> <strong>{mm}:{ss}</strong>
+          </span>
+        ) : <span />}
+        {phone ? (
+          <a className={s.call} href={`tel:${phone.tel}`} onClick={() => track('onboarding_call_click', { step_name: step })}><Icon name="phone" size={16} /> <span>Call {phone.display}</span></a>
+        ) : (
+          <span className={`${s.call} ${s.callTbc}`} title="Phone number to be confirmed"><Icon name="phone" size={16} /> <span>Call [number TBC]</span></span>
+        )}
+      </header>
+      <div className={s.stage}>
+      <div className={s.shell}>
       <div className={s.main}>
         {!done ? (
           <div className={s.progress} aria-label={`Step ${Math.min(i + 1, total)} of ${total}`}>
@@ -309,7 +366,14 @@ export function Survey() {
           {error ? <p id="q-err" className={s.error} role="alert">{error}</p> : null}
           {showNav ? (
             <div className={s.nav}>
-              {i > 0 ? <button type="button" className={s.ghost} onClick={back}>Back</button> : <span />}
+              {i > 0 ? <button type="button" className={s.ghost} onClick={back}>Back</button> : null}
+              {singleTap ? (
+                <ul className={s.assure} aria-label="Why patients choose us">
+                  <li><Icon name="user-check" size={16} /> Ohio-licensed physicians</li>
+                  <li><Icon name="shield-check" size={16} /> Money back if you don’t qualify</li>
+                  <li><Icon name="receipt" size={16} /> No state fee</li>
+                </ul>
+              ) : null}
               {!singleTap ? (
                 <button type="submit" className={s.primary} disabled={sending}>
                   {step === 'consent' ? (sending ? 'Sending…' : 'Submit and choose a time') : step === 'fit' ? 'Continue: 2 quick steps' : 'Continue'}
@@ -321,7 +385,12 @@ export function Survey() {
           {step === 'consent' && !done ? <p className={s.guarantee}><Icon name="shield-check" size={16} /> 100% money-back guarantee if you don’t qualify.</p> : null}
         </form>
       </div>
-
+      </div>
+      </div>
+      <footer className={s.fFoot}>
+        <p>© {new Date().getFullYear()} Marijuana Card OH · <a href="/privacy" target="_blank" rel="noopener">Privacy</a> · <a href="/terms" target="_blank" rel="noopener">Terms</a></p>
+        <p>In crisis? Call or text 988. In an emergency, call 911.</p>
+      </footer>
     </div>
   );
 }

@@ -10,6 +10,9 @@ export const brand = {
   source: 'Prince, 12–13 Oct 2026',
 } as const;
 
+// Phone line for the Call button on the survey header. null = not set up yet (button shows a placeholder).
+export const phone: { display: string; tel: string } | null = null;
+
 export const pricing = {
   newEvaluation: 149,
   renewalEvaluation: 129,

@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
+import { HideInFunnel } from '@/components/HideInFunnel';
 import { JsonLd } from '@/components/PageParts';
 import { brand } from '@/brand/site';
 
@@ -38,9 +39,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${bricolage.variable} ${figtree.variable}`}>
       <body>
         <a href="#main" className="skip">Skip to content</a>
-        <Header />
+        <HideInFunnel><Header /></HideInFunnel>
         <div id="main">{children}</div>
-        <Footer />
+        <HideInFunnel><Footer /></HideInFunnel>
         <JsonLd data={{ '@context': 'https://schema.org', '@type': 'MedicalOrganization', name: brand.name, url: `https://${brand.domain}`, email: brand.email, areaServed: { '@type': 'State', name: 'Ohio' }, medicalSpecialty: 'Telehealth medical marijuana evaluations' }} />
       </body>
     </html>
