@@ -8,7 +8,7 @@ export default function robots(): MetadataRoute.Robots {
   if (process.env.ALLOW_INDEXING !== 'true') {
     return { rules: [{ userAgent: '*', disallow: '/' }] };
   }
-  const privatePaths = ['/api/', '/design-system'];
+  const privatePaths = ['/api/', '/design-system', '/infographic-render/'];
   return {
     rules: [
       { userAgent: '*', allow: '/', disallow: privatePaths },

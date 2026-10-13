@@ -42,3 +42,29 @@ export const cityImage: Record<string, SiteImage> = {
   columbus: IMG.cityColumbus,
   cleveland: IMG.cityCleveland,
 };
+
+// Condition pages: symbolic still-lifes (body-area symbol + records folder + our card). No people, pills or plants.
+const C = (id: string, what: string): SiteImage => wide(id, `Illustration for ${what}, with a folder of medical records and a medical card`);
+export const conditionImage: Record<string, SiteImage> = {
+  aids: C('174721_d8cb63a6-d724-46ff-852d-a38451eb19f2', 'AIDS, a shield with an immune cell'),
+  'alzheimers-disease': C('174723_d7024de8-434d-40d2-a97d-903f1cc9f112', 'Alzheimer’s disease, a brain with a puzzle piece'),
+  als: C('174722_68a9dffb-b4f1-4f69-b040-45dc58408e09', 'ALS, a nerve cell linked to a hand'),
+  cancer: C('174722_c433f401-a74c-4b11-a448-d894c98adaf5', 'cancer, an awareness ribbon'),
+  'chronic-traumatic-encephalopathy': C('174723_3f1ca010-f669-452e-884b-020cfc33bae4', 'chronic traumatic encephalopathy, a sports helmet beside a brain'),
+  'crohns-disease': C('174723_7860ca6f-a26d-462b-80f6-f03948393c1c', 'Crohn’s disease, the intestines with a small heart'),
+  'epilepsy-seizure-disorders': C('174723_62ce048c-e3ff-439d-a1c5-beb1bb38f816', 'epilepsy, a brain with calm wave lines'),
+  fibromyalgia: C('174722_d813c79e-1d8a-428d-9304-2e05598627a5', 'fibromyalgia, a body outline with tender points'),
+  glaucoma: C('175027_c4a8d3bb-aebc-401b-8451-adc947a84133', 'glaucoma, an eye beside a pressure gauge'),
+  'hepatitis-c': C('175029_7f405fbf-a452-457d-a47a-61d9e5ec8e97', 'hepatitis C, a liver with a small shield'),
+  'inflammatory-bowel-disease': C('175028_63f4b665-6d38-421f-9803-32dd76a3ff8f', 'inflammatory bowel disease, the digestive tract and a hot-water bottle'),
+  'multiple-sclerosis': C('175028_44793fb1-78cb-4064-9817-7205d83546d6', 'multiple sclerosis, a brain and spinal cord with nerves'),
+  'chronic-pain': C('175029_06e2fef3-68b7-4740-88f7-646f4dea50ca', 'chronic pain, a body outline with a heat pack at the lower back'),
+  'parkinsons-disease': C('175028_b1b8cd1a-bec5-4832-b1ef-711bfc3def7f', 'Parkinson’s disease, a hand holding a mug'),
+  hiv: C('175027_342af7da-0ac1-42dc-be59-6944c190fbfd', 'HIV, a shield with an immune cell and a heart'),
+  ptsd: C('175028_3f4b5046-c5c2-4d17-a390-24bbb830f152', 'PTSD, a calm sunrise over a lake and a heart'),
+  'sickle-cell-anemia': C('175252_bc727729-75b3-48b3-a774-52927f4bf29a', 'sickle cell anemia, blood cells with one crescent-shaped cell'),
+  'spinal-cord-disease-injury': C('175250_28427583-49b8-4c30-ac21-b16b2f78bcf7', 'spinal cord disease or injury, an upright spine'),
+  'tourette-syndrome': C('175251_0ae372ee-7f48-45fd-9e8d-7baede9f1f25', 'Tourette’s syndrome, a speech bubble beside an open hand'),
+  'traumatic-brain-injury': C('175254_e1678eee-a92b-42ea-b4ad-ba2d347d291d', 'traumatic brain injury, a brain with a bandage'),
+  'ulcerative-colitis': C('175250_aefd23a4-87a2-4827-9f25-54b3ad453727', 'ulcerative colitis, the colon beside a calendar'),
+};

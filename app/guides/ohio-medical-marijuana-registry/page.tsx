@@ -7,6 +7,7 @@ import { brand } from '@/brand/site';
 import { registry } from '@/brand/registry';
 import { ArticleEnd, ArticleTop, KeyTakeaways, ShareArticle } from '@/components/ArticleExtras';
 import { relatedGuides } from '@/content/guides';
+import { InfographicBlock } from '@/components/infographics/InfographicBlock';
 import s from '@/components/page.module.css';
 
 export const metadata: Metadata = {
@@ -57,6 +58,7 @@ export default function RegistryGuide() {
         <p>Registry information that identifies you is confidential under Ohio law and is not a public record.</p>
       </Section>
 
+      <InfographicBlock slug="ohio-registry-activation-and-renewal" />
       <Section title="Activating your registration" id="activate">
         <ol>
           <li>After your visit, your physician submits your registration.</li>

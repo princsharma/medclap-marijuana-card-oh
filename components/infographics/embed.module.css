@@ -1,0 +1,10 @@
+.embed { border: 1px solid var(--color-border-default); border-radius: var(--radius-md); background: var(--color-bg-surface); }
+.embed summary { cursor: pointer; padding: var(--space-md) var(--space-lg); font: 700 1rem var(--font-body); color: var(--color-text-brand); }
+.body { padding: 0 var(--space-lg) var(--space-lg); display: grid; gap: var(--space-sm); }
+.body p { margin: 0; color: var(--color-text-secondary); }
+.label { font: 600 .9rem var(--font-body); }
+.code { width: 100%; box-sizing: border-box; font: 400 .85rem/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; padding: var(--space-sm) var(--space-md); border: 1px solid var(--color-border-strong); border-radius: var(--radius-sm); background: var(--teal-50); color: var(--color-text-primary); resize: vertical; }
+.actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg); }
+.btn { min-height: 44px; padding: 0 var(--space-xl); border: 0; border-radius: var(--radius-full); background: var(--color-action-primary); color: var(--color-text-inverse); font: 700 1rem var(--font-body); cursor: pointer; }
+.btn:hover { background: var(--color-action-primary-hover); }
+.link { font: 700 1rem var(--font-body); color: var(--color-text-brand); }

@@ -5,10 +5,11 @@ import { Rich } from '@/components/Rich';
 import { ArticleBottom, ArticleTop, readMinutes } from '@/components/ArticleExtras';
 import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
-import { Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
+import { ArticleHero, Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
 import { conditions } from '@/brand/conditions';
 import { conditionPages, EVIDENCE_SOURCES, SAFETY, TAKEAWAYS } from '@/content/condition-pages';
 import { brand, pricing } from '@/brand/site';
+import { conditionImage } from '@/brand/images';
 import s from '@/components/page.module.css';
 
 const find = (slug: string) => {
@@ -31,7 +32,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const t = `Medical Marijuana for ${tc} in Ohio`;
   return { title: { absolute: t },
     description: ((d) => d.length <= 160 ? d : `Is ${c.short} a qualifying condition for an Ohio medical card? Research, records that help, and how to get evaluated.`)(`Is ${c.short} a qualifying condition for an Ohio medical marijuana card? What the research says, what records help, and how to get evaluated.`),
-    alternates: { canonical: `/conditions/${c.slug}` } };
+    alternates: { canonical: `/conditions/${c.slug}` },
+    ...(conditionImage[c.slug] ? { openGraph: { images: [{ url: conditionImage[c.slug].src, width: 2048, height: 1152, alt: conditionImage[c.slug].alt }] } } : {}) };
 }
 
 export default async function ConditionPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -55,6 +57,7 @@ export default async function ConditionPage({ params }: { params: Promise<{ slug
         lead={<>“{c.name}” is one of Ohio’s 21 qualifying conditions for a medical marijuana card. An Ohio physician confirms your diagnosis and decides whether you qualify.</>}>
         <Button href={`/get-started?condition=${c.slug}`}>Check if you qualify</Button>
       </PageHeader>
+      {conditionImage[c.slug] ? <ArticleHero image={conditionImage[c.slug]} /> : null}
       <ReviewByline />
       <ArticleTop path={`/conditions/${c.slug}`} title={`Medical marijuana for ${c.short} in Ohio`} updated="2026-10-13" readMinutes={readMinutes([...c.evidence, ...c.records, ...SAFETY])} />
 

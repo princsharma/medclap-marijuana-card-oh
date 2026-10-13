@@ -8,6 +8,8 @@ import { getGuide, guides, relatedGuides } from '@/content/guides';
 import { ArticleEnd, ArticleTop, KeyTakeaways, ShareArticle, readMinutes } from '@/components/ArticleExtras';
 import { brand } from '@/brand/site';
 import { guideImage } from '@/brand/images';
+import { InfographicBlock } from '@/components/infographics/InfographicBlock';
+import { infographicFor } from '@/content/infographics';
 import s from '@/components/page.module.css';
 
 export function generateStaticParams() { return guides.map((g) => ({ slug: g.slug })); }
@@ -30,6 +32,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
       <ArticleTop path={`/guides/${g.slug}`} title={g.title} updated="2026-10-13" readMinutes={readMinutes(g.body)} />
       <ShareArticle path={`/guides/${g.slug}`} />
       <KeyTakeaways items={g.keyTakeaways} />
+      {infographicFor(`/guides/${g.slug}`) ? <InfographicBlock slug={infographicFor(`/guides/${g.slug}`)!.slug} /> : null}
       <article className={`${s.section} ${s.prose} type-body`}><Body lines={g.body} /></article>
       <div><Button href="/get-started">Check if you qualify</Button></div>
       <ArticleEnd relatedTitle="Related guides" related={relatedGuides(`/guides/${g.slug}`)} />

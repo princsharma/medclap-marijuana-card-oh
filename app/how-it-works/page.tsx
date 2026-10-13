@@ -6,6 +6,7 @@ import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, Faq, PageHeader, Section, Sources } from '@/components/PageParts';
 import { pricing } from '@/brand/site';
 import { ArticleBottom, ArticleTop } from '@/components/ArticleExtras';
+import { InfographicBlock } from '@/components/infographics/InfographicBlock';
 import s from '@/components/page.module.css';
 
 export const metadata: Metadata = {
@@ -53,6 +54,8 @@ export default function HowItWorks() {
           <li><strong>Buy at a licensed dispensary.</strong> Bring your registry card and your photo ID.</li>
         </ol>
       </Section>
+
+      <InfographicBlock slug="how-to-get-an-ohio-medical-marijuana-card" />
 
       <Section title="What happens in your visit" id="visit">
         <p>

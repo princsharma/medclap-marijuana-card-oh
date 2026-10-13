@@ -5,7 +5,8 @@ import { cities } from '@/content/locations';
 import { guides } from '@/content/guides';
 import { posts } from '@/content/blog';
 import { articles, kbCategories, helpPaths } from '@/content/help';
-import { IMG, cityImage, guideImage, postImage, type SiteImage } from '@/brand/images';
+import { IMG, cityImage, conditionImage, guideImage, postImage, type SiteImage } from '@/brand/images';
+import { infographics, infographicPng } from '@/content/infographics';
 import { siteUrl } from '@/lib/site';
 
 // Indexable pages only. Left out on purpose: /get-started (funnel, noindex),
@@ -38,7 +39,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ['/notice-of-privacy-practices', 0.2],
     ['/terms', 0.2],
     ['/telehealth-consent', 0.2],
-    ...conditions.map((c): Entry => [`/conditions/${c.slug}`, 0.8]),
+    ...conditions.map((c): Entry => [`/conditions/${c.slug}`, 0.8, conditionImage[c.slug]]),
     ...physicians.map((p): Entry => [`/doctors/${p.slug}`, 0.6]),
     ...cities.filter((c) => c.published).map((c): Entry => [`/locations/${c.slug}`, 0.7, cityImage[c.slug]]),
     ...guides.map((g): Entry => [`/guides/${g.slug}`, 0.7, guideImage[g.slug]]),
@@ -51,6 +52,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: lastModified ?? UPDATED,
     changeFrequency: priority >= 0.8 ? 'weekly' : 'monthly',
     priority,
-    ...(image ? { images: [image.src] } : {}),
+    ...((() => { const imgs = [image?.src, ...infographics.filter((i) => i.page === path).map((i) => `${siteUrl}${infographicPng(i.slug)}`)].filter(Boolean) as string[]; return imgs.length ? { images: imgs } : {}; })()),
   }));
 }
