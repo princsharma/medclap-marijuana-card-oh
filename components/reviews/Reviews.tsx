@@ -1,6 +1,8 @@
 import { publishable, reviewLinks, summary, type Review } from '@/content/reviews';
 import { physicians } from '@/brand/site';
 import { showPending } from '@/lib/site';
+import Link from 'next/link';
+import { brand, pricing } from '@/brand/site';
 import { LaunchGate } from '@/components/ui/Pending';
 import { JsonLd } from '@/components/PageParts';
 import { BASE, ORG } from '@/lib/schema';
@@ -48,18 +50,10 @@ function Card({ v }: { v: Review }) {
   );
 }
 
-/** Staging-only preview of the layout. Never rendered in production and never in schema. */
-const SAMPLES: Review[] = [
-  { id: 's1', firstName: 'Sample', lastInitial: 'A', city: 'Columbus', rating: 5, date: '2026-10-01', text: 'Sample review text. Real patient reviews appear here once they are collected with permission.', visit: 'new', source: 'Direct', verifiedPatient: true, consentOn: '2026-10-01' },
-  { id: 's2', firstName: 'Sample', lastInitial: 'B', city: 'Dayton', rating: 4, date: '2026-09-20', text: 'Sample review text. Every review is shown, good or bad, with health details removed.', visit: 'renewal', source: 'Google', sourceUrl: '#', verifiedPatient: false },
-  { id: 's3', firstName: 'Sample', lastInitial: 'C', rating: 5, date: '2026-09-02', text: 'Sample review text.', visit: 'new', source: 'Direct', verifiedPatient: true, consentOn: '2026-09-02', physicianSlug: 'kevin-kargman' },
-];
-
 export function Reviews({ city, title = 'What patients say' }: { city?: string; title?: string }) {
-  const real = publishable();
-  const sample = real.length === 0;
-  if (sample && !showPending) return null;
-  const all = sample ? SAMPLES : real;
+  const all = publishable();
+  // Until real reviews exist, the slot carries verifiable trust facts instead. No reviews are ever invented.
+  if (all.length === 0) return <TrustInstead />;
   // A city page lists that city's reviews first; the summary always covers every review.
   const list = city ? [...all.filter((v) => v.city === city), ...all.filter((v) => v.city !== city)] : all;
   const sum = summary(all);
@@ -68,7 +62,6 @@ export function Reviews({ city, title = 'What patients say' }: { city?: string; 
 
   return (
     <section className={r.section} aria-labelledby="reviews">
-      {sample ? <LaunchGate title="Patient reviews">This section shows sample layout on staging only. It goes live automatically once real reviews with permission to publish are added to content/reviews.ts.</LaunchGate> : null}
       <div className={r.head}>
         <h2 id="reviews" className="type-h2">{title}</h2>
         <div className={r.summary}>
@@ -94,12 +87,39 @@ export function Reviews({ city, title = 'What patients say' }: { city?: string; 
         and we remove health details to protect your privacy. Reviews describe our service, not medical results.
         {reviewLinks.google ? <> <a href={reviewLinks.google} target="_blank" rel="noopener noreferrer">Leave a review on Google</a>.</> : null}
       </p>
-      {sample ? null : (
+      {(
         <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Service', '@id': SERVICE_ID, name: 'Ohio medical marijuana card evaluation', provider: ORG,
           aggregateRating: { '@type': 'AggregateRating', ratingValue: sum.avg, reviewCount: sum.count, bestRating: 5, worstRating: 1 },
           review: shown.map((v) => ({ '@type': 'Review', author: { '@type': 'Person', name: `${v.firstName} ${v.lastInitial}.` }, datePublished: v.date,
             reviewBody: v.text, reviewRating: { '@type': 'Rating', ratingValue: v.rating, bestRating: 5, worstRating: 1 } })) }} />
       )}
+    </section>
+  );
+}
+
+/** Shown in the review slot before the first real review: facts a visitor can check for themselves. */
+function TrustInstead() {
+  const facts: [string, React.ReactNode][] = [
+    ['Doctors you can look up', <>Both physicians hold an active Ohio license and a Certificate to Recommend. Their numbers are on <Link href="/doctors">their profiles</Link>, so you can check them on Ohio eLicense.</>],
+    ['Your money back if you don’t qualify', <>If your physician finds you don’t qualify, you get your full evaluation fee back. No deductions. <Link href="/refund-policy">Refund terms</Link></>],
+    ['One clear price', <>${pricing.newEvaluation} for a new card, ${pricing.renewalEvaluation} to renew. Ohio charges no state registration fee.</>],
+    ['From home, anywhere in Ohio', <>Your visit is a video call with an Ohio physician. No waiting room, no travel.</>],
+  ];
+  return (
+    <section className={r.section} aria-labelledby="reviews">
+      {showPending ? <LaunchGate title="Patient reviews">No reviews yet, so this slot shows trust facts. The review carousel replaces it automatically once the first real review with permission to publish is added to content/reviews.ts.</LaunchGate> : null}
+      <h2 id="reviews" className="type-h2">What you can count on</h2>
+      <ul className={`${r.grid} ${r.facts}`}>
+        {facts.map(([h, body]) => (
+          <li key={h} className={r.card}>
+            <h3 className={r.factTitle}>{h}</h3>
+            <p className={r.factText}>{body}</p>
+          </li>
+        ))}
+      </ul>
+      <p className={r.policy}>
+        Had your visit? Tell us how it went at <a href={`mailto:${brand.email}?subject=My%20review`}>{brand.email}</a>. We publish reviews only with your permission, good or bad, and never with your health details.
+      </p>
     </section>
   );
 }
