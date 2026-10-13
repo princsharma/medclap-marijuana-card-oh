@@ -32,3 +32,20 @@
 .footerBrand { display: grid; gap: var(--space-md); align-content: start; }
 .footerLogo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .footerLegal { display: grid; gap: var(--space-sm); margin-top: var(--space-2xl); padding-top: var(--space-xl); border-top: 1px solid rgba(255,255,255,.25); }
+
+/* Illustrations */
+.illo { border-radius: var(--radius-lg); overflow: hidden; background: var(--color-bg-subtle); line-height: 0; }
+.illo img { width: 100%; height: auto; display: block; }
+.headerSplit { display: grid; gap: var(--space-xl); align-items: center; }
+.headerIllo { max-width: 32rem; width: 100%; }
+@media (min-width: 900px) {
+  .headerSplit { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); }
+  .headerIllo { justify-self: end; }
+}
+@media (max-width: 899px) {
+  .headerIllo { aspect-ratio: 16 / 9; }
+  .headerIllo img { height: 100%; object-fit: cover; }
+}
+.articleHero { max-width: 48rem; aspect-ratio: 16 / 9; }
+.articleHero img { height: 100%; object-fit: cover; }
+.stepIllo { order: -1; margin: calc(var(--space-xl) * -1) calc(var(--space-xl) * -1) var(--space-sm); border-radius: var(--radius-lg) var(--radius-lg) 0 0; aspect-ratio: 4 / 3; }

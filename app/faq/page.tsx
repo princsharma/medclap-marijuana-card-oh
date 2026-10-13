@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { FaqItem } from '@/components/FaqItem';
@@ -46,7 +47,7 @@ export default function FaqPage() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['FAQ', '/faq']]} />
-      <PageHeader eyebrow="FAQ" title="Ohio medical marijuana card questions" lead={<>Short answers, with Ohio’s sources at the bottom. Can’t find yours? Email {brand.email}.</>} />
+      <PageHeader image={IMG.faq} eyebrow="FAQ" title="Ohio medical marijuana card questions" lead={<>Short answers, with Ohio’s sources at the bottom. Can’t find yours? Email {brand.email}.</>} />
       {groups.map(([title, items]) => (
         <section key={title} className={s.section} aria-label={title}>
           <h2 className="type-h2">{title}</h2>

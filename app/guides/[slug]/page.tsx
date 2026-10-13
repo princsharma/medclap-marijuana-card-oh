@@ -3,17 +3,19 @@ import { notFound } from 'next/navigation';
 import { Body } from '@/components/Rich';
 import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
-import { Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Sources } from '@/components/PageParts';
+import { ArticleHero, Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Sources } from '@/components/PageParts';
 import { getGuide, guides, relatedGuides } from '@/content/guides';
 import { ArticleEnd, ArticleTop, KeyTakeaways, ShareArticle, readMinutes } from '@/components/ArticleExtras';
 import { brand } from '@/brand/site';
+import { guideImage } from '@/brand/images';
 import s from '@/components/page.module.css';
 
 export function generateStaticParams() { return guides.map((g) => ({ slug: g.slug })); }
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params; const g = getGuide(slug);
-  return g ? { title: { absolute: g.metaTitle }, description: g.description, alternates: { canonical: `/guides/${g.slug}` } } : {};
+  return g ? { title: { absolute: g.metaTitle }, description: g.description, alternates: { canonical: `/guides/${g.slug}` },
+    ...(guideImage[g.slug] ? { openGraph: { images: [{ url: guideImage[g.slug].src, width: 2048, height: 1152, alt: guideImage[g.slug].alt }] } } : {}) } : {};
 }
 
 export default async function GuidePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -23,6 +25,7 @@ export default async function GuidePage({ params }: { params: Promise<{ slug: st
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[[g.title, `/guides/${g.slug}`]]} />
       <PageHeader eyebrow={g.eyebrow} title={g.title} lead={g.lead} />
+      {guideImage[g.slug] ? <ArticleHero image={guideImage[g.slug]} /> : null}
       <ReviewByline authorApprovedOn={g.authorApprovedOn} reviewedOn={g.medicallyReviewedOn} />
       <ArticleTop path={`/guides/${g.slug}`} title={g.title} updated="2026-10-13" readMinutes={readMinutes(g.body)} />
       <ShareArticle path={`/guides/${g.slug}`} />

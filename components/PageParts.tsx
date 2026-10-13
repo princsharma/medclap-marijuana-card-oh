@@ -3,6 +3,8 @@ import { Badge } from './Badge';
 import { FaqItem } from './FaqItem';
 import { Rich } from './Rich';
 import { author, brand, medicalReviewer } from '@/brand/site';
+import { Illustration } from './SiteImage';
+import type { SiteImage } from '@/brand/images';
 import s from './page.module.css';
 
 export function JsonLd({ data }: { data: object }) {
@@ -21,8 +23,8 @@ export function Breadcrumbs({ trail }: { trail: [string, string][] }) {
   );
 }
 
-export function PageHeader({ eyebrow, title, lead, children }: { eyebrow: string; title: string; lead: React.ReactNode; children?: React.ReactNode }) {
-  return (
+export function PageHeader({ eyebrow, title, lead, children, image }: { eyebrow: string; title: string; lead: React.ReactNode; children?: React.ReactNode; image?: SiteImage }) {
+  const header = (
     <header className={s.pageHeader}>
       <Badge>{eyebrow}</Badge>
       <h1 className="type-h1">{title}</h1>
@@ -30,6 +32,18 @@ export function PageHeader({ eyebrow, title, lead, children }: { eyebrow: string
       {children}
     </header>
   );
+  if (!image) return header;
+  return (
+    <div className={s.headerSplit}>
+      {header}
+      <Illustration image={image} priority sizes="(min-width: 900px) 38vw, 100vw" className={s.headerIllo} />
+    </div>
+  );
+}
+
+/** Full-width 16:9 illustration under an article or city page header. */
+export function ArticleHero({ image }: { image: SiteImage }) {
+  return <Illustration image={image} priority sizes="(min-width: 900px) 48rem, 100vw" className={s.articleHero} />;
 }
 
 // Bylines appear only after a real sign-off, with the date (from brand/page-status.json).

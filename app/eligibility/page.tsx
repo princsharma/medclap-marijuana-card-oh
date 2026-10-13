@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, PageHeader } from '@/components/PageParts';
 import { Checker } from './Checker';
@@ -14,7 +15,7 @@ export default function Eligibility() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['Check if you qualify', '/eligibility']]} />
-      <PageHeader eyebrow="Check if you qualify" title="Do you qualify for an Ohio medical marijuana card?"
+      <PageHeader image={IMG.eligibility} eyebrow="Check if you qualify" title="Do you qualify for an Ohio medical marijuana card?"
         lead="Answer three questions. This is a quick guide, not a diagnosis: your physician makes the decision. Nothing you enter here is stored or sent." />
       <Checker />
       <ImportantInfo />

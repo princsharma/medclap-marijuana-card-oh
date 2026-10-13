@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
 import { brand, pricing } from '@/brand/site';
 import s from '@/components/page.module.css';
@@ -9,7 +10,7 @@ export default function Refund() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['Refund policy', '/refund-policy']]} />
-      <PageHeader eyebrow="Refund policy" title="100% money-back guarantee if you don’t qualify" lead="If your physician finds that you don’t qualify for a medical marijuana recommendation, we refund your evaluation fee in full." />
+      <PageHeader image={IMG.pricing} eyebrow="Refund policy" title="100% money-back guarantee if you don’t qualify" lead="If your physician finds that you don’t qualify for a medical marijuana recommendation, we refund your evaluation fee in full." />
       <Section title="The guarantee" id="guarantee">
         <ul>
           <li>Full refund of the evaluation fee (${pricing.newEvaluation} new, ${pricing.renewalEvaluation} renewal) if the physician finds you don’t qualify.</li>

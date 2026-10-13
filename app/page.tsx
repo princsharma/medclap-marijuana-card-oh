@@ -10,6 +10,8 @@ import { brand, physicians, pricing } from '@/brand/site';
 import { storyVideo } from '@/brand/media';
 import { StoryVideo } from '@/components/StoryVideo';
 import st from '@/components/story.module.css';
+import { IMG } from '@/brand/images';
+import { Illustration } from '@/components/SiteImage';
 import { conditions } from '@/brand/conditions';
 import s from '@/components/page.module.css';
 
@@ -75,9 +77,9 @@ export default function Home() {
       <section className={`${s.section} ${s.wide}`} aria-labelledby="how">
         <h2 id="how" className="type-h2">How it works</h2>
         <ol className={s.steps}>
-          <li><h3 className="type-h3">Book your visit</h3><p>Pick a time from your physician’s open appointment slots. Have a photo ID and any medical records ready.</p></li>
-          <li><h3 className="type-h3">See your physician by video</h3><p>Your Ohio physician reviews your history and medications, checks Ohio’s prescription database, and explains the risks and benefits.</p></li>
-          <li><h3 className="type-h3">Get registered if you qualify</h3><p>Your physician submits your recommendation to the Ohio registry right after your visit. The state emails you to activate it.</p></li>
+          <li><Illustration image={IMG.stepQuestions} sizes="(min-width: 900px) 30vw, 100vw" className={s.stepIllo} /><h3 className="type-h3">Book your visit</h3><p>Pick a time from your physician’s open appointment slots. Have a photo ID and any medical records ready.</p></li>
+          <li><Illustration image={IMG.stepVisit} sizes="(min-width: 900px) 30vw, 100vw" className={s.stepIllo} /><h3 className="type-h3">See your physician by video</h3><p>Your Ohio physician reviews your history and medications, checks Ohio’s prescription database, and explains the risks and benefits.</p></li>
+          <li><Illustration image={IMG.stepCard} sizes="(min-width: 900px) 30vw, 100vw" className={s.stepIllo} /><h3 className="type-h3">Get registered if you qualify</h3><p>Your physician submits your recommendation to the Ohio registry right after your visit. The state emails you to activate it.</p></li>
         </ol>
         <p><Link href="/how-it-works">Read the full step-by-step guide</Link></p>
       </section>

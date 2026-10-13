@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Breadcrumbs, PageHeader, Section } from '@/components/PageParts';
@@ -11,7 +12,7 @@ export default function About() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['About us', '/about']]} />
-      <PageHeader eyebrow="About us" title="Ohio only, doctor-led, and open about who we are"
+      <PageHeader image={IMG.about} eyebrow="About us" title="Ohio only, doctor-led, and open about who we are"
         lead="Marijuana Card OH connects Ohio adults with Ohio-licensed physicians for medical marijuana evaluations by telehealth. We serve Ohio and nowhere else, so everything on this site is about Ohio’s rules." />
       <Section title="Who you’ll see" id="who">
         <p>Every evaluation is done by a physician with an active Ohio license and a Certificate to Recommend from the State Medical Board of Ohio. We show each physician’s license number so you can check it. <Link href="/doctors">Meet our doctors</Link>.</p>

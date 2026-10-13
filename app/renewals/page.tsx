@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { PriceCard } from '@/components/PriceCard';
@@ -26,7 +27,7 @@ export default function Renewals() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['Renewals', '/renewals']]} />
-      <PageHeader eyebrow="Renewals" title="Renew your Ohio medical marijuana card"
+      <PageHeader image={IMG.renewals} eyebrow="Renewals" title="Renew your Ohio medical marijuana card"
         lead={<>Renewal is two steps: a new recommendation from your Ohio physician, then a click on Renew Card in the state registry. With us the visit is by video and costs ${pricing.renewalEvaluation}. Ohio charges no renewal fee.</>}>
         <Button href="/get-started?type=renewal">Book your renewal</Button>
       </PageHeader>

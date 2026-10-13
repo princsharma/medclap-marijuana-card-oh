@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { cityImage } from '@/brand/images';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Button } from '@/components/Button';
@@ -6,7 +7,7 @@ import { DoctorCard } from '@/components/DoctorCard';
 import { PriceCard } from '@/components/PriceCard';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { ArticleEnd, ArticleTop, KeyTakeaways, ShareArticle } from '@/components/ArticleExtras';
-import { Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
+import { ArticleHero, Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
 import { brand, physicians, pricing } from '@/brand/site';
 import { cities, DISPENSARY_LIST, DISPENSARY_LIST_DATE, DISPENSARY_MAP, getCity, SB56, type Fact } from '@/content/locations';
 import s from '@/components/page.module.css';
@@ -21,6 +22,7 @@ export async function generateMetadata({ params }: { params: Promise<{ city: str
     title: { absolute: `Medical Marijuana Card in ${c.name}, Ohio by Telehealth` },
     description: `Get evaluated for an Ohio medical marijuana card from home in ${c.name}. Ohio-licensed physicians by video, $${pricing.newEvaluation}, full refund if you don’t qualify. Local rules, checked.`,
     alternates: { canonical: `/locations/${c.slug}` },
+    ...(cityImage[c.slug] ? { openGraph: { images: [{ url: cityImage[c.slug].src, width: 2048, height: 1152, alt: cityImage[c.slug].alt }] } } : {}),
   };
 }
 
@@ -47,6 +49,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         lead={<>See an Ohio-licensed physician by video from home in {c.name}. It’s ${pricing.newEvaluation} for a new evaluation, the same as everywhere in Ohio, and you get a full refund if you don’t qualify.</>}>
         <Button href="/get-started">Check if you qualify</Button>
       </PageHeader>
+      {cityImage[c.slug] ? <ArticleHero image={cityImage[c.slug]} /> : null}
       <ReviewByline />
       <ArticleTop path={path} title={title} updated="2026-10-13" readMinutes={3} />
       <ShareArticle path={path} />

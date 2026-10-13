@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { PriceCard } from '@/components/PriceCard';
 import { ImportantInfo } from '@/components/ImportantInfo';
@@ -26,7 +27,7 @@ export default function Pricing() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['Pricing', '/pricing']]} />
-      <PageHeader
+      <PageHeader image={IMG.pricing}
         eyebrow="Pricing"
         title="What an Ohio medical marijuana card costs"
         lead={<>${pricing.newEvaluation} for a new card evaluation and ${pricing.renewalEvaluation} to renew. Ohio currently charges no state registration fee, so there is nothing else to pay to get registered. If you don’t qualify, we <Link href="/refund-policy">refund you in full</Link>.</>}

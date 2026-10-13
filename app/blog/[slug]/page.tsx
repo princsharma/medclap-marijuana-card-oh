@@ -5,10 +5,11 @@ import { Body } from '@/components/Rich';
 import { ImportantInfo } from '@/components/ImportantInfo';
 import { Summarize, Helpful, CopyLink } from '@/components/help/ArticleTools';
 import { Icon } from '@/components/ui/Icon';
-import { Breadcrumbs, JsonLd, ReviewByline, Sources } from '@/components/PageParts';
+import { ArticleHero, Breadcrumbs, JsonLd, ReviewByline, Sources } from '@/components/PageParts';
 import { getPost, posts } from '@/content/blog';
 import { author, brand, medicalReviewer } from '@/brand/site';
 import { siteUrl } from '@/lib/site';
+import { postImage } from '@/brand/images';
 import s from '@/components/page.module.css';
 import h from '@/components/help/help.module.css';
 
@@ -16,7 +17,7 @@ export function generateStaticParams() { return posts.map((p) => ({ slug: p.slug
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params; const p = getPost(slug);
-  return p ? { title: { absolute: p.metaTitle }, description: p.description, alternates: { canonical: `/blog/${p.slug}` }, openGraph: { type: 'article', title: p.title, description: p.description } } : {};
+  return p ? { title: { absolute: p.metaTitle }, description: p.description, alternates: { canonical: `/blog/${p.slug}` }, openGraph: { type: 'article', title: p.title, description: p.description, ...(postImage[p.slug] ? { images: [{ url: postImage[p.slug].src, width: 2048, height: 1152, alt: postImage[p.slug].alt }] } : {}) } } : {};
 }
 
 const fmt = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -40,6 +41,8 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
           </p>
           <ReviewByline authorApprovedOn={p.authorApprovedOn} reviewedOn={p.medicallyReviewedOn} />
         </header>
+
+        {postImage[p.slug] ? <ArticleHero image={postImage[p.slug]} /> : null}
 
         <Summarize url={url} title={p.title} source={brand.name} />
 

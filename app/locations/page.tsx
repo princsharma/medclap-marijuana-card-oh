@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { DoctorCard } from '@/components/DoctorCard';
@@ -32,7 +33,7 @@ export default function Locations() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['Locations', PATH]]} />
-      <PageHeader eyebrow="Locations" title={TITLE}
+      <PageHeader image={IMG.locations} eyebrow="Locations" title={TITLE}
         lead={<>{brand.name} is a statewide telehealth service. Wherever you live in Ohio, you see the same Ohio-licensed physicians by video, pay the same ${pricing.newEvaluation}, and get a full refund if you don’t qualify.</>}>
         <Button href="/get-started">Check if you qualify</Button>
       </PageHeader>

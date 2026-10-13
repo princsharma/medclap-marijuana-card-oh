@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
@@ -25,7 +26,7 @@ export default function HowItWorks() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['How it works', '/how-it-works']]} />
-      <PageHeader
+      <PageHeader image={IMG.howItWorks}
         eyebrow="How it works"
         title="How to get a medical marijuana card in Ohio"
         lead={<>See an Ohio physician who holds a Certificate to Recommend, by telehealth or in person. If you have a qualifying condition, the physician submits your registration to the state and you activate it by email. With us, the visit is by video and costs ${pricing.newEvaluation}; Ohio charges no state fee.</>}

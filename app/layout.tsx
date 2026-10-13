@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import localFont from 'next/font/local';
 import './globals.css';
 import { Header } from '@/components/Header';
@@ -32,6 +33,8 @@ export const metadata: Metadata = {
   title: { default: 'Ohio Medical Marijuana Card Online | Marijuana Card OH', template: '%s | Marijuana Card OH' },
   description: 'Real Ohio doctors. Clear answers. Your money back if you don’t qualify.',
   robots: allowIndexing ? undefined : { index: false, follow: false },
+  openGraph: { type: 'website', siteName: brand.name, images: [{ url: IMG.social.src, width: IMG.social.w, height: IMG.social.h, alt: IMG.social.alt }] },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

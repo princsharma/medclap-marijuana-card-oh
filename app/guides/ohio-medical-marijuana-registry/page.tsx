@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { ImportantInfo } from '@/components/ImportantInfo';
-import { Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
+import { ArticleHero, Breadcrumbs, Faq, JsonLd, PageHeader, ReviewByline, Section, Sources } from '@/components/PageParts';
 import { brand } from '@/brand/site';
 import { registry } from '@/brand/registry';
 import { ArticleEnd, ArticleTop, KeyTakeaways, ShareArticle } from '@/components/ArticleExtras';
@@ -31,6 +32,7 @@ export default function RegistryGuide() {
       <Breadcrumbs trail={[['Ohio registry guide', '/guides/ohio-medical-marijuana-registry']]} />
       <PageHeader eyebrow="Guide" title="The Ohio Medical Marijuana Registry, explained"
         lead={<>The registry is the state’s record of registered patients, run by the Division of Cannabis Control. Your physician registers you; you activate your account by email, then sign in at the <a href={registry.loginUrl} target="_blank" rel="noopener noreferrer">official registry login</a> to download your card and renew it each year.</>} />
+      <ArticleHero image={IMG.guideRegistry} />
       <ReviewByline />
       <ArticleTop path={PATH} title={TITLE} updated="2026-10-13" readMinutes={3} />
       <ShareArticle path={PATH} />

@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { IMG } from '@/brand/images';
 import Link from 'next/link';
 import { Button } from '@/components/Button';
 import { ImportantInfo } from '@/components/ImportantInfo';
@@ -24,7 +25,7 @@ export default function Conditions() {
   return (
     <main className={`container ${s.main}`}>
       <Breadcrumbs trail={[['Qualifying conditions', '/conditions']]} />
-      <PageHeader eyebrow="Qualifying conditions" title="Qualifying conditions for a medical card in Ohio"
+      <PageHeader image={IMG.conditions} eyebrow="Qualifying conditions" title="Qualifying conditions for a medical card in Ohio"
         lead="Ohio law lists 21 qualifying conditions. To get a card you need a diagnosis of at least one, which your physician makes or confirms during your visit.">
         <Button href="/get-started">Check if you qualify</Button>
       </PageHeader>
