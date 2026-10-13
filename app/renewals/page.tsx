@@ -8,6 +8,7 @@ import { Breadcrumbs, Faq, PageHeader, Section, Sources } from '@/components/Pag
 import { pricing } from '@/brand/site';
 import { registry } from '@/brand/registry';
 import s from '@/components/page.module.css';
+import { Reviews } from '@/components/reviews/Reviews';
 
 export const metadata: Metadata = {
   title: 'Ohio Medical Marijuana Card Renewal',
@@ -57,6 +58,7 @@ export default function Renewals() {
 
       <section className={s.grid2} aria-label="Renewal price"><PriceCard type="renewal" /></section>
 
+      <Reviews />
       <Faq items={faq} />
 
       <Sources checked="13 Oct 2026" items={[

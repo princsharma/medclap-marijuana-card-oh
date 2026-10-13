@@ -13,6 +13,7 @@ import { cities, DISPENSARY_LIST, DISPENSARY_LIST_DATE, DISPENSARY_MAP, getCity,
 import s from '@/components/page.module.css';
 import u from '@/components/ui.module.css';
 import { pageNode, ORG, abs } from '@/lib/schema';
+import { Reviews } from '@/components/reviews/Reviews';
 
 export function generateStaticParams() { return cities.filter((c) => c.published).map((c) => ({ city: c.slug })); }
 export const dynamicParams = false;
@@ -115,6 +116,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
         ['The Ohio Medical Marijuana Registry, explained', '/guides/ohio-medical-marijuana-registry'],
       ]} />
 
+      <Reviews city={c.name} title={`What ${c.name} patients say`} />
       <Faq items={c.faq ?? []} />
       <Sources checked="13 Oct 2026" items={[
         ...facts.map((f) => f.source),

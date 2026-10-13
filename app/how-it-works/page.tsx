@@ -8,6 +8,7 @@ import { pricing } from '@/brand/site';
 import { ArticleBottom, ArticleTop } from '@/components/ArticleExtras';
 import { InfographicBlock } from '@/components/infographics/InfographicBlock';
 import s from '@/components/page.module.css';
+import { Reviews } from '@/components/reviews/Reviews';
 
 export const metadata: Metadata = {
   title: { absolute: 'How to Get a Medical Marijuana Card in Ohio' },
@@ -73,6 +74,7 @@ export default function HowItWorks() {
         </ul>
       </Section>
 
+      <Reviews />
       <Faq items={faq} />
 
       <Sources checked="13 Oct 2026" items={[

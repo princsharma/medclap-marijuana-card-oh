@@ -12,6 +12,7 @@ import { cities, DISPENSARY_LIST, DISPENSARY_MAP, ohioFigures as f } from '@/con
 import s from '@/components/page.module.css';
 import u from '@/components/ui.module.css';
 import { ORG, BASE } from '@/lib/schema';
+import { Reviews } from '@/components/reviews/Reviews';
 
 const PATH = '/locations';
 const TITLE = 'Ohio medical marijuana cards, wherever you live in Ohio';
@@ -107,6 +108,7 @@ export default function Locations() {
 
       <ArticleEnd related={[['How to get a medical marijuana card in Ohio', '/how-it-works'], ['The Ohio Medical Marijuana Registry, explained', '/guides/ohio-medical-marijuana-registry'], ['Ohio’s 21 qualifying conditions', '/conditions'], ['Medical card or adult-use? What’s different in Ohio', '/guides/medical-card-vs-adult-use']]} />
 
+      <Reviews title="What Ohio patients say" />
       <Faq items={faq} />
       <Sources checked="13 Oct 2026" items={[
         ['Division of Cannabis Control: DCC Update By The Numbers', f.sourceUrl],

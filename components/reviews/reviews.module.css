@@ -1,0 +1,23 @@
+.section { display: grid; gap: var(--space-xl); }
+.head { display: grid; gap: var(--space-lg); }
+@media (min-width: 900px) { .head { grid-template-columns: 1fr auto; align-items: center; } }
+.summary { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-lg) var(--space-xl); background: var(--color-bg-surface); border: 1px solid var(--color-border-default); border-radius: var(--radius-lg); padding: var(--space-lg) var(--space-xl); }
+.avg { margin: 0; font: 800 2.75rem/1 var(--font-display); color: var(--color-text-primary); }
+.stars { display: inline-flex; gap: 2px; vertical-align: middle; }
+.dist { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; min-width: 11rem; font: 600 .8125rem/1.3 var(--font-body); color: var(--color-text-secondary); }
+.dist li { display: grid; grid-template-columns: 2rem 1fr 1.5rem; align-items: center; gap: 8px; }
+.dist li span:last-child { text-align: right; }
+.bar { height: 6px; border-radius: 999px; background: var(--teal-100); overflow: hidden; }
+.bar span { display: block; height: 100%; background: var(--sun-500); }
+.grid { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-lg); grid-template-columns: repeat(auto-fill, minmax(min(100%, 18rem), 1fr)); }
+.card { display: grid; gap: var(--space-sm); align-content: start; background: var(--color-bg-surface); border: 1px solid var(--color-border-default); border-radius: var(--radius-lg); padding: var(--space-xl); }
+.text { margin: 0; }
+.text p { margin: 0; font: 400 1rem/1.55 var(--font-body); color: var(--color-text-primary); }
+.who { margin: var(--space-xs) 0 0; font: 400 .9375rem/1.4 var(--font-body); }
+.meta { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; font: 400 .875rem/1.4 var(--font-body); color: var(--color-text-secondary); }
+.meta a { color: var(--color-text-brand); }
+.badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 999px; background: var(--teal-50); color: var(--color-text-brand); font-weight: 700; font-size: .75rem; }
+.badge::before { content: '✓'; }
+.more > summary { cursor: pointer; font: 700 1rem var(--font-body); color: var(--color-text-brand); margin-bottom: var(--space-lg); }
+.policy { margin: 0; max-width: 48rem; font: 400 .875rem/1.5 var(--font-body); color: var(--color-text-secondary); }
+.policy a { color: var(--color-text-brand); }

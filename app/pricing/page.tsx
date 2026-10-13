@@ -8,6 +8,7 @@ import { Breadcrumbs, Faq, JsonLd, PageHeader, Section, Sources } from '@/compon
 import { brand, pricing } from '@/brand/site';
 import s from '@/components/page.module.css';
 import { ORG, BASE, abs } from '@/lib/schema';
+import { Reviews } from '@/components/reviews/Reviews';
 
 export const metadata: Metadata = {
   title: 'Ohio Medical Marijuana Card Cost',
@@ -65,6 +66,7 @@ export default function Pricing() {
         <p>{pricing.guaranteeTerms} <Link href="/refund-policy">Read the refund policy</Link>.</p>
       </Section>
 
+      <Reviews />
       <Faq items={faq} />
 
       <Sources checked="13 Oct 2026" items={[
@@ -76,7 +78,7 @@ export default function Pricing() {
 
       <ArticleBottom path="/pricing" related={[['How to get a medical marijuana card in Ohio', '/how-it-works'], ['Renew your Ohio medical marijuana card', '/renewals'], ['Medical card or adult-use? What’s different in Ohio', '/guides/medical-card-vs-adult-use'], ['Refund policy', '/refund-policy']]} />
       <ImportantInfo />
-      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Service', '@id': `${BASE}/pricing#service`, name: 'Ohio medical marijuana card evaluation', serviceType: 'Telehealth medical evaluation', provider: ORG, areaServed: { '@type': 'State', name: 'Ohio' },
+      <JsonLd data={{ '@context': 'https://schema.org', '@type': 'Service', '@id': `${BASE}/#service`, name: 'Ohio medical marijuana card evaluation', serviceType: 'Telehealth medical evaluation', provider: ORG, areaServed: { '@type': 'State', name: 'Ohio' },
         description: `Telehealth evaluation with an Ohio-licensed physician for a medical marijuana recommendation. ${pricing.guaranteeTerms}`,
         offers: [
           { '@type': 'Offer', name: 'New patient evaluation', price: pricing.newEvaluation, priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: abs('/get-started'), areaServed: { '@type': 'State', name: 'Ohio' } },

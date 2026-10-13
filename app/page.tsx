@@ -14,6 +14,7 @@ import { IMG } from '@/brand/images';
 import { Illustration } from '@/components/SiteImage';
 import { conditions } from '@/brand/conditions';
 import s from '@/components/page.module.css';
+import { Reviews } from '@/components/reviews/Reviews';
 
 export const metadata: Metadata = {
   title: { absolute: 'Ohio Medical Marijuana Card Online | Marijuana Card OH' },
@@ -122,6 +123,8 @@ export default function Home() {
           <p><Link href="/guides/ohio-medical-marijuana-registry">Read the registry guide</Link></p>
         </div>
       </section>
+
+      <Reviews />
 
       <Faq items={faq} />
 
