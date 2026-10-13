@@ -13,8 +13,8 @@ export const storyVideo = {
   transcript: [
     'Maya lives in Columbus with chronic back pain. She wondered whether Ohio’s medical marijuana program was an option, but the steps felt confusing.',
     'First, she answered a few quick questions online. Ohio-licensed physicians, a clear price, and a refund if she didn’t qualify.',
-    'She gathered her records: a doctor’s note naming her condition and a list of her medicines. Photos from her patient portal worked fine.',
-    'Then a video visit from her living room. Her physician reviewed her history, checked Ohio’s prescription report, and explained the risks and benefits.',
+    'She gathered her records: a doctor’s note naming her condition and her medicine list. Photos from her patient portal worked fine.',
+    'Then a video visit from home. Her physician reviewed her history, checked Ohio’s prescription report, and explained the risks and benefits.',
     'Her physician decided she qualified and submitted her registration. Maya activated it from an email, and Ohio charged no state fee.',
     'Now, Maya’s card lives right on her phone, ready with her ID. Your story can start the same way, today.',
   ],
