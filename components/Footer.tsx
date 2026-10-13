@@ -5,7 +5,7 @@ import s from './page.module.css';
 
 const cols = [
   ['Get your card', [['How it works', '/how-it-works'], ['Pricing', '/pricing'], ['Renewals', '/renewals'], ['Check if you qualify', '/eligibility']]],
-  ['Learn', [['Qualifying conditions', '/conditions'], ['Ohio registry guide', '/guides/ohio-medical-marijuana-registry'], ['Help Center', '/help'], ['FAQ', '/faq'], ['Blog', '/blog'], ['Locations', '/locations']]],
+  ['Learn', [['Qualifying conditions', '/conditions'], ['Ohio registry guide', '/guides/ohio-medical-marijuana-registry'], ['Help Center', '/help'], ['FAQ', '/faq'], ['Blog', '/blog'], ['Locations', '/locations'], ['Dispensary locator', '/dispensaries']]],
   ['About', [['Our doctors', '/doctors'], ['About us', '/about'], ['Editorial policy', '/editorial-policy'], ['Contact', '/contact']]],
   ['Policies', [['Refund policy', '/refund-policy'], ['Privacy policy', '/privacy'], ['Notice of privacy practices', '/notice-of-privacy-practices'], ['Terms of use', '/terms'], ['Telehealth consent', '/telehealth-consent']]],
 ] as const;

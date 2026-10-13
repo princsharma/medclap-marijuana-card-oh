@@ -401,6 +401,13 @@
    "status": "drafted",
    "medicallyReviewed": null,
    "authorApproved": null
+  },
+  {
+   "url": "/dispensaries",
+   "wave": 4,
+   "status": "drafted",
+   "medicallyReviewed": null,
+   "authorApproved": null
   }
  ]
 }

@@ -24,7 +24,7 @@ const faq: [string, string][] = [
   ['Do I need to visit an office?', 'No. Your visit is a video call with an Ohio-licensed physician, which Ohio law allows for medical marijuana evaluations. You can join from home on a phone or computer.'],
   ['Is the price different in my city?', `No. It’s $${pricing.newEvaluation} for a new evaluation and $${pricing.renewalEvaluation} to renew anywhere in Ohio, with a full refund if you don’t qualify.`],
   ['Can I get a card if I live in a small town or rural county?', 'Yes. We serve every part of Ohio by telehealth. You need to be an Ohio resident aged 18 or older with a qualifying condition.'],
-  ['Where can I find a dispensary near me?', 'Use the Division of Cannabis Control’s official dispensary map or license list. We don’t recommend or partner with any dispensary.'],
+  ['Where can I find a dispensary near me?', 'Use our Ohio dispensary locator, which lists every licensed dispensary from the state’s data, or the Division of Cannabis Control’s official map. We don’t rank, recommend or partner with any dispensary.'],
   ['Can my city ban dispensaries?', 'Yes. Under Ohio law, a city, village or township can prohibit or limit the number of cannabis dispensaries within its borders. It can’t stop you from registering as a patient.'],
 ];
 
@@ -43,7 +43,7 @@ export default function Locations() {
         `Price and physicians are the same statewide: $${pricing.newEvaluation} new, $${pricing.renewalEvaluation} renewal.`,
         `Ohio had ${f.registeredPatients.value} registered patients as of ${f.registeredPatients.asOf}, according to the Division of Cannabis Control.`,
         'Cities, villages and townships can ban or limit dispensaries, but they can’t stop you from registering as a patient.',
-        'To find a dispensary, use the state’s official map. We don’t recommend or partner with any dispensary.',
+        'Our dispensary locator lists every licensed Ohio dispensary from state data. We don’t rank, recommend or partner with any of them.',
       ]} />
 
       <Section title="How it works from anywhere in Ohio" id="how">
@@ -84,7 +84,7 @@ export default function Locations() {
           <li><strong>Where dispensaries can be.</strong> State law keeps new sites at least 500 feet from the property line of a school, church, public library, public playground or public park (Revised Code 3796.30).</li>
           <li><strong>What stays the same everywhere.</strong> Your right to register as a patient, the 21 qualifying conditions, the price of your visit, and the ban on driving while impaired.</li>
         </ul>
-        <p>To find a licensed dispensary, use the Division of Cannabis Control’s <a href={DISPENSARY_MAP} target="_blank" rel="noopener noreferrer">official dispensary map</a> or <a href={DISPENSARY_LIST} target="_blank" rel="noopener noreferrer">license list</a>. We don’t recommend, rank or partner with any dispensary.</p>
+        <p>To find a licensed dispensary, use our <Link href="/dispensaries">Ohio dispensary locator</Link>, the Division of Cannabis Control’s <a href={DISPENSARY_MAP} target="_blank" rel="noopener noreferrer">official dispensary map</a>, or its <a href={DISPENSARY_LIST} target="_blank" rel="noopener noreferrer">license list</a>. We don’t recommend, rank or partner with any dispensary.</p>
       </Section>
 
       <section className={`${s.section} ${s.wide}`} aria-labelledby="doctors">

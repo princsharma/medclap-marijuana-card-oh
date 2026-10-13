@@ -30,7 +30,7 @@ export const cities: City[] = [
     ],
     faq: [
       ['Is there a medical marijuana doctor’s office in Columbus?', 'You don’t need one. Our Ohio-licensed physicians see you by video, so you can have your visit from home anywhere in Columbus or Franklin County.'],
-      ['Where are the dispensaries in Columbus?', 'Use the Division of Cannabis Control’s official dispensary map. On the state’s list dated 9 October 2026, 25 of Franklin County’s 32 dual-use dispensaries were in Columbus. We don’t recommend or partner with any dispensary.'],
+      ['Where are the dispensaries in Columbus?', 'Search our Ohio dispensary locator by ZIP or neighborhood. On the state’s list dated 9 October 2026, 25 of Franklin County’s 32 dual-use dispensaries were in Columbus. We don’t rank, recommend or partner with any dispensary.'],
       ['Can I clear an old marijuana possession charge from Columbus?', 'Since 20 March 2026, Ohio lets you apply to the court that sentenced you to expunge an old minor misdemeanor marijuana possession conviction. For most Columbus cases that is Franklin County Municipal Court. The filing fee is $50 unless you can’t afford it.'],
     ],
   },
@@ -51,7 +51,7 @@ export const cities: City[] = [
     ],
     faq: [
       ['Is there a medical marijuana doctor’s office in Cleveland?', 'You don’t need one. Our Ohio-licensed physicians see you by video, so you can have your visit from home anywhere in Cleveland or Cuyahoga County.'],
-      ['Where are the dispensaries in Cleveland?', 'Use the Division of Cannabis Control’s official dispensary map. On the state’s list dated 9 October 2026, 10 of Cuyahoga County’s 28 dual-use dispensaries were in Cleveland. We don’t recommend or partner with any dispensary.'],
+      ['Where are the dispensaries in Cleveland?', 'Search our Ohio dispensary locator by ZIP or neighborhood. On the state’s list dated 9 October 2026, 10 of Cuyahoga County’s 28 dual-use dispensaries were in Cleveland. We don’t rank, recommend or partner with any dispensary.'],
       ['Was my old Cleveland marijuana record cleared?', 'In April 2022 the city asked Cleveland Municipal Court to expunge 4,077 minor misdemeanor possession records. If yours wasn’t included, Ohio law since 20 March 2026 lets you apply to the court that sentenced you. The filing fee is $50 unless you can’t afford it.'],
     ],
   },

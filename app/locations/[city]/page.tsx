@@ -32,7 +32,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
 
   const facts: Fact[] = [
     { title: 'Licensed dispensaries', date: `State list dated ${DISPENSARY_LIST_DATE}`,
-      text: `${c.county} had ${c.dispensaries.county} dispensaries licensed to sell both medical and adult-use cannabis, ${c.dispensaries.city} of them in ${c.name}. Find them on the state’s official map. We don’t name, rank or partner with any dispensary.`,
+      text: `${c.county} had ${c.dispensaries.county} dispensaries licensed to sell both medical and adult-use cannabis, ${c.dispensaries.city} of them in ${c.name}. Our dispensary locator lists them all from state data. We don’t rank, recommend or partner with any dispensary.`,
       source: ['Division of Cannabis Control: dispensary licenses', DISPENSARY_LIST] },
     ...c.facts,
     { title: 'Clearing an old possession conviction', date: 'Since 20 March 2026',
@@ -69,7 +69,7 @@ export default async function CityPage({ params }: { params: Promise<{ city: str
             </article>
           ))}
         </div>
-        <p>Find a licensed dispensary on the Division of Cannabis Control’s <a href={DISPENSARY_MAP} target="_blank" rel="noopener noreferrer">official map</a>.</p>
+        <p>Find a licensed dispensary near you in our <Link href={`/dispensaries`}>Ohio dispensary locator</Link>, or on the Division of Cannabis Control’s <a href={DISPENSARY_MAP} target="_blank" rel="noopener noreferrer">official map</a>.</p>
       </section>
 
       <Section title={`How your visit works from ${c.name}`} id="how">
