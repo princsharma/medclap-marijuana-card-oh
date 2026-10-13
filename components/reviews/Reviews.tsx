@@ -41,7 +41,7 @@ function Card({ v }: { v: Review }) {
       </p>
       <p className={r.meta}>
         {v.verifiedPatient ? <span className={r.badge}>Verified patient</span> : null}
-        {v.source === 'Google' && v.sourceUrl ? <a href={v.sourceUrl} target="_blank" rel="noopener noreferrer nofollow">Posted on Google</a> : null}
+        {v.source === 'Google' ? <span>Google review</span> : null}
         {v.edited ? <span> · Edited: {v.edited}</span> : null}
       </p>
     </li>
@@ -63,7 +63,8 @@ export function Reviews({ city, title = 'What patients say' }: { city?: string; 
   // A city page lists that city's reviews first; the summary always covers every review.
   const list = city ? [...all.filter((v) => v.city === city), ...all.filter((v) => v.city !== city)] : all;
   const sum = summary(all);
-  const shown = list.slice(0, SHOW), more = list.slice(SHOW);
+  // Always the 6 newest; older ones drop off as new reviews come in.
+  const shown = list.slice(0, SHOW);
 
   return (
     <section className={r.section} aria-labelledby="reviews">
@@ -88,12 +89,6 @@ export function Reviews({ city, title = 'What patients say' }: { city?: string; 
         </div>
       </div>
       <ul className={r.grid}>{shown.map((v) => <Card key={v.id} v={v} />)}</ul>
-      {more.length ? (
-        <details className={r.more}>
-          <summary>Show all {list.length} reviews</summary>
-          <ul className={r.grid}>{more.map((v) => <Card key={v.id} v={v} />)}</ul>
-        </details>
-      ) : null}
       <p className={r.policy}>
         We show every review from patients who give us permission, good or bad. We never pay for reviews or offer anything in return,
         and we remove health details to protect your privacy. Reviews describe our service, not medical results.
