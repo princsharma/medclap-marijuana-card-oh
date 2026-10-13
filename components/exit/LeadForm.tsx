@@ -27,7 +27,7 @@ export function LeadForm({ source, cta, consentText, onDone, initialEmail = '' }
     } catch { setError('Something went wrong. Please try again.'); } finally { setSending(false); }
   };
   return (
-    <form className={s.form} onSubmit={submit} noValidate>
+    <form className={s.form} onSubmit={submit} noValidate data-clarity-mask="True">
       <label className={s.label} htmlFor={`lead-${source}`}>Email address</label>
       <div className={s.row}>
         <input id={`lead-${source}`} className={s.input} type="email" inputMode="email" autoComplete="email" placeholder="you@example.com" value={email} onChange={(e) => setEmail(e.target.value)} aria-invalid={!!error} aria-describedby={error ? `lead-err-${source}` : undefined} />

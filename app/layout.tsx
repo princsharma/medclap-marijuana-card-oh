@@ -6,6 +6,7 @@ import './globals.css';
 import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import { HideInFunnel } from '@/components/HideInFunnel';
+import { Analytics } from '@/components/Analytics';
 import { JsonLd } from '@/components/PageParts';
 import { brand, physicians } from '@/brand/site';
 
@@ -36,6 +37,8 @@ export const metadata: Metadata = {
   robots: allowIndexing ? undefined : { index: false, follow: false },
   openGraph: { type: 'website', siteName: brand.name, images: [{ url: IMG.social.src, width: IMG.social.w, height: IMG.social.h, alt: IMG.social.alt }] },
   twitter: { card: 'summary_large_image' },
+  // Google Search Console HTML-tag verification (URL-prefix property). A DNS TXT record (Domain property) needs nothing here.
+  ...(process.env.GOOGLE_SITE_VERIFICATION ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } } : {}),
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -43,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${bricolage.variable} ${figtree.variable}`}>
       <body>
         <a href="#main" className="skip">Skip to content</a>
+        <Analytics />
         <HideInFunnel><Header /></HideInFunnel>
         <div id="main">{children}</div>
         <HideInFunnel><Footer /></HideInFunnel>

@@ -147,7 +147,7 @@ function CallbackCard({ topic }: { topic: string }) {
           </p>
         </div>
       ) : (
-        <form className={s.form} onSubmit={submit} noValidate>
+        <form className={s.form} onSubmit={submit} noValidate data-clarity-mask="True">
           <div className={s.field}>
             <label htmlFor="cb-name">Full name</label>
             <input id="cb-name" name="name" autoComplete="name" placeholder="Your name" required {...aria("name")} />

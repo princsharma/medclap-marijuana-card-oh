@@ -57,7 +57,7 @@ export function AiHelp({ placeholder, disclaimer, suggestions }: { placeholder: 
   const setFeedback = (id: number, v: "yes" | "no") => setTurns((t) => t.map((x) => (x.id === id ? { ...x, feedback: v } : x)));
 
   return (
-    <div className={s.ai}>
+    <div className={s.ai} data-clarity-mask="True">
       <form className={s.askBox} onSubmit={submit} role="search">
         <label htmlFor="ai-question" className="visually-hidden">
           Ask a question
