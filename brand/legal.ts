@@ -4,7 +4,7 @@ export const legal = {
   status: 'draft' as 'draft' | 'final',          // 'draft' shows the review banner on every legal page
   effectiveDate: '14 October 2026' as string | null,  // site launch date (Prince, 14 Oct 2026)           // e.g. '1 November 2026'
   company: 'Ongo Care LLC' as string | null,                 // legal name of the company that runs the website
-  companyAddress: null as string | null,          // mailing address for legal notices
+  companyAddress: '7420 Sawmill Rd, Ste. C, Columbus, OH 43235' as string | null,          // mailing address for legal notices
   practice: null as string | null,                // medical practice the physicians see patients through (the HIPAA covered entity)
   practiceAddress: null as string | null,
   privacyContactEmail: null as string | null,     // privacy officer mailbox
