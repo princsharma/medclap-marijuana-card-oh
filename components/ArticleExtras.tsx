@@ -6,6 +6,7 @@ import { helpPaths } from '@/content/help';
 import { siteUrl } from '@/lib/site';
 import h from '@/components/help/help.module.css';
 import pg from '@/components/page.module.css';
+import { PreferredSource } from '@/components/preferred/PreferredSource';
 
 /** Top of an article: "Summarize this article with:" plus the last-updated line. */
 export function ArticleTop({ path, title, updated, readMinutes }: { path: string; title: string; updated: string; readMinutes?: number }) {
@@ -59,6 +60,7 @@ export function ShareArticle({ path }: { path: string }) {
     <div className={h.share} style={{ maxWidth: '48rem' }}>
       <p className={h.shareLabel}>Share this article</p>
       <CopyLink url={`${siteUrl}${path}`} />
+      <PreferredSource />
     </div>
   );
 }

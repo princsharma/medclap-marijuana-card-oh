@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { LeafMark } from './LeafMark';
 import { brand } from '@/brand/site';
 import s from './page.module.css';
+import { PreferredSource } from '@/components/preferred/PreferredSource';
 
 const cols = [
   ['Get your card', [['How it works', '/how-it-works'], ['Pricing', '/pricing'], ['Renewals', '/renewals'], ['Check if you qualify', '/get-started']]],
@@ -18,6 +19,7 @@ export function Footer() {
           <Link href="/" className={s.footerLogo}><LeafMark size={32} inverse /> <span className="type-h3">{brand.name}</span></Link>
           <p className="type-small">Telehealth medical marijuana evaluations for adults across Ohio.</p>
           <p className="type-small">{brand.email}</p>
+          <p className="type-small"><PreferredSource variant="link" /></p>
         </div>
         {cols.map(([title, links]) => (
           <nav key={title} aria-label={title}>

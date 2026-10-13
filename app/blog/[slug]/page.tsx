@@ -13,6 +13,7 @@ import { postImage } from '@/brand/images';
 import s from '@/components/page.module.css';
 import h from '@/components/help/help.module.css';
 import { ORG, BASE, authorRef, reviewerRef } from '@/lib/schema';
+import { PreferredSource } from '@/components/preferred/PreferredSource';
 
 export function generateStaticParams() { return posts.map((p) => ({ slug: p.slug })); }
 
@@ -61,6 +62,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
         <div className={`${s.prose} type-body`}><Body lines={p.body} /></div>
 
+        <PreferredSource />
         <Helpful />
 
         {related.length ? (
